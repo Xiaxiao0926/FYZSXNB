@@ -199,3 +199,47 @@ function fyzsxnb_archive_intro() {
 	echo '</header>';
 }
 add_action( 'neve_before_loop', 'fyzsxnb_archive_intro', 5 );
+
+/**
+ * Self-hosted font faces re-emitted late in <head>.
+ * WP core prints its own @font-face set (wp-fonts-local, wp_head priority 50)
+ * which currently wins the cascade for 'Inter' and downloads WooCommerce's
+ * full 326 KB variable font on every page. Emitting the subsetted faces at
+ * priority 999 makes our Latin/Cyrillic subsets win (same family, later
+ * declaration). Remains fully self-hosted; no external requests.
+ */
+function fyzsxnb_self_hosted_fonts_late() {
+	$base = get_stylesheet_directory_uri() . '/assets/fonts/';
+	echo '<style id="fyzsxnb-fonts-late">' . "
+";
+	echo "@font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('{$base}inter-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+";
+	echo "@font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('{$base}inter-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+";
+	echo "@font-face{font-family:'Noto Serif';font-style:normal;font-weight:400 900;font-display:swap;src:url('{$base}noto-serif-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+";
+	echo "@font-face{font-family:'Noto Serif';font-style:normal;font-weight:400 900;font-display:swap;src:url('{$base}noto-serif-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+";
+	echo '</style>' . "
+";
+}
+add_action( 'wp_head', 'fyzsxnb_self_hosted_fonts_late', 999 );
+
+/**
+ * Remove the WooCommerce-registered 'Inter' font face from the WP Fonts
+ * queue (wp-fonts-local). It wins the cascade over our subsetted faces and
+ * forces a 326 KB full-variable download on every page. Cardo is left alone.
+ */
+add_action( 'wp_enqueue_scripts', 'fyzsxnb_dequeue_wc_inter_font', PHP_INT_MAX );
+function fyzsxnb_dequeue_wc_inter_font() {
+	if ( ! function_exists( 'wp_fonts' ) ) {
+		return;
+	}
+	try {
+		wp_fonts()->dequeue( 'inter' );
+		wp_fonts()->dequeue( 'Inter' );
+		wp_fonts()->remove( 'inter' );
+		wp_fonts()->remove( 'Inter' );
+	} catch ( Throwable $e ) { /* non-fatal */ }
+}
+

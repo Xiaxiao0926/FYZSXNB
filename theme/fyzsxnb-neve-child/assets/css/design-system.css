@@ -1,19 +1,72 @@
 :root {
+  /* Canonical Design System V2 tokens (single source of truth) */
+  --fyz-bg: #ffffff;
+  --fyz-surface: #ffffff;
+  --fyz-surface-soft: #f7f5ef;
   --fyz-ink: #17202b;
+  --fyz-text: #283441;
   --fyz-muted: #596675;
-  --fyz-blue: #2563eb;
+  --fyz-border: #dce3e8;
+  --fyz-border-strong: #b9c3cd;
+  --fyz-accent: #174bb8;
+  --fyz-accent-hover: #113d94;
+  --fyz-accent-soft: #e7edf9;
+  --fyz-success: #217a54;
+  --fyz-warning: #9a6b1f;
+  --fyz-risk: #b3403a;
+  /* Desk/secondary identity (small marks only: eyebrows, tags, lines) */
   --fyz-teal: #168c7b;
-  --fyz-warm: #f7f5ef;
-  --fyz-sky: #edf5fc;
+  /* Functional washes */
   --fyz-mint: #eef8f4;
-  --fyz-line: #dce3e8;
-  --fyz-paper: #ffffff;
+  --fyz-dark: #1b252e;
+  /* Legacy aliases — semantic-equal, kept for compatibility */
+  --fyz-paper: var(--fyz-surface);
+  --fyz-warm: var(--fyz-surface-soft);
+  --fyz-line: var(--fyz-border);
+  --fyz-sky: var(--fyz-accent-soft);
+  --fyz-blue: var(--fyz-accent);
+  --fyz-wire-blue: var(--fyz-accent);
+  /* Type */
   --fyz-display: "Noto Serif", "Source Serif 4", Georgia, serif;
   --fyz-body: Inter, "Noto Sans", "Segoe UI", Arial, sans-serif;
   --fyz-site-width: 1200px;
   --fyz-reading-width: 760px;
   --fyz-radius: 6px;
 }
+/* Self-hosted fonts — Inter Variable + Noto Serif Variable (Latin/Cyrillic subsets) */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../fonts/inter-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../fonts/noto-serif-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../fonts/noto-serif-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
 
 .fyz-design-system {
   color: var(--fyz-ink);
@@ -34,11 +87,11 @@
 
 .fyz-design-system a:hover,
 .fyz-design-system a:focus-visible {
-  color: #174bb8;
+  color: var(--fyz-accent-hover);
 }
 
 .fyz-design-system :focus-visible {
-  outline: 3px solid rgba(37, 99, 235, 0.34);
+  outline: 3px solid var(--fyz-accent-soft);
   outline-offset: 3px;
 }
 
@@ -71,7 +124,7 @@
   color: var(--fyz-ink);
   font-family: var(--fyz-body);
   font-size: 22px;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .fyz-design-system .site-logo small {
@@ -145,11 +198,11 @@
 
 .fyz-design-system.single-post .nv-meta-list li.meta:not(:last-child)::after {
   margin-left: 14px;
-  color: #9aa5af;
+  color: var(--fyz-border-strong);
 }
 
 .fyz-design-system.single-post .nv-content-wrap {
-  color: #283441;
+  color: var(--fyz-text);
   font-size: 18px;
   line-height: 1.78;
 }
@@ -262,7 +315,7 @@
   margin: 0 0 10px;
   color: var(--fyz-teal);
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -306,7 +359,7 @@
   margin: 0 0 12px;
   color: var(--fyz-teal);
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .fyz-design-system.error404 .fyz-error-copy {
@@ -360,7 +413,7 @@
 
 .fyz-design-system .site-footer,
 .fyz-design-system .site-footer a {
-  color: #354351;
+  color: var(--fyz-text);
   font-size: 14px;
 }
 
@@ -514,3 +567,38 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Micro-interactions (120-180ms, reduced-motion respected below) */
+.fyz-design-system a {
+  transition: color 150ms ease;
+}
+
+.fyz-design-system .nv-index-posts .blog-entry {
+  transition: transform 150ms ease, border-color 150ms ease;
+}
+
+.fyz-design-system .nv-index-posts .blog-entry:hover {
+  transform: translateY(-1px);
+  border-color: var(--fyz-border-strong);
+}
+
+.fyz-design-system ::selection {
+  background: var(--fyz-accent);
+  color: #ffffff;
+}
+
+/* RU typography adjustment (typography only; no RU palette) */
+html[lang^="ru"] .fyz-design-system {
+  hyphens: auto;
+}
+
+html[lang^="ru"] .fyz-design-system h1,
+html[lang^="ru"] .fyz-design-system h2 {
+  hyphens: manual;
+}
+
+.fyz-design-system .nv-content-wrap code,
+.fyz-design-system .nv-content-wrap .fyz-sources a {
+  overflow-wrap: anywhere;
+}
+

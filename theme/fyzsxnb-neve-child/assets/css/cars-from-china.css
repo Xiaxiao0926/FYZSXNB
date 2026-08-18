@@ -75,7 +75,7 @@
 }
 
 .cfc-matrix__brand {
-  font-weight: 650;
+  font-weight: 600;
   color: var(--cfc-ink);
 }
 
@@ -110,6 +110,10 @@
   color: var(--cfc-ink);
 }
 
+.cfc-card a {
+  transition: color 150ms ease;
+}
+
 .cfc-card a:hover {
   color: var(--cfc-accent);
 }
@@ -124,7 +128,7 @@
 .cfc-card__title {
   font-size: 16px;
   line-height: 1.4;
-  font-weight: 550;
+  font-weight: 500;
 }
 
 .cfc-areas li {

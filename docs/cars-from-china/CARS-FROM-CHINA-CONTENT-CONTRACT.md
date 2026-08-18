@@ -61,10 +61,19 @@ The desk becomes publicly linked/visible **only when**:
 Until then:
 
 - Hub page stays **draft + noindex** (currently page id 507, draft).
+- **RU hub (/ru/cars-from-china/) keeps HTTP 200 but carries `noindex,follow`**
+  (theme 0.3.1 `wp_robots` guard, `FYZSXNB_CFC_LAUNCH_GATE_OPEN` = false).
+  Lifting the gate flips the constant; until then: not in nav, not in sitemap.
 - Model/brand archives that exist only as terms render as **pending text**
   (no links) in the matrix — already enforced by
   `fyzsxnb_cfc_has_published()`.
 - No CFC links in main nav, footer, or sitemap.
+
+Category mapping (2026-08-18 decision): no `cars-from-china` category is
+created — it would duplicate what the taxonomy already expresses. Mapping is
+`category 50` (topic) + `fyz_vehicle` (brand/model) + `fyz_research_type`
+(article role) + `54` (RU language contract). A category may be added later
+only if sitemap/navigation/query needs actually require one.
 
 ## 6. Publishing workflow (roles)
 

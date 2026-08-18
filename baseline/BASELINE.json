@@ -1,0 +1,28 @@
+{
+  "captured_at": "2026-08-18T10:43:00+08:00",
+  "live_urls": {
+    "home": "https://fyzsxnb.com/",
+    "ru_home": "https://fyzsxnb.com/ru/",
+    "biomed_archive": "https://fyzsxnb.com/category/china-global-biomed/",
+    "ru_archive": "https://fyzsxnb.com/category/russian-library/",
+    "en_article": "https://fyzsxnb.com/redmagic-cooler-6-pro-plus-china-launch-buyer-check/",
+    "ru_article": "https://fyzsxnb.com/datchik-davleniya-4-20ma-2-provoda-wika-danfoss/"
+  },
+  "invariants": {
+    "homepage_id": 11,
+    "ru_homepage_id": 400,
+    "active_theme": "fyzsxnb-neve-child",
+    "parent_theme": "neve@4.2.11",
+    "dynamic_feeds": true,
+    "featured_is_manual": true,
+    "public_h1_per_checked_surface": 1
+  },
+  "source_hashes": {
+    "theme/style.css": "18C1C457C09126075170065C51B2DD439E7069618AA45CF7EFA1EBDC954E0540",
+    "theme/functions.php": "1D86972A1F1A2BD5854E9571170471FAA26014FE312DCDFDA88E9ED8F66A9A0D",
+    "theme/assets/css/design-system.css": "82F9D286B42C0110E0B8B30AB6A2B09170A6EDCE781230F09510F6FE459BC15C",
+    "plugin/fyzsxnb-home-dynamic-feeds.php": "151ED643EF9684B1F5AE47DCD26DF5261AFF8CC98E8CCAFCFD8F807B10A95E5E",
+    "mu-plugins/fyzsxnb-p0-seo-patch.php": "8AA9AA8AF1DA6D84DC0362C8497E2804D66202FB0368702886B22C3BDB3ED54D"
+  },
+  "known_issue": "Russian archive body locale is RU while document html lang currently returns en-US; preserve and track separately from this visual branch."
+}

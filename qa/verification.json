@@ -1,0 +1,57 @@
+{
+  "verified_at": "2026-08-18T10:55:00+08:00",
+  "php": {
+    "runtime": "portable PHP 8.5.9 NTS x64",
+    "files": {
+      "theme/functions.php": "No syntax errors detected",
+      "mu-plugins/fyzsxnb-p0-seo-patch.php": "No syntax errors detected",
+      "plugin/fyzsxnb-home-dynamic-feeds.php": "No syntax errors detected"
+    }
+  },
+  "javascript": {
+    "file": "theme/fyzsxnb-neve-child/assets/js/research-wire.js",
+    "node_check": "pass"
+  },
+  "local_visual": {
+    "desktop_1440": {
+      "h1": 1,
+      "signals": 4,
+      "desks": 4,
+      "signal_columns": "610px 610px",
+      "desk_columns": "305px 305px 305px 305px",
+      "horizontal_overflow": false
+    },
+    "mobile_390": {
+      "h1": 1,
+      "signals": 4,
+      "desks": 4,
+      "signal_columns": "362px",
+      "desk_columns": "362px",
+      "horizontal_overflow": false
+    },
+    "russian_mobile_390": {
+      "h1": 1,
+      "signals": 4,
+      "desks": 0,
+      "signal_columns": "372px",
+      "horizontal_overflow": false
+    },
+    "article_mobile_390": {
+      "h1": 1,
+      "toc": 1,
+      "toc_links_from_real_h2_h3": 13,
+      "horizontal_overflow": false,
+      "page_errors": []
+    }
+  },
+  "screenshots": [
+    "qa/screenshots/home-en-1440.png",
+    "qa/screenshots/home-en-390.png",
+    "qa/screenshots/article-en-390.png"
+  ],
+  "production": {
+    "deployed": false,
+    "reason": "Implementation is packaged and verified locally; no production file upload was performed in this task.",
+    "live_baseline_preserved": true
+  }
+}

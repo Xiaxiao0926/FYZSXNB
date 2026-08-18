@@ -84,6 +84,37 @@ function fyzsxnb_enqueue_design_system() {
 add_action( 'wp_enqueue_scripts', 'fyzsxnb_enqueue_design_system', 20 );
 
 /**
+ * Load the V2 presentation layer without touching content or query logic.
+ */
+function fyzsxnb_enqueue_research_wire_assets() {
+	$css_relative = '/assets/css/research-wire.css';
+	$css_absolute = get_stylesheet_directory() . $css_relative;
+	$css_version  = file_exists( $css_absolute ) ? (string) filemtime( $css_absolute ) : wp_get_theme()->get( 'Version' );
+
+	wp_enqueue_style(
+		'fyzsxnb-research-wire',
+		get_stylesheet_directory_uri() . $css_relative,
+		array( 'fyzsxnb-design-system' ),
+		$css_version
+	);
+
+	if ( is_singular( 'post' ) ) {
+		$js_relative = '/assets/js/research-wire.js';
+		$js_absolute = get_stylesheet_directory() . $js_relative;
+		$js_version  = file_exists( $js_absolute ) ? (string) filemtime( $js_absolute ) : wp_get_theme()->get( 'Version' );
+
+		wp_enqueue_script(
+			'fyzsxnb-research-wire',
+			get_stylesheet_directory_uri() . $js_relative,
+			array(),
+			$js_version,
+			true
+		);
+	}
+}
+add_action( 'wp_enqueue_scripts', 'fyzsxnb_enqueue_research_wire_assets', 21 );
+
+/**
  * Add stable scope classes without changing Neve's template hierarchy.
  *
  * @param string[] $classes Existing body classes.
@@ -91,6 +122,7 @@ add_action( 'wp_enqueue_scripts', 'fyzsxnb_enqueue_design_system', 20 );
  */
 function fyzsxnb_design_body_classes( $classes ) {
 	$classes[] = 'fyz-design-system';
+	$classes[] = 'fyz-wire-desk';
 	$classes[] = fyzsxnb_is_russian_view() ? 'fyz-lang-ru' : 'fyz-lang-en';
 
 	return $classes;

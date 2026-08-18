@@ -85,3 +85,24 @@ Until then:
 - [ ] no empty sections on the target model page (renderer suppresses them;
       verify nothing phantom appears)
 - [ ] launch gate counts still respected (hub not publicized early)
+
+## 8. Research-to-article gate (set by the editorial lead 2026-08-18)
+
+- **No article is drafted before the vehicle's Case Matrix + Issue Matrix
+  exist** (see Case Contract §9–§10). The matrices decide which issues pass
+  CASE → REPEATED ISSUE → PATTERN; only PASSED issues may be written up.
+- **One research, two outputs, no double translation:** a single confirmed
+  research finding may produce an EN article (for global importers of
+  CN-market Tayron, emphasizing long-term Chinese owner experience) and an RU
+  article (what RU owners/importers may face), written from the **same
+  evidence base** with per-language framing — never a translation of each
+  other.
+- A parts-level finding may additionally produce an EN "How to identify the
+  correct part" + RU "Как подобрать … и не ошибиться с ревизией" pair.
+- Articles land into the desk sections (Owner Cases / Common Problems /
+  Parts & Compatibility / Market Versions / Repair Guides / Case Studies)
+  only when real evidence exists for that section — slots are never filled
+  for their own sake.
+- Role boundary: ChatGPT leads research and article planning/writing;
+  DeepSeek only publishes and verifies through the secure publisher. No
+  research or article writing is expected from DeepSeek in this phase.

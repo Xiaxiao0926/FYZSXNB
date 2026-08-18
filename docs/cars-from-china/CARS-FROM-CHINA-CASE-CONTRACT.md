@@ -83,3 +83,57 @@ Before any case/common-problem/market-version article ships:
 - [ ] no invented numbers, counts or cases
 - [ ] RU articles carry category 54 (Russian Library); EN never does
 - [ ] single `<h1>`; no duplicate H1s
+
+## 9. Case grading (binding thresholds, set by the editorial lead 2026-08-18)
+
+No single forum post may ever be called a "common problem" directly. Internal
+grading before anything may be written:
+
+- **CASE** — one real owner case with a traceable source. May enter the
+  research library, may be reported as an individual case, but **cannot** be
+  called a common problem.
+- **REPEATED ISSUE** — several **independent** real cases, and the
+  model/year/drivetrain of the cases line up with each other. Only then does
+  it enter the candidate-issue list.
+- **PATTERN** — repeated issues + technical explanation, repair outcome,
+  part revision, or official documentation supporting it. Only a PATTERN may
+  be written as `Common Problems / Что ломается`.
+
+**Hearsay rule:** a topic being widely repeated across forums is NOT multiple
+cases. Rumors retold by many users count as one chain of transmission, not as
+case count. Only independently documented owner experiences count.
+
+**Search categories ≠ presumed faults:** investigation directions (e.g.
+engine, DSG/transmission, AWD, cooling, emissions/GPF, suspension/steering,
+electronics, infotainment, ADAS/radar/camera, AC, body/interior, parts
+revisions, China-version features, high-mileage, hard-to-identify parts) are
+**search taxonomy only**. A direction may conclude with zero findings; the
+conclusion "no repeated pattern — keep as individual cases" is a valid outcome
+and must be recorded as such.
+
+## 10. Research pack record format (agreed matrixes)
+
+Case Matrix (one row per deduplicated case, at research time):
+
+| Case ID | 年款/Year | 动力/Drivetrain | 里程/Mileage | 症状/Symptom | 最终诊断/Final diagnosis | 维修/Repair | 零件/Part (OE) | 来源/Source | 独立案例/Independent | 俄罗斯出现/RU occurrence |
+
+Issue Matrix (one row per candidate issue):
+
+| Issue | 独立案例数/ind. cases | 年款范围/year range | 是否确认原因/Cause confirmed | 有无维修结果/Repair result | 有无零件号/Part no. | RU 案例 | 是否值得写/Worth writing (YES/MAYBE/NO) |
+
+Decision rule: articles are decided **only after** both matrixes exist for a
+vehicle. Nothing is written from raw post collections alone.
+
+## 11. Vehicle roadmap + market anchors (2026-08-18)
+
+- First-round order: **Volkswagen Tayron → Toyota Corolla → Audi Q3** (covers
+  German JV SUV / Japanese JV sedan / premium CN-built model).
+- Tayron-first rationale (user-provided, sources cited in the research pack):
+  used imports from China to Russia Jan–Apr 2026: Corolla ~2,136 units (#1),
+  Tayron ~1,988 (#2); May 2026 single month: Tayron 842 units (#1) vs Corolla
+  592. Sources: Autonews; AUTOSTAT (May 2026: China ≈ 26.5% of Russian used
+  imports). **Before any article cites these numbers, re-verify them against
+  the cited sources.**
+- After 3 vehicles, re-evaluate by Case Density: which vehicle has the most
+  real CN repair cases, the biggest RU info gap, and the highest parts
+  commercial value → that brand gets expanded.

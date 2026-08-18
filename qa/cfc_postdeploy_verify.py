@@ -46,15 +46,15 @@ except Exception as e:
 
 # 4) Fatal-error sweep + SEO spot checks on key pages
 probes = [
-    "https://fyzsxnb.com/",
-    "https://fyzsxnb.com/ru/",
-    "https://fyzsxnb.com/openpilot-byd-2026-support-open-source/",
-    "https://fyzsxnb.com/kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint/",
-    "https://fyzsxnb.com/byd-frigate-07-openpilot-dannye-dlya-adaptacii/",
+    ("https://fyzsxnb.com/", "en-US"),
+    ("https://fyzsxnb.com/ru/", "ru-RU"),
+    ("https://fyzsxnb.com/openpilot-byd-2026-support-open-source/", "ru-RU"),
+    ("https://fyzsxnb.com/kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint/", "ru-RU"),
+    ("https://fyzsxnb.com/byd-frigate-07-openpilot-dannye-dlya-adaptacii/", "ru-RU"),
 ]
 fatal_pat = re.compile(r"Fatal error|Parse error|Warning: |Deprecated: ", re.I)
 page_checks = {}
-for u in probes:
+for u, expected_lang in probes:
     c, html = fetch(u)
     txt = html.decode("utf-8", "replace")
     entry = {"http": c}
@@ -65,6 +65,7 @@ for u in probes:
     if c == 200:
         lg = re.search(r'<html[^>]*lang="([^"]+)"', txt)
         entry["lang"] = lg.group(1) if lg else None
+        entry["lang_ok"] = entry["lang"] == expected_lang
         cn = re.search(r'rel="canonical"[^>]*href="([^"]+)"', txt)
         entry["canonical_ok"] = bool(cn and cn.group(1).rstrip("/") == u.rstrip("/"))
         entry["h1_count"] = len(re.findall(r"<h1\b", txt))
@@ -73,9 +74,12 @@ report["existing_pages"] = page_checks
 report["all_expected_ok"] = (
     report["cars_from_china_css"].get("matches_manifest") is True
     and report["en_hub"]["http"] == 404
+    and report["ru_hub"]["http"] == 200
+    and report["brand_vw"]["http"] == 200
+    and report["model_tayron"]["http"] == 200
     and report["sitemap"]["cars_from_china_in_sitemap"] is False
     and not any(e.get("fatal_marker") for e in page_checks.values())
-    and all(e.get("canonical_ok") and e.get("lang") == "ru-RU" and e.get("h1_count") == 1 for e in page_checks.values() if e.get("http") == 200)
+    and all(e.get("canonical_ok") and e.get("lang_ok") and e.get("h1_count") == 1 for e in page_checks.values() if e.get("http") == 200)
 )
 print(json.dumps(report, ensure_ascii=False, indent=2))
 

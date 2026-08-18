@@ -39,7 +39,7 @@ if isinstance(page, list) and page:
 else:
     report["page"] = {"error": page}
 
-# 2) fyz_vehicle terms (seeded on init post-deploy) — 6 brands + 12 models expected
+# 2) fyz_vehicle terms (seeded on init post-deploy) — 6 brands + 10 models expected
 st3, terms = call("GET", "/fyz_vehicle?per_page=100&_fields=id,name,slug,parent")
 if isinstance(terms, list):
     brands = [t for t in terms if not t["parent"]]

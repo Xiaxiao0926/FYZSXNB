@@ -25,6 +25,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'FYZSXNB_CFC_VERSION', '0.1.0' );
 define( 'FYZSXNB_CFC_CATEGORY_RU', 54 ); // Russian Library (existing language category).
 
+/**
+ * Purge stale route/page caches once for each deployed CFC version.
+ */
+function fyzsxnb_cfc_purge_cache_once() {
+	$option_key = 'fyzsxnb_cfc_cache_version';
+	if ( get_option( $option_key ) === FYZSXNB_CFC_VERSION ) {
+		return;
+	}
+
+	do_action( 'litespeed_purge_all' );
+	wp_cache_flush();
+	update_option( $option_key, FYZSXNB_CFC_VERSION, false );
+}
+add_action( 'init', 'fyzsxnb_cfc_purge_cache_once', 100 );
+
 /* -------------------------------------------------------------------------
  * 1. Taxonomies
  * ---------------------------------------------------------------------- */
@@ -128,40 +143,54 @@ function fyzsxnb_cfc_initial_matrix() {
  * Brands become parent terms; models become children.
  */
 function fyzsxnb_cfc_seed_terms() {
-	if ( get_option( 'fyzsxnb_cfc_terms_seeded' ) ) {
-		return;
-	}
-
-	foreach ( fyzsxnb_cfc_initial_matrix() as $brand => $models ) {
-		$brand_name = ucwords( str_replace( array( '-', '_' ), ' ', $brand ) );
-		$parent     = term_exists( $brand, 'fyz_vehicle' );
-		if ( ! $parent ) {
-			$parent = wp_insert_term( $brand_name, 'fyz_vehicle', array( 'slug' => $brand ) );
-		}
-		if ( is_wp_error( $parent ) ) {
-			continue;
-		}
-		$parent_id = is_array( $parent ) ? (int) $parent['term_id'] : (int) $parent;
-
-		foreach ( $models as $model ) {
-			$model_name = strtoupper( str_replace( array( '-', '_' ), ' ', $model ) );
-			if ( 't-roc' === $model ) {
-				$model_name = 'T-Roc';
+	if ( ! get_option( 'fyzsxnb_cfc_terms_seeded' ) ) {
+		foreach ( fyzsxnb_cfc_initial_matrix() as $brand => $models ) {
+			$brand_name = ucwords( str_replace( array( '-', '_' ), ' ', $brand ) );
+			$parent     = term_exists( $brand, 'fyz_vehicle' );
+			if ( ! $parent ) {
+				$parent = wp_insert_term( $brand_name, 'fyz_vehicle', array( 'slug' => $brand ) );
 			}
-			$existing = term_exists( $model, 'fyz_vehicle' );
-			if ( $existing ) {
-				$existing_id = is_array( $existing ) ? (int) $existing['term_id'] : (int) $existing;
-				$cur         = get_term( $existing_id, 'fyz_vehicle' );
-				if ( $cur && (int) $cur->parent !== $parent_id ) {
-					wp_update_term( $existing_id, 'fyz_vehicle', array( 'parent' => $parent_id ) );
-				}
+			if ( is_wp_error( $parent ) ) {
 				continue;
 			}
-			wp_insert_term( $model_name, 'fyz_vehicle', array( 'slug' => $model, 'parent' => $parent_id ) );
+			$parent_id = is_array( $parent ) ? (int) $parent['term_id'] : (int) $parent;
+
+			foreach ( $models as $model ) {
+				$model_name = strtoupper( str_replace( array( '-', '_' ), ' ', $model ) );
+				if ( 't-roc' === $model ) {
+					$model_name = 'T-Roc';
+				}
+				$existing = term_exists( $model, 'fyz_vehicle' );
+				if ( $existing ) {
+					$existing_id = is_array( $existing ) ? (int) $existing['term_id'] : (int) $existing;
+					$cur         = get_term( $existing_id, 'fyz_vehicle' );
+					if ( $cur && (int) $cur->parent !== $parent_id ) {
+						wp_update_term( $existing_id, 'fyz_vehicle', array( 'parent' => $parent_id ) );
+					}
+					continue;
+				}
+				wp_insert_term( $model_name, 'fyz_vehicle', array( 'slug' => $model, 'parent' => $parent_id ) );
+			}
 		}
+
+		update_option( 'fyzsxnb_cfc_terms_seeded', 1, false );
 	}
 
-	update_option( 'fyzsxnb_cfc_terms_seeded', 1, false );
+	if ( ! get_option( 'fyzsxnb_cfc_research_types_seeded' ) ) {
+		$seeded = true;
+		foreach ( fyzsxnb_cfc_research_types() as $slug => $labels ) {
+			if ( term_exists( $slug, 'fyz_research_type' ) ) {
+				continue;
+			}
+			$inserted = wp_insert_term( $labels['en'], 'fyz_research_type', array( 'slug' => $slug ) );
+			if ( is_wp_error( $inserted ) ) {
+				$seeded = false;
+			}
+		}
+		if ( $seeded ) {
+			update_option( 'fyzsxnb_cfc_research_types_seeded', 1, false );
+		}
+	}
 }
 add_action( 'init', 'fyzsxnb_cfc_seed_terms', 11 );
 
@@ -671,4 +700,3 @@ function fyzsxnb_cfc_render_model( $model ) {
 
 	return $out;
 }
-

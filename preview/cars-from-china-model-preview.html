@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TEST ONLY — Cars from China · Model Page preview (Volkswagen Tayron)</title>
+<!--
+  TEST ONLY — static preview of the Cars from China Model Page.
+  Not deployed, not linked, noindex. Loads the REAL theme styles
+  (design-system.css + cars-from-china.css) and mirrors the markup emitted
+  by fyzsxnb_cfc_render_model() / fyzsxnb_cfc_post_card() /
+  fyzsxnb_cfc_model_matrix() with mock data, to validate the visual system
+  at 1440 / 1024 / 768 / 390. This file is NOT production content.
+-->
+<link rel="stylesheet" href="../theme/fyzsxnb-neve-child/assets/css/design-system.css">
+<link rel="stylesheet" href="../theme/fyzsxnb-neve-child/assets/css/cars-from-china.css">
+<style>
+  /* preview scaffolding only: static header + page shell (real site uses
+     Neve header/footer; the desk styles below come from the theme CSS) */
+  * { margin:0; box-sizing:border-box; }
+  body { background:var(--fyz-paper); color:var(--fyz-ink); font-family:var(--fyz-body); font-size:17px; line-height:1.65; }
+  .wrap { width:min(100% - 40px, var(--fyz-site-width)); margin:0 auto; }
+  .hd { border-bottom:1px solid var(--fyz-line); background:rgba(255,255,255,.98); }
+  .hd-in { width:min(100% - 40px, var(--fyz-site-width)); margin:0 auto; min-height:76px; display:flex; align-items:center; gap:24px; }
+  .hd .brand { font-family:var(--fyz-display); font-size:20px; font-weight:700; }
+  .hd nav { margin-left:auto; display:flex; gap:20px; font-size:14px; color:var(--fyz-muted); }
+  .hd nav a { color:var(--fyz-ink); text-decoration:none; }
+  @media (max-width:420px){
+    /* preview header only — production header is Neve's; keeps the static
+       preview overflow-free at 390px */
+    .hd-in{ flex-wrap:wrap; row-gap:8px; padding:12px 0; }
+    .hd nav{ margin-left:0; flex-wrap:wrap; gap:10px 14px; }
+  }
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <span class="brand">FYZSXNB</span>
+  <nav><a>Latest</a><a>China Tech</a><a>Biomed</a><a>Cars from China</a><a>RU</a></nav>
+</div></header>
+<main class="wrap">
+<div class="cfc-desk cfc-wrap">
+
+  <!-- fyzsxnb_cfc_render_model() output (mock) -->
+  <nav class="cfc-crumbs"><a href="#">Cars from China</a> › <a href="#">Volkswagen</a> › <span>Tayron</span></nav>
+
+  <section class="cfc-hero">
+    <p class="cfc-eyebrow">CARS FROM CHINA</p>
+    <h1 class="cfc-h1">Volkswagen Tayron</h1>
+    <p class="cfc-deck">China-market vehicle research. Sections below populate automatically from vehicle taxonomy + research type + language filter; empty sections are suppressed.</p>
+  </section>
+
+  <!-- Latest Research (mock: 1 item) -->
+  <section class="cfc-model-section">
+    <h2 class="cfc-section-title">Latest Research</h2>
+    <ul class="cfc-list">
+      <li class="cfc-card"><a href="#"><span class="cfc-card__meta">China Tech &amp; Products · TEST ONLY</span><span class="cfc-card__title">Volkswagen Tayron: China-market overview (mock)</span></a></li>
+    </ul>
+  </section>
+
+  <!-- Owner Cases: NO content in this scenario -> section is suppressed (not rendered) -->
+
+  <!-- Common Problems: NO content -> suppressed -->
+
+  <!-- Parts & Compatibility (mock: 1 item) -->
+  <section class="cfc-model-section">
+    <h2 class="cfc-section-title">Parts &amp; Compatibility</h2>
+    <ul class="cfc-list">
+      <li class="cfc-card"><a href="#"><span class="cfc-card__meta">Parts &amp; Compatibility · TEST ONLY</span><span class="cfc-card__title">Tayron suspension parts: cross-reference notes (mock)</span></a></li>
+    </ul>
+  </section>
+
+  <!-- China vs Export / Repair / Case studies: suppressed in this mock -->
+
+  <!-- Model Matrix (fyzsxnb_cfc_model_matrix(); unpublished models render as plain text) -->
+  <section class="cfc-section">
+    <h2 class="cfc-section-title">Model Matrix</h2>
+    <div class="cfc-matrix">
+      <div class="cfc-matrix__row"><div class="cfc-matrix__brand">Volkswagen</div><div class="cfc-matrix__models"><a href="#">Tayron</a><span class="cfc-matrix__sep">·</span><span class="cfc-matrix__pending">Tharu</span><span class="cfc-matrix__sep">·</span><span class="cfc-matrix__pending">Golf</span><span class="cfc-matrix__sep">·</span><span class="cfc-matrix__pending">T-Roc</span></div></div>
+      <div class="cfc-matrix__row"><div class="cfc-matrix__brand">Audi</div><div class="cfc-matrix__models"><span class="cfc-matrix__pending">Q3</span><span class="cfc-matrix__sep">·</span><span class="cfc-matrix__pending">A3</span></div></div>
+      <div class="cfc-matrix__row"><div class="cfc-matrix__brand">Toyota</div><div class="cfc-matrix__models"><span class="cfc-matrix__pending">Corolla</span></div></div>
+    </div>
+  </section>
+
+</div>
+</main>
+</body>
+</html>

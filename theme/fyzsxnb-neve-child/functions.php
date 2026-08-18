@@ -10,6 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Load scoped feature modules. functions.php stays a bootstrap: each module
+ * owns its registrations, queries, and templates.
+ */
+require_once get_stylesheet_directory() . '/inc/cars-from-china.php';
+
+/**
  * Preserve the current Neve Customizer settings on first child-theme activation.
  */
 function fyzsxnb_inherit_neve_theme_mods() {
@@ -113,6 +119,27 @@ function fyzsxnb_enqueue_research_wire_assets() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'fyzsxnb_enqueue_research_wire_assets', 21 );
+
+/**
+ * Load the Cars from China scaffold stylesheet after the Research Wire layer.
+ * Kept scoped so the desk cannot leak styles into the rest of the site.
+ */
+function fyzsxnb_cfc_enqueue_styles() {
+	if ( ! fyzsxnb_cfc_is_active_view() ) {
+		return;
+	}
+	$css_relative = '/assets/css/cars-from-china.css';
+	$css_absolute = get_stylesheet_directory() . $css_relative;
+	$css_version  = file_exists( $css_absolute ) ? (string) filemtime( $css_absolute ) : wp_get_theme()->get( 'Version' );
+
+	wp_enqueue_style(
+		'fyzsxnb-cars-from-china',
+		get_stylesheet_directory_uri() . $css_relative,
+		array( 'fyzsxnb-research-wire' ),
+		$css_version
+	);
+}
+add_action( 'wp_enqueue_scripts', 'fyzsxnb_cfc_enqueue_styles', 22 );
 
 /**
  * Add stable scope classes without changing Neve's template hierarchy.

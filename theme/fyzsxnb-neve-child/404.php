@@ -1,22 +1,29 @@
 <?php
 /**
- * Human-readable 404 page.
+ * Human-readable 404 page (EN/RU localized).
  *
  * @package FYZSXNB_Neve_Child
  */
 
 get_header();
+$ru = fyzsxnb_is_russian_view();
+$title = $ru ? 'Страница не найдена' : 'This page could not be found';
+$copy  = $ru ? 'Возможно, адрес изменился. Воспользуйтесь поиском или вернитесь к одному из основных исследовательских разделов.' : 'The address may have changed. Search the archive or return to one of the main research desks.';
+$links_label = $ru ? 'Полезные ссылки' : 'Useful links';
+$link_home = $ru ? 'Английская главная' : 'English homepage';
+$link_ru   = $ru ? 'Русские решения' : 'Russian solutions';
+$link_biomed = $ru ? 'Архив Biomed' : 'Biomed archive';
 ?>
 <main id="content" class="neve-main">
 	<section class="fyz-error-shell" aria-labelledby="fyz-error-title">
 		<p class="fyz-error-code">404</p>
-		<h1 id="fyz-error-title" class="fyz-error-title"><?php esc_html_e( 'This page could not be found', 'fyzsxnb-neve-child' ); ?></h1>
-		<p class="fyz-error-copy"><?php esc_html_e( 'The address may have changed. Search the archive or return to one of the main research desks.', 'fyzsxnb-neve-child' ); ?></p>
+		<h1 id="fyz-error-title" class="fyz-error-title"><?php echo esc_html( $title ); ?></h1>
+		<p class="fyz-error-copy"><?php echo esc_html( $copy ); ?></p>
 		<?php get_search_form(); ?>
-		<nav class="fyz-error-links" aria-label="<?php esc_attr_e( 'Useful links', 'fyzsxnb-neve-child' ); ?>">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'English homepage', 'fyzsxnb-neve-child' ); ?></a>
-			<a href="<?php echo esc_url( home_url( '/ru/' ) ); ?>"><?php esc_html_e( 'Russian solutions', 'fyzsxnb-neve-child' ); ?></a>
-			<a href="<?php echo esc_url( home_url( '/category/china-global-biomed/' ) ); ?>"><?php esc_html_e( 'Biomed archive', 'fyzsxnb-neve-child' ); ?></a>
+		<nav class="fyz-error-links" aria-label="<?php echo esc_attr( $links_label ); ?>">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html( $link_home ); ?></a>
+			<a href="<?php echo esc_url( home_url( '/ru/' ) ); ?>"><?php echo esc_html( $link_ru ); ?></a>
+			<a href="<?php echo esc_url( home_url( '/category/china-global-biomed/' ) ); ?>"><?php echo esc_html( $link_biomed ); ?></a>
 		</nav>
 	</section>
 </main>

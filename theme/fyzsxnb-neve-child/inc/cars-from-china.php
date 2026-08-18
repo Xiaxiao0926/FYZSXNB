@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'FYZSXNB_CFC_VERSION', '0.1.0' );
+define( 'FYZSXNB_CFC_VERSION', '0.1.1' );
 define( 'FYZSXNB_CFC_CATEGORY_RU', 54 ); // Russian Library (existing language category).
 
 /**
@@ -537,11 +537,11 @@ function fyzsxnb_cfc_render_hub() {
 	// Eyebrow + intro.
 	$out .= '<section class="cfc-hero">';
 	if ( $ru ) {
-		$out .= '<p class="cfc-eyebrow">AUTOMOBILI IZ KITAYA</p>';
+		$out .= '<p class="cfc-eyebrow">АВТОМОБИЛИ ИЗ КИТАЯ</p>';
 		$out .= '<h1 class="cfc-h1">Автомобили китайского рынка в России</h1>';
 		$out .= '<p class="cfc-deck">Эксплуатация, ремонт, запчасти, совместимость и параллельный импорт машин, собранных или предназначенных для китайского рынка, — для российских владельцев и покупателей.</p>';
 	} else {
-		$out .= '<p class="cfc-eyebrow">CARS FROM CHINA</p>';
+		$out .= '<p class="cfc-eyebrow">' . ( $ru ? 'АВТОМОБИЛИ ИЗ КИТАЯ' : 'CARS FROM CHINA' ) . '</p>';
 		$out .= '<h1 class="cfc-h1">China-market vehicles exported worldwide.</h1>';
 		$out .= '<p class="cfc-deck">Cars built for the China market — Volkswagen, Audi, Toyota, Hyundai, Honda, BMW and Chinese brands — and what changes when they are used, serviced or imported elsewhere: versions, electronics, ADAS, parts, compatibility and real owner evidence.</p>';
 	}
@@ -611,7 +611,7 @@ function fyzsxnb_cfc_render_brand( $brand ) {
 	$out = '';
 
 	$out .= '<section class="cfc-hero">';
-	$out .= '<p class="cfc-eyebrow">CARS FROM CHINA</p>';
+	$out .= '<p class="cfc-eyebrow">' . ( $ru ? 'АВТОМОБИЛИ ИЗ КИТАЯ' : 'CARS FROM CHINA' ) . '</p>';
 	$out .= '<h1 class="cfc-h1">' . esc_html( $brand->name ) . '</h1>';
 	$out .= '</section>';
 
@@ -674,7 +674,7 @@ function fyzsxnb_cfc_render_model( $model ) {
 	$out .= '<nav class="cfc-crumbs">' . $crumbs . ' › <span>' . esc_html( $model->name ) . '</span></nav>';
 
 	$out .= '<section class="cfc-hero">';
-	$out .= '<p class="cfc-eyebrow">CARS FROM CHINA</p>';
+	$out .= '<p class="cfc-eyebrow">' . ( $ru ? 'АВТОМОБИЛИ ИЗ КИТАЯ' : 'CARS FROM CHINA' ) . '</p>';
 	$out .= '<h1 class="cfc-h1">' . esc_html( $model->name ) . '</h1>';
 	$out .= '<p class="cfc-deck">' . ( $ru ? 'Исследование автомобиля китайского рынка.' : 'China-market vehicle research.' ) . '</p>';
 	$out .= '</section>';

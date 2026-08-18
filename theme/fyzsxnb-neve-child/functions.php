@@ -188,7 +188,8 @@ function fyzsxnb_archive_intro() {
 	$description = get_the_archive_description();
 
 	echo '<header class="fyz-archive-intro">';
-	echo '<p class="fyz-eyebrow">' . esc_html__( 'Research archive', 'fyzsxnb-neve-child' ) . '</p>';
+	$eyebrow = fyzsxnb_is_russian_view() ? 'Архив исследований' : 'Research archive';
+	echo '<p class="fyz-eyebrow">' . esc_html( $eyebrow ) . '</p>';
 	echo '<h1>' . wp_kses_post( $title ) . '</h1>';
 
 	if ( $description ) {

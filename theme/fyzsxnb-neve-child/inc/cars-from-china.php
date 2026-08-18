@@ -700,3 +700,64 @@ function fyzsxnb_cfc_render_model( $model ) {
 
 	return $out;
 }
+
+/* -------------------------------------------------------------------------
+ * 7. Launch-gate robots guard for the RU hub (keep 200, noindex until gate)
+ * ---------------------------------------------------------------------- */
+
+/**
+ * Is the current request the Cars from China RU hub (/ru/cars-from-china/)?
+ * The rewrite sets fyz_cfc_ru_hub=1; the path check is a fallback.
+ *
+ * @return bool
+ */
+function fyzsxnb_cfc_is_ru_hub() {
+	if ( get_query_var( 'fyz_cfc_ru_hub' ) && ! is_admin() ) {
+		return true;
+	}
+	$path = isset( $_SERVER['REQUEST_URI'] )
+		? (string) wp_parse_url( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ), PHP_URL_PATH )
+		: '';
+	return rtrim( (string) $path, '/' ) === '/ru/cars-from-china';
+}
+
+/**
+ * Keep the RU hub publicly reachable (200) but out of search indexes until
+ * the launch gate is met. Flip FYZSXNB_CFC_LAUNCH_GATE_OPEN to true once:
+ *   >=3 models, each with >=2 published articles, EN >=3 and RU >=3.
+ *
+ * @param array $robots wp_robots array.
+ * @return array
+ */
+function fyzsxnb_cfc_guard_ru_hub_robots( $robots ) {
+	if ( is_admin() ) {
+		return $robots;
+	}
+	if ( ! fyzsxnb_cfc_is_ru_hub() ) {
+		return $robots;
+	}
+	if ( ! defined( 'FYZSXNB_CFC_LAUNCH_GATE_OPEN' ) || ! FYZSXNB_CFC_LAUNCH_GATE_OPEN ) {
+		$robots['noindex'] = true;
+		$robots['follow']  = true; // links may still be crawled/followed
+	}
+	return $robots;
+}
+add_filter( 'wp_robots', 'fyzsxnb_cfc_guard_ru_hub_robots', 20 );
+
+/**
+ * Belt-and-braces: emit an explicit robots meta for the RU hub directly in
+ * wp_head (late priority). Some SEO plugins rebuild the wp_robots array, so
+ * a direct meta guarantees noindex even if another plugin overrides the
+ * filter chain. Crawlers apply the most restrictive directive when multiple
+ * robots metas are present.
+ */
+function fyzsxnb_cfc_ru_hub_noindex_meta() {
+	if ( ! fyzsxnb_cfc_is_ru_hub() ) {
+		return;
+	}
+	if ( defined( 'FYZSXNB_CFC_LAUNCH_GATE_OPEN' ) && FYZSXNB_CFC_LAUNCH_GATE_OPEN ) {
+		return;
+	}
+	echo '<meta name="robots" content="noindex, follow" />' . "\n";
+}
+add_action( 'wp_head', 'fyzsxnb_cfc_ru_hub_noindex_meta', 999 );

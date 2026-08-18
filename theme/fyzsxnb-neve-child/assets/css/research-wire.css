@@ -58,14 +58,9 @@
   --paper: var(--fyz-wire-paper);
   --surface: #fbfbf8;
   --ink: var(--fyz-wire-ink);
-  --muted: var(--fyz-wire-muted);
   --line: var(--fyz-wire-line);
   --blue: var(--fyz-wire-blue);
-  --teal: #3b827c;
-  --orange: #9c6e35;
-  --red: var(--fyz-wire-red);
   --dark: #1b252e;
-  --blue-wash: #e9eff2;
   --green-wash: #edf2ed;
   color: var(--ink);
   font-size: 16px;
@@ -141,9 +136,7 @@
   border-top: 1px solid var(--line);
 }
 
-.fyz-design-system .fyz-home .fyz-signal,
-.fyz-design-system .fyz-home .fyz-signal:first-child,
-.fyz-design-system .fyz-home .fyz-signal:last-child {
+.fyz-design-system .fyz-home .fyz-signal {
   min-height: 146px;
   padding: 18px 24px 18px 0;
   border: 0;
@@ -225,8 +218,7 @@
   background: transparent;
 }
 
-.fyz-design-system .fyz-home .fyz-desk,
-.fyz-design-system .fyz-home .fyz-desk:first-child {
+.fyz-design-system .fyz-home .fyz-desk {
   min-height: 190px;
   padding: 22px 20px 18px 0;
   border: 0;
@@ -273,6 +265,9 @@
   border-top-color: var(--line);
 }
 
+/* Archive entry (V2, deployed with 0.3.4): supersedes the design-system.css
+   archive block at equal specificity because this sheet loads after it.
+   Production entry today (0.3.4-): design-system.css only. */
 /* Neve archives become a calm research index rather than a card wall. */
 .fyz-design-system.archive .archive-container,
 .fyz-design-system.search .archive-container {
@@ -390,12 +385,7 @@
   }
 
   .fyz-design-system .fyz-home .fyz-signal,
-  .fyz-design-system .fyz-home .fyz-signal:first-child,
-  .fyz-design-system .fyz-home .fyz-signal:last-child,
-  .fyz-design-system .fyz-home .fyz-signal:nth-child(even),
-  .fyz-design-system .fyz-home .fyz-desk,
-  .fyz-design-system .fyz-home .fyz-desk:first-child,
-  .fyz-design-system .fyz-home .fyz-desk:not(:first-child) {
+  .fyz-design-system .fyz-home .fyz-desk {
     min-height: 0;
     padding: 17px 0;
     border-right: 0;

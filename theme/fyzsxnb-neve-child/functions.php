@@ -148,6 +148,7 @@ add_action( 'neve_before_loop', 'fyzsxnb_archive_intro', 5 );
  * See inc/cars-from-china.php for the full module.
  */
 require_once get_stylesheet_directory() . '/inc/cars-from-china.php';
+require_once get_stylesheet_directory() . '/inc/home.php';
 
 /**
  * Enqueue the Cars from China stylesheet after the design system.

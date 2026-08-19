@@ -10,12 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Load scoped feature modules. functions.php stays a bootstrap: each module
- * owns its registrations, queries, and templates.
- */
-require_once get_stylesheet_directory() . '/inc/cars-from-china.php';
-
-/**
  * Preserve the current Neve Customizer settings on first child-theme activation.
  */
 function fyzsxnb_inherit_neve_theme_mods() {
@@ -90,58 +84,6 @@ function fyzsxnb_enqueue_design_system() {
 add_action( 'wp_enqueue_scripts', 'fyzsxnb_enqueue_design_system', 20 );
 
 /**
- * Load the V2 presentation layer without touching content or query logic.
- */
-function fyzsxnb_enqueue_research_wire_assets() {
-	$css_relative = '/assets/css/research-wire.css';
-	$css_absolute = get_stylesheet_directory() . $css_relative;
-	$css_version  = file_exists( $css_absolute ) ? (string) filemtime( $css_absolute ) : wp_get_theme()->get( 'Version' );
-
-	wp_enqueue_style(
-		'fyzsxnb-research-wire',
-		get_stylesheet_directory_uri() . $css_relative,
-		array( 'fyzsxnb-design-system' ),
-		$css_version
-	);
-
-	if ( is_singular( 'post' ) ) {
-		$js_relative = '/assets/js/research-wire.js';
-		$js_absolute = get_stylesheet_directory() . $js_relative;
-		$js_version  = file_exists( $js_absolute ) ? (string) filemtime( $js_absolute ) : wp_get_theme()->get( 'Version' );
-
-		wp_enqueue_script(
-			'fyzsxnb-research-wire',
-			get_stylesheet_directory_uri() . $js_relative,
-			array(),
-			$js_version,
-			true
-		);
-	}
-}
-add_action( 'wp_enqueue_scripts', 'fyzsxnb_enqueue_research_wire_assets', 21 );
-
-/**
- * Load the Cars from China scaffold stylesheet after the Research Wire layer.
- * Kept scoped so the desk cannot leak styles into the rest of the site.
- */
-function fyzsxnb_cfc_enqueue_styles() {
-	if ( ! fyzsxnb_cfc_is_active_view() ) {
-		return;
-	}
-	$css_relative = '/assets/css/cars-from-china.css';
-	$css_absolute = get_stylesheet_directory() . $css_relative;
-	$css_version  = file_exists( $css_absolute ) ? (string) filemtime( $css_absolute ) : wp_get_theme()->get( 'Version' );
-
-	wp_enqueue_style(
-		'fyzsxnb-cars-from-china',
-		get_stylesheet_directory_uri() . $css_relative,
-		array( 'fyzsxnb-research-wire' ),
-		$css_version
-	);
-}
-add_action( 'wp_enqueue_scripts', 'fyzsxnb_cfc_enqueue_styles', 22 );
-
-/**
  * Add stable scope classes without changing Neve's template hierarchy.
  *
  * @param string[] $classes Existing body classes.
@@ -149,7 +91,6 @@ add_action( 'wp_enqueue_scripts', 'fyzsxnb_cfc_enqueue_styles', 22 );
  */
 function fyzsxnb_design_body_classes( $classes ) {
 	$classes[] = 'fyz-design-system';
-	$classes[] = 'fyz-wire-desk';
 	$classes[] = fyzsxnb_is_russian_view() ? 'fyz-lang-ru' : 'fyz-lang-en';
 
 	return $classes;
@@ -201,6 +142,34 @@ function fyzsxnb_archive_intro() {
 add_action( 'neve_before_loop', 'fyzsxnb_archive_intro', 5 );
 
 /**
+ * Cars from China desk — minimal production bootstrap.
+ * ONLY the CFC layer is added here; the Research Wire presentation layer
+ * (research-wire.css/js) is intentionally NOT part of this deployment.
+ * See inc/cars-from-china.php for the full module.
+ */
+require_once get_stylesheet_directory() . '/inc/cars-from-china.php';
+
+/**
+ * Enqueue the Cars from China stylesheet after the design system.
+ */
+function fyzsxnb_cfc_enqueue_styles() {
+	if ( ! fyzsxnb_cfc_is_active_view() ) {
+		return;
+	}
+	$css_relative = '/assets/css/cars-from-china.css';
+	$css_absolute = get_stylesheet_directory() . $css_relative;
+	$css_version  = file_exists( $css_absolute ) ? (string) filemtime( $css_absolute ) : wp_get_theme()->get( 'Version' );
+
+	wp_enqueue_style(
+		'fyzsxnb-cars-from-china',
+		get_stylesheet_directory_uri() . $css_relative,
+		array( 'fyzsxnb-design-system' ),
+		$css_version
+	);
+}
+add_action( 'wp_enqueue_scripts', 'fyzsxnb_cfc_enqueue_styles', 21 );
+
+/**
  * Self-hosted font faces re-emitted late in <head>.
  * WP core prints its own @font-face set (wp-fonts-local, wp_head priority 50)
  * which currently wins the cascade for 'Inter' and downloads WooCommerce's
@@ -242,4 +211,177 @@ function fyzsxnb_dequeue_wc_inter_font() {
 		wp_fonts()->remove( 'Inter' );
 	} catch ( Throwable $e ) { /* non-fatal */ }
 }
+
+
+/* -------------------------------------------------------------------------
+ * UI V2 0.3.4 — Article / Desk / Archive V2
+ * ---------------------------------------------------------------------- */
+
+/**
+ * Enqueue the Research Wire presentation layer (article TOC + desk styles).
+ * The JS is vanilla, deferred, footer-loaded and feature-scoped: it only
+ * builds a TOC when a single-post content area exists. It never changes
+ * content, headings, URLs or SEO output.
+ */
+function fyzsxnb_enqueue_research_wire_assets() {
+	$css_rel = '/assets/css/research-wire.css';
+	$css_abs = get_stylesheet_directory() . $css_rel;
+	$css_ver = file_exists( $css_abs ) ? (string) filemtime( $css_abs ) : wp_get_theme()->get( 'Version' );
+	wp_enqueue_style( 'fyzsxnb-research-wire', get_stylesheet_directory_uri() . $css_rel, array( 'fyzsxnb-design-system' ), $css_ver );
+
+	// research-wire JS is printed inline in the footer (see
+	// fyzsxnb_print_toc_inline): this host's LiteSpeed 'load JS deferred'
+	// never executes external deferred scripts, so a regular enqueue would
+	// not run. Inline printing keeps the single-source file and guarantees
+	// the TOC (progressive enhancement) actually runs.
+}
+add_action( 'wp_enqueue_scripts', 'fyzsxnb_enqueue_research_wire_assets', 21 );
+
+/**
+ * Print the research-wire TOC module inline (footer). The file remains the
+ * single source of truth; inline output sidesteps LiteSpeed's 'load JS
+ * deferred', which on this host never executes external deferred scripts.
+ * Runs at end-of-body so the DOM is ready; vanilla, no jQuery, no deps.
+ */
+function fyzsxnb_print_toc_inline() {
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
+	$file = get_stylesheet_directory() . '/assets/js/research-wire.js';
+	if ( ! file_exists( $file ) ) {
+		return;
+	}
+	$code = file_get_contents( $file );
+	if ( false === $code || false !== strpos( $code, '</script' ) ) {
+		return;
+	}
+	echo '<script id="fyzsxnb-toc-inline">' . $code . '</script>';
+}
+add_action( 'wp_footer', 'fyzsxnb_print_toc_inline', 99 );
+
+/**
+ * Article V2 — pre-content block: breadcrumb + desk eyebrow.
+ * Rendered above the H1 via grid order in the article layout.
+ */
+function fyzsxnb_article_shell_pre() {
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
+	$ru  = fyzsxnb_is_russian_view();
+	$cats = get_the_category();
+	$cat  = $cats ? $cats[0] : null;
+
+	echo '<div class="fyz-article-top__pre">';
+	if ( $cat ) {
+		echo '<nav class="fyz-crumbs" aria-label="' . esc_attr( $ru ? 'Хлебные крошки' : 'Breadcrumb' ) . '">';
+		echo '<a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( $ru ? 'Главная' : 'Home' ) . '</a> › ';
+		echo '<a href="' . esc_url( get_category_link( $cat ) ) . '">' . esc_html( $cat->name ) . '</a>';
+		echo '</nav>';
+		echo '<p class="fyz-eyebrow">' . esc_html( $cat->name ) . '</p>';
+	}
+	echo '</div>';
+}
+add_action( 'neve_before_post_content', 'fyzsxnb_article_shell_pre', 5 );
+
+/**
+ * Article V2 — meta row + deck, placed below the H1 in the body column.
+ * Only real, existing data is shown (published / updated / research type /
+ * editorial byline / language). No invented fields.
+ */
+function fyzsxnb_article_shell_meta() {
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
+	$ru = fyzsxnb_is_russian_view();
+
+	echo '<div class="fyz-article-top__meta">';
+	echo '<span class="fyz-meta">' . esc_html( $ru ? 'Опубликовано' : 'Published' ) . ': ' . esc_html( get_the_date() ) . '</span>';
+
+	$modified = get_the_modified_date();
+	if ( $modified && $modified !== get_the_date() ) {
+		echo '<span class="fyz-meta">' . esc_html( $ru ? 'Обновлено' : 'Updated' ) . ': ' . esc_html( $modified ) . '</span>';
+	}
+
+	$types = wp_get_object_terms( get_the_ID(), 'fyz_research_type', array( 'fields' => 'names' ) );
+	if ( ! is_wp_error( $types ) && $types ) {
+		echo '<span class="fyz-meta">' . esc_html( implode( ', ', array_slice( $types, 0, 2 ) ) ) . '</span>';
+	}
+
+	echo '<span class="fyz-meta">' . esc_html( $ru ? 'Редакция FYZSXNB' : 'FYZSXNB Editorial Desk' ) . '</span>';
+	echo '<span class="fyz-meta">' . esc_html( $ru ? 'RU' : 'EN' ) . '</span>';
+	echo '</div>';
+
+	$deck = get_the_excerpt();
+	if ( $deck ) {
+		echo '<p class="fyz-article-deck">' . esc_html( wp_strip_all_tags( $deck ) ) . '</p>';
+	}
+}
+add_action( 'neve_before_post_content', 'fyzsxnb_article_shell_meta', 10 );
+
+/**
+ * Article V2 — Related research (same locale only, never cross-language;
+ * fewer than 3 results render fewer cards) + one Research CTA at the end.
+ */
+function fyzsxnb_article_shell_after() {
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
+	$ru      = fyzsxnb_is_russian_view();
+	$post_id = get_the_ID();
+
+	$args = array(
+		'post_type'      => 'post',
+		'post_status'    => 'publish',
+		'posts_per_page' => 3,
+		'post__not_in'   => array( $post_id ),
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+		'no_found_rows'  => true,
+	);
+
+	if ( $ru ) {
+		$args['category__in'] = array( FYZSXNB_CFC_CATEGORY_RU );
+	} else {
+		$args['category__not_in'] = array( FYZSXNB_CFC_CATEGORY_RU );
+	}
+
+	$vehicle = wp_get_post_terms( $post_id, 'fyz_vehicle', array( 'fields' => 'ids' ) );
+	if ( ! is_wp_error( $vehicle ) && $vehicle ) {
+		$args['tax_query'][] = array(
+			'taxonomy' => 'fyz_vehicle',
+			'field'    => 'term_id',
+			'terms'    => $vehicle,
+		);
+	} else {
+		$cats = wp_get_post_categories( $post_id );
+		if ( $cats ) {
+			$args['category__in'] = $cats;
+		}
+	}
+
+	$related = new WP_Query( $args );
+	if ( $related->have_posts() ) {
+		echo '<section class="fyz-related">';
+		echo '<h2 class="fyz-section-title">' . esc_html( $ru ? 'Похожие исследования' : 'Related Research' ) . '</h2>';
+		echo '<ul class="fyz-related__list">';
+		while ( $related->have_posts() ) {
+			$related->the_post();
+			$c = get_the_category();
+			$l = $c ? $c[0]->name : '';
+			echo '<li class="fyz-related__item"><a href="' . esc_url( get_permalink() ) . '">'
+				. '<span class="fyz-related__meta">' . esc_html( $l ) . ' · ' . esc_html( get_the_date() ) . '</span>'
+				. '<span class="fyz-related__title">' . esc_html( get_the_title() ) . '</span>'
+				. '</a></li>';
+		}
+		wp_reset_postdata();
+		echo '</ul></section>';
+	}
+
+	echo '<section class="fyz-research-cta">';
+	echo '<p class="fyz-research-cta__title">' . esc_html( $ru ? 'Нужно проверить деталь, модель или поставщика?' : 'Need to verify a part, model or supplier?' ) . '</p>';
+	echo '<p class="fyz-research-cta__copy">' . esc_html( $ru ? 'Пришлите номер детали, фото или документацию.' : 'Send the model number, photos or documentation.' ) . '</p>';
+	echo '<a href="' . esc_url( home_url( '/contact/' ) ) . '">' . esc_html( $ru ? 'Связаться' : 'Contact us' ) . '</a>';
+	echo '</section>';
+}
+add_action( 'neve_after_post_content', 'fyzsxnb_article_shell_after', 10 );
 

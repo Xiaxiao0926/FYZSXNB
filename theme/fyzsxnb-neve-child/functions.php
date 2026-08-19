@@ -295,11 +295,11 @@ function fyzsxnb_article_shell_meta() {
 	$ru = fyzsxnb_is_russian_view();
 
 	echo '<div class="fyz-article-top__meta">';
-	echo '<span class="fyz-meta">' . esc_html( $ru ? 'Опубликовано' : 'Published' ) . ': ' . esc_html( get_the_date() ) . '</span>';
+	echo '<span class="fyz-meta">' . esc_html( $ru ? 'Опубликовано' : 'Published' ) . ': ' . esc_html( fyzsxnb_local_date( get_the_time( 'U' ) ) ) . '</span>';
 
 	$modified = get_the_modified_date();
 	if ( $modified && $modified !== get_the_date() ) {
-		echo '<span class="fyz-meta">' . esc_html( $ru ? 'Обновлено' : 'Updated' ) . ': ' . esc_html( $modified ) . '</span>';
+		echo '<span class="fyz-meta">' . esc_html( $ru ? 'Обновлено' : 'Updated' ) . ': ' . esc_html( fyzsxnb_local_date( get_the_modified_time( 'U' ) ) ) . '</span>';
 	}
 
 	$types = wp_get_object_terms( get_the_ID(), 'fyz_research_type', array( 'fields' => 'names' ) );
@@ -369,7 +369,7 @@ function fyzsxnb_article_shell_after() {
 			$c = get_the_category();
 			$l = $c ? $c[0]->name : '';
 			echo '<li class="fyz-related__item"><a href="' . esc_url( get_permalink() ) . '">'
-				. '<span class="fyz-related__meta">' . esc_html( $l ) . ' · ' . esc_html( get_the_date() ) . '</span>'
+				. '<span class="fyz-related__meta">' . esc_html( $l ) . ' · ' . esc_html( fyzsxnb_local_date( get_the_time( 'U' ) ) ) . '</span>'
 				. '<span class="fyz-related__title">' . esc_html( get_the_title() ) . '</span>'
 				. '</a></li>';
 		}
@@ -384,4 +384,99 @@ function fyzsxnb_article_shell_after() {
 	echo '</section>';
 }
 add_action( 'neve_after_post_content', 'fyzsxnb_article_shell_after', 10 );
+
+
+/* -------------------------------------------------------------------------
+ * UI V2 0.3.4.1 — legacy cleanup (comments off, footer brand, RU dates,
+ * archive language isolation). No visual redesign.
+ * ---------------------------------------------------------------------- */
+
+/**
+ * 1) Templates layer: research articles render no comment form and no
+ * legacy comment strings. Historic comment rows are left in the DB.
+ */
+function fyzsxnb_comments_template_off( $file ) {
+	if ( is_singular( 'post' ) ) {
+		$off = get_stylesheet_directory() . '/comments-disabled.php';
+		if ( file_exists( $off ) ) {
+			return $off;
+		}
+	}
+	return $file;
+}
+add_filter( 'comments_template', 'fyzsxnb_comments_template_off' );
+
+function fyzsxnb_comments_open_off() {
+	if ( is_singular( 'post' ) ) {
+		return false;
+	}
+	return true;
+}
+add_filter( 'comments_open', 'fyzsxnb_comments_open_off' );
+
+/**
+ * 2) Footer credit -> FYZSXNB unified brand (no "Neve | Powered by WordPress").
+ * Overrides the theme_mod rendered by Neve's footer builder; no IA change.
+ */
+function fyzsxnb_footer_credit( $content ) {
+	$ru = function_exists( 'fyzsxnb_is_russian_view' ) && fyzsxnb_is_russian_view();
+	$year = gmdate( 'Y' );
+	unset( $content );
+	return '© ' . $year . ' FYZSXNB' . ( $ru ? ' — исследовательский деск' : ' — Research Desk' );
+}
+add_filter( 'theme_mod_footer_copyright_content', 'fyzsxnb_footer_credit' );
+
+/**
+ * 3) RU date locale via a central helper (locale formatting, no per-article
+ * hardcoding). EN keeps the site date format.
+ */
+function fyzsxnb_local_date( $ts ) {
+	if ( function_exists( 'fyzsxnb_is_russian_view' ) && fyzsxnb_is_russian_view() ) {
+		static $fmt = null;
+		static $tried = false;
+		if ( ! $tried ) {
+			$tried = true;
+			if ( class_exists( 'IntlDateFormatter' ) ) {
+				try {
+					$fmt = new IntlDateFormatter( 'ru_RU', IntlDateFormatter::LONG, IntlDateFormatter::NONE, wp_timezone() );
+				} catch ( Throwable $e ) {
+					$fmt = false;
+				}
+			}
+		}
+		if ( $fmt ) {
+			$s = $fmt->format( $ts );
+			if ( false !== $s ) {
+				return $s;
+			}
+		}
+		// Central fallback map (one helper, not per-article markup).
+		$months = array( 1 => 'января', 2 => 'февраля', 3 => 'марта', 4 => 'апреля', 5 => 'мая', 6 => 'июня', 7 => 'июля', 8 => 'августа', 9 => 'сентября', 10 => 'октября', 11 => 'ноября', 12 => 'декабря' );
+		$ts += ( wp_timezone()->getOffset( new DateTime( '@' . $ts ) ) );
+		$g = $ts;
+		return (string) gmdate( 'j', $g ) . ' ' . $months[ (int) gmdate( 'n', $g ) ] . ' ' . gmdate( 'Y', $g );
+	}
+	return wp_date( get_option( 'date_format' ), $ts );
+}
+
+/**
+ * 4) Archive main-query language isolation (theme/query layer; does NOT touch
+ * the homepage feeds plugin). EN archives exclude the Russian Library (54);
+ * RU archives include only 54. Feeds/admin untouched; fewer results show less.
+ */
+function fyzsxnb_archive_language_isolation( $query ) {
+	if ( is_admin() || is_feed() || ! $query->is_main_query() ) {
+		return;
+	}
+	if ( ! is_archive() ) {
+		return;
+	}
+	$ru = fyzsxnb_is_russian_view();
+	if ( $ru ) {
+		$query->set( 'category__in', array( FYZSXNB_CFC_CATEGORY_RU ) );
+	} else {
+		$query->set( 'category__not_in', array( FYZSXNB_CFC_CATEGORY_RU ) );
+	}
+}
+add_action( 'pre_get_posts', 'fyzsxnb_archive_language_isolation' );
 

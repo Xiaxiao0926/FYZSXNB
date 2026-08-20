@@ -13,8 +13,8 @@
         "warm": true,
         "tries": 1,
         "ru_cached_at": {
-          "signals": 1787190655,
-          "guides": 1787190655
+          "signals": 1787190826,
+          "guides": 1787190826
         },
         "http": 200,
         "note": "informational; LSCWP async purge may flush object cache"
@@ -235,7 +235,7 @@
     "C.publish_en": {
       "pass": true,
       "detail": {
-        "test_id": 565,
+        "test_id": 567,
         "test_slug": "fyz-0-3-6-cache-acceptance-test",
         "en_signals_head": [
           "fyz-0-3-6-cache-acceptance-test",

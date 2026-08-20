@@ -31,7 +31,7 @@ def entry(path, action, baseline=None):
     }
 
 
-final_dir = os.path.join(PKG, "final-v1.2.2")
+final_dir = os.path.join(PKG, "final-v1.2.4")
 os.makedirs(final_dir, exist_ok=True)
 final_path = os.path.join(final_dir, "fyzsxnb-home-dynamic-feeds.php")
 with open(CANONICAL, encoding="utf-8") as fh:
@@ -39,11 +39,15 @@ with open(CANONICAL, encoding="utf-8") as fh:
         out.write(fh.read())
 
 prod_sha = sha(PROD_COPY) if os.path.exists(PROD_COPY) else None
-# Stage 2/3 deployed artifacts are fixed hashes; local copies superseded.
+# Deployed artifacts pinned to their actual hashes.
 V120_SHA = "AE10E73365E66BFC4B3B5E0AF02656CAA11E4808096BB0EC3CCA8C9FD96E74E2"
 V120_BYTES = 16752
 V121_SHA = "ED9AC65D36A18BB7FEA6C5D9B0C30AE9F50668DE3E2EE078880093D136A45B4B"
 V121_BYTES = 17169
+V122_SHA = "BBDEB76B3041B614474269BBE662DBA8ACB5A1751ECD48236E39B3B023659257"
+V122_BYTES = 17698
+V123_SHA = "24397B43465FB8998CBF7EBFEB214D92235C0F5C59FC896E8D2453DD6EE9F604"
+V123_BYTES = 23902
 manifest = {
     "package": "fyzsxnb-ui2-036",
     "phase": "UI V2 0.3.6 — Feed Hardening (content data layer governance)",
@@ -70,7 +74,19 @@ manifest = {
             "stage": "4-final-1.2.2",
             "plugin_version": "1.2.2",
             "description": "QA REST routes marked no-cache (nocache_headers + Cache-Control: no-store + litespeed_control_set_nocache) and REST URLs added to the purge list — LiteSpeed had cached an authenticated feed-state 200 and served it anonymously. No decision-path changes.",
-            "files": [entry(final_path, "replace", V121_SHA)],
+            "files": [{"path": REMOTE, "action": "replace", "sha256": V122_SHA, "bytes": V122_BYTES, "baseline_sha256": V121_SHA}],
+        },
+        {
+            "stage": "5-final-1.2.3",
+            "plugin_version": "1.2.3",
+            "description": "0.3.6.1 Publication Metadata Contract: FYZSXNB Content Metadata admin meta box (Language en/ru, Content kind signal/guide), publish gate (missing fields -> demote to pending + admin notice), hint-only suggestions (never auto-decide), sanitize_kind accepts signal. Feed query/cache/trace untouched.",
+            "files": [{"path": REMOTE, "action": "replace", "sha256": V123_SHA, "bytes": V123_BYTES, "baseline_sha256": V122_SHA}],
+        },
+        {
+            "stage": "6-final-1.2.4",
+            "plugin_version": "1.2.4",
+            "description": "Publication gate timing fix: REST create/update is enforced on rest_after_insert_post (meta is written by the REST controller AFTER wp_insert_post, so save_post cannot see it); admin path unchanged (meta box saves at priority 10, gate at 30). Prevents false demotions of REST-created posts.",
+            "files": [entry(final_path, "replace", V123_SHA)],
         },
     ],
     "created_at": datetime.now(timezone.utc).isoformat(),

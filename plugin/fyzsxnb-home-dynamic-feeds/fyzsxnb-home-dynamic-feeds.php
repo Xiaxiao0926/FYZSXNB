@@ -4,8 +4,8 @@
  * Description: Language-explicit, type-explicit homepage feeds (signals/guides)
  *              with locale+type+query-version keyed cache, precise invalidation,
  *              a QA decision trace and QA-only REST endpoints.
- *              UI V2 0.3.6 Feed Hardening — v1.2.2 (explicit-only; class-API purge; QA routes no-cache).
- * Version: 1.2.2
+ *              UI V2 0.3.6.1 — v1.2.4 (publication gate: REST enforced after meta settles; admin save_post path).
+ * Version: 1.2.4
  * Author: FYZSXNB Engineering
  */
 
@@ -93,7 +93,8 @@ function fyzsxnb_feed_sanitize_language( $value ) {
 }
 
 function fyzsxnb_feed_sanitize_kind( $value ) {
-	return 'guide' === strtolower( trim( (string) $value ) ) ? 'guide' : '';
+	$v = strtolower( trim( (string) $value ) );
+	return in_array( $v, array( 'signal', 'guide' ), true ) ? $v : '';
 }
 
 /* ---------------------------------------------------------------------------
@@ -488,3 +489,165 @@ add_action(
 		);
 	}
 );
+
+/* ---------------------------------------------------------------------------
+ * 0.3.6.1 Publication Metadata Contract
+ *
+ * Every NEW post entering the publication flow must have its locale and content
+ * kind explicitly persisted — no inference from category/slug/title/URL/body.
+ *   _fyz_content_language : 'en' | 'ru'        (draft/pending may be empty)
+ *   _fyz_content_kind     : 'signal' | 'guide' (draft/pending may be empty)
+ * Publishing WITHOUT both fields is blocked: the post is demoted to pending
+ * and an admin notice explains why. Hint text may suggest (e.g. "post is in
+ * the Russian Library") but NEVER auto-decides. Feed query/cache/trace logic
+ * from 0.3.6 is intentionally untouched.
+ * ------------------------------------------------------------------------- */
+
+function fyzsxnb_pubmeta_add_meta_box() {
+	add_meta_box( 'fyzsxnb-content-metadata', 'FYZSXNB Content Metadata', 'fyzsxnb_pubmeta_render_meta_box', 'post', 'side', 'high' );
+}
+add_action( 'add_meta_boxes', 'fyzsxnb_pubmeta_add_meta_box' );
+
+function fyzsxnb_pubmeta_render_meta_box( $post ) {
+	wp_nonce_field( 'fyzsxnb_pubmeta_save', 'fyzsxnb_pubmeta_nonce' );
+	$lang = strtolower( trim( (string) get_post_meta( $post->ID, '_fyz_content_language', true ) ) );
+	$kind = strtolower( trim( (string) get_post_meta( $post->ID, '_fyz_content_kind', true ) ) );
+	if ( in_array( $lang, array( 'en', 'en-us', 'en-gb' ), true ) ) {
+		$lang = 'en';
+	} elseif ( in_array( $lang, array( 'ru', 'ru-ru' ), true ) ) {
+		$lang = 'ru';
+	}
+	if ( ! in_array( $kind, array( 'signal', 'guide' ), true ) ) {
+		$kind = '';
+	}
+	echo '<p><strong>Language</strong></p>';
+	echo '<label><input type="radio" name="fyzsxnb_content_language" value="en"' . checked( $lang, 'en', false ) . '> English</label><br>';
+	echo '<label><input type="radio" name="fyzsxnb_content_language" value="ru"' . checked( $lang, 'ru', false ) . '> Russian</label>';
+	echo '<p><strong>Content kind</strong></p>';
+	echo '<label><input type="radio" name="fyzsxnb_content_kind" value="signal"' . checked( $kind, 'signal', false ) . '> Signal</label><br>';
+	echo '<label><input type="radio" name="fyzsxnb_content_kind" value="guide"' . checked( $kind, 'guide', false ) . '> Guide</label>';
+	echo '<p class="description">Required for homepage feed eligibility. Drafts may leave these empty; publishing requires both.</p>';
+	// Hints only — never auto-decide (0.3.6 removed heuristics on purpose).
+	if ( '' === $lang && has_category( FYZSXNB_FEED_RU_LIBRARY_CAT, $post->ID ) ) {
+		echo '<p class="description" style="color:#b26b00">Hint: this post is in the Russian Library category, but Content language is not set.</p>';
+	}
+	if ( '' === $lang && preg_match( '/[\x{0400}-\x{04FF}]/u', (string) get_the_title( $post->ID ) ) ) {
+		echo '<p class="description" style="color:#b26b00">Hint: the title contains Cyrillic text, but Content language is not set.</p>';
+	}
+	$missing = get_post_meta( $post->ID, '_fyz_pubmeta_blocks', true );
+	if ( $missing ) {
+		$list = is_array( $missing ) ? implode( ', ', $missing ) : (string) $missing;
+		echo '<p class="description" style="color:#b32d2e">Blocked from publishing: missing ' . esc_html( $list ) . ' — set them and publish again.</p>';
+	}
+}
+
+function fyzsxnb_pubmeta_save( $post_id ) {
+	if ( wp_is_post_revision( $post_id ) || 'post' !== get_post_type( $post_id ) ) {
+		return;
+	}
+	if ( ! isset( $_POST['fyzsxnb_pubmeta_nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['fyzsxnb_pubmeta_nonce'] ), 'fyzsxnb_pubmeta_save' ) ) {
+		return; // quick edit / bulk edit / REST: never touch meta
+	}
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+	if ( isset( $_POST['fyzsxnb_content_language'] ) ) {
+		$lang = fyzsxnb_feed_sanitize_language( wp_unslash( $_POST['fyzsxnb_content_language'] ) );
+		if ( '' !== $lang ) {
+			update_post_meta( $post_id, '_fyz_content_language', $lang );
+		}
+	}
+	if ( isset( $_POST['fyzsxnb_content_kind'] ) ) {
+		$kind = fyzsxnb_feed_sanitize_kind( wp_unslash( $_POST['fyzsxnb_content_kind'] ) );
+		if ( '' !== $kind ) {
+			update_post_meta( $post_id, '_fyz_content_kind', $kind );
+		}
+	}
+	delete_post_meta( $post_id, '_fyz_pubmeta_blocks' );
+}
+add_action( 'save_post_post', 'fyzsxnb_pubmeta_save', 10, 1 );
+
+/** Block publishing without explicit metadata: demote to pending + notify.
+ *  Admin path: runs on save_post AFTER the meta box saved the fields (10).
+ *  REST path: skipped here (meta is written by the REST controller AFTER
+ *  wp_insert_post, so save_post cannot see it yet); enforced on
+ *  rest_after_insert_post instead, where meta is settled. */
+function fyzsxnb_pubmeta_enforce( $post_id ) {
+	if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+		return; // REST create/update: meta is written after save_post
+	}
+	if ( 'post' !== get_post_type( $post_id ) || wp_is_post_revision( $post_id ) ) {
+		return;
+	}
+	if ( 'publish' !== get_post_status( $post_id ) ) {
+		return; // draft / pending may stay empty
+	}
+	$missing = fyzsxnb_pubmeta_missing_fields( $post_id );
+	if ( ! $missing ) {
+		return;
+	}
+	fyzsxnb_pubmeta_demote( $post_id, $missing );
+}
+add_action( 'save_post_post', 'fyzsxnb_pubmeta_enforce', 30, 1 );
+
+/** REST path enforcement — runs after the controller wrote request meta. */
+function fyzsxnb_pubmeta_enforce_rest( $post, $request, $creating ) {
+	if ( ! $post || 'post' !== get_post_type( $post->ID ) ) {
+		return;
+	}
+	if ( 'publish' !== get_post_status( $post->ID ) ) {
+		return;
+	}
+	$missing = fyzsxnb_pubmeta_missing_fields( $post->ID );
+	if ( ! $missing ) {
+		return;
+	}
+	fyzsxnb_pubmeta_demote( $post->ID, $missing );
+}
+add_action( 'rest_after_insert_post', 'fyzsxnb_pubmeta_enforce_rest', 10, 3 );
+
+function fyzsxnb_pubmeta_missing_fields( $post_id ) {
+	$lang = strtolower( trim( (string) get_post_meta( $post_id, '_fyz_content_language', true ) ) );
+	$kind = strtolower( trim( (string) get_post_meta( $post_id, '_fyz_content_kind', true ) ) );
+	$missing = array();
+	if ( ! in_array( $lang, array( 'en', 'ru' ), true ) ) {
+		$missing[] = 'language';
+	}
+	if ( ! in_array( $kind, array( 'signal', 'guide' ), true ) ) {
+		$missing[] = 'kind';
+	}
+	return $missing;
+}
+
+function fyzsxnb_pubmeta_demote( $post_id, $missing ) {
+	// Demote to pending (safe: no half-published state) and record the reason.
+	wp_update_post(
+		array(
+			'ID'          => $post_id,
+			'post_status' => 'pending',
+		)
+	);
+	update_post_meta( $post_id, '_fyz_pubmeta_blocks', $missing );
+	set_transient( 'fyzsxnb_pubmeta_notice_' . $post_id, $missing, 5 * MINUTE_IN_SECONDS );
+}
+
+function fyzsxnb_pubmeta_admin_notices() {
+	$screen = get_current_screen();
+	if ( ! $screen || 'post' !== $screen->post_type ) {
+		return;
+	}
+	$post_id = isset( $_GET['post'] ) ? absint( $_GET['post'] ) : 0;
+	if ( ! $post_id ) {
+		return;
+	}
+	$missing = get_transient( 'fyzsxnb_pubmeta_notice_' . $post_id );
+	if ( ! $missing ) {
+		return;
+	}
+	$list = is_array( $missing ) ? implode( ', ', $missing ) : (string) $missing;
+	echo '<div class="notice notice-warning"><p>' . esc_html(
+		'FYZSXNB Content Metadata: ' . $list . ' is required to publish. The post was kept as Pending. Set Content language and Content kind, then publish again.'
+	) . '</p></div>';
+	delete_transient( 'fyzsxnb_pubmeta_notice_' . $post_id );
+}
+add_action( 'admin_notices', 'fyzsxnb_pubmeta_admin_notices' );

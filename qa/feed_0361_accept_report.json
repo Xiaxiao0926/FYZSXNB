@@ -1,0 +1,314 @@
+{
+  "step": "0.3.6.1 Publication Metadata Contract acceptance",
+  "results": {
+    "P.feed_parity_unchanged": {
+      "pass": true,
+      "detail": {
+        "en-US.signals": {
+          "slugs_head": [
+            "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+            "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+            "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+            "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+          ],
+          "expected": [
+            "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+            "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+            "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+            "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+          ]
+        },
+        "en-US.guides": {
+          "slugs_head": [
+            "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+            "fda-gudid-accessgudid-procurement-verification-guide",
+            "fda-establishment-registration-device-listing-verification",
+            "fda-foreign-drug-establishment-registration-guide",
+            "fda-labeler-code-foreign-company-checklist",
+            "fda-global-generic-drug-affairs-overseas-teams-guide"
+          ],
+          "expected": [
+            "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+            "fda-gudid-accessgudid-procurement-verification-guide",
+            "fda-establishment-registration-device-listing-verification",
+            "fda-foreign-drug-establishment-registration-guide",
+            "fda-labeler-code-foreign-company-checklist",
+            "fda-global-generic-drug-affairs-overseas-teams-guide"
+          ]
+        },
+        "ru-RU.signals": {
+          "slugs_head": [
+            "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+            "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+            "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+            "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+          ],
+          "expected": [
+            "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+            "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+            "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+            "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+          ]
+        },
+        "ru-RU.guides": {
+          "slugs_head": [
+            "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+            "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+            "bambu-lab-china-russia-pre-purchase-check",
+            "check-chinese-ivd-russia-registration-registry",
+            "starter-carburetor-chinese-brushcutter-43-52cc",
+            "ru-ifind-tbr-evidence-russia-laboratory-guide"
+          ],
+          "expected": [
+            "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+            "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+            "bambu-lab-china-russia-pre-purchase-check",
+            "check-chinese-ivd-russia-registration-registry",
+            "starter-carburetor-chinese-brushcutter-43-52cc",
+            "ru-ifind-tbr-evidence-russia-laboratory-guide"
+          ]
+        }
+      }
+    },
+    "A.en_signal_publish": {
+      "pass": true,
+      "detail": {
+        "id": 628,
+        "status": "publish",
+        "meta": {
+          "_monsterinsights_skip_tracking": false,
+          "_uf_show_specific_survey": 0,
+          "_uf_disable_surveys": false,
+          "neve_meta_sidebar": "",
+          "neve_meta_container": "",
+          "neve_meta_enable_content_width": "",
+          "neve_meta_content_width": 0,
+          "neve_meta_title_alignment": "",
+          "neve_meta_author_avatar": "",
+          "neve_post_elements_order": "",
+          "neve_meta_disable_header": "",
+          "neve_meta_disable_footer": "",
+          "neve_meta_disable_title": "",
+          "_fyz_content_language": "en",
+          "_fyz_content_kind": "signal",
+          "footnotes": ""
+        },
+        "in_en_signals": true,
+        "in_ru": false,
+        "ru_unchanged": true
+      }
+    },
+    "B.ru_guide_publish": {
+      "pass": true,
+      "detail": {
+        "id": 629,
+        "status": "publish",
+        "meta": {
+          "_monsterinsights_skip_tracking": false,
+          "_uf_show_specific_survey": 0,
+          "_uf_disable_surveys": false,
+          "neve_meta_sidebar": "",
+          "neve_meta_container": "",
+          "neve_meta_enable_content_width": "",
+          "neve_meta_content_width": 0,
+          "neve_meta_title_alignment": "",
+          "neve_meta_author_avatar": "",
+          "neve_post_elements_order": "",
+          "neve_meta_disable_header": "",
+          "neve_meta_disable_footer": "",
+          "neve_meta_disable_title": "",
+          "_fyz_content_language": "ru",
+          "_fyz_content_kind": "guide",
+          "footnotes": ""
+        },
+        "in_ru_guides_candidates": true,
+        "in_en": false,
+        "en_before_b": {
+          "signals": [
+            628,
+            513,
+            511,
+            509
+          ],
+          "guides": [
+            490,
+            487,
+            480,
+            466,
+            465,
+            463
+          ]
+        },
+        "en_after_b": {
+          "signals": [
+            628,
+            513,
+            511,
+            509
+          ],
+          "guides": [
+            490,
+            487,
+            480,
+            466,
+            465,
+            463
+          ]
+        }
+      }
+    },
+    "C.missing_language_blocked": {
+      "pass": true,
+      "detail": {
+        "id": 630,
+        "final_status": "pending",
+        "meta": {
+          "_monsterinsights_skip_tracking": false,
+          "_uf_show_specific_survey": 0,
+          "_uf_disable_surveys": false,
+          "neve_meta_sidebar": "",
+          "neve_meta_container": "",
+          "neve_meta_enable_content_width": "",
+          "neve_meta_content_width": 0,
+          "neve_meta_title_alignment": "",
+          "neve_meta_author_avatar": "",
+          "neve_post_elements_order": "",
+          "neve_meta_disable_header": "",
+          "neve_meta_disable_footer": "",
+          "neve_meta_disable_title": "",
+          "_fyz_content_language": "",
+          "_fyz_content_kind": "signal",
+          "footnotes": ""
+        },
+        "leaked_into_feed": false
+      }
+    },
+    "D.missing_kind_blocked": {
+      "pass": true,
+      "detail": {
+        "id": 632,
+        "final_status": "pending",
+        "meta": {
+          "_monsterinsights_skip_tracking": false,
+          "_uf_show_specific_survey": 0,
+          "_uf_disable_surveys": false,
+          "neve_meta_sidebar": "",
+          "neve_meta_container": "",
+          "neve_meta_enable_content_width": "",
+          "neve_meta_content_width": 0,
+          "neve_meta_title_alignment": "",
+          "neve_meta_author_avatar": "",
+          "neve_post_elements_order": "",
+          "neve_meta_disable_header": "",
+          "neve_meta_disable_footer": "",
+          "neve_meta_disable_title": "",
+          "_fyz_content_language": "en",
+          "_fyz_content_kind": "",
+          "footnotes": ""
+        },
+        "leaked_into_feed": false
+      }
+    },
+    "E.draft_meta_roundtrip": {
+      "pass": true,
+      "detail": {
+        "id": 634,
+        "status": "draft",
+        "meta": {
+          "_monsterinsights_skip_tracking": false,
+          "_uf_show_specific_survey": 0,
+          "_uf_disable_surveys": false,
+          "neve_meta_sidebar": "",
+          "neve_meta_container": "",
+          "neve_meta_enable_content_width": "",
+          "neve_meta_content_width": 0,
+          "neve_meta_title_alignment": "",
+          "neve_meta_author_avatar": "",
+          "neve_post_elements_order": "",
+          "neve_meta_disable_header": "",
+          "neve_meta_disable_footer": "",
+          "neve_meta_disable_title": "",
+          "_fyz_content_language": "en",
+          "_fyz_content_kind": "guide",
+          "footnotes": ""
+        }
+      }
+    },
+    "F1.edit_preserves_meta": {
+      "pass": true,
+      "detail": {
+        "id": 635,
+        "after_plain_edit": {
+          "_monsterinsights_skip_tracking": false,
+          "_uf_show_specific_survey": 0,
+          "_uf_disable_surveys": false,
+          "neve_meta_sidebar": "",
+          "neve_meta_container": "",
+          "neve_meta_enable_content_width": "",
+          "neve_meta_content_width": 0,
+          "neve_meta_title_alignment": "",
+          "neve_meta_author_avatar": "",
+          "neve_post_elements_order": "",
+          "neve_meta_disable_header": "",
+          "neve_meta_disable_footer": "",
+          "neve_meta_disable_title": "",
+          "_fyz_content_language": "en",
+          "_fyz_content_kind": "signal",
+          "footnotes": ""
+        },
+        "after_meta_edit": {
+          "_monsterinsights_skip_tracking": false,
+          "_uf_show_specific_survey": 0,
+          "_uf_disable_surveys": false,
+          "neve_meta_sidebar": "",
+          "neve_meta_container": "",
+          "neve_meta_enable_content_width": "",
+          "neve_meta_content_width": 0,
+          "neve_meta_title_alignment": "",
+          "neve_meta_author_avatar": "",
+          "neve_post_elements_order": "",
+          "neve_meta_disable_header": "",
+          "neve_meta_disable_footer": "",
+          "neve_meta_disable_title": "",
+          "_fyz_content_language": "en",
+          "_fyz_content_kind": "signal",
+          "footnotes": ""
+        }
+      }
+    },
+    "F2.existing_meta_complete": {
+      "pass": true,
+      "detail": {
+        "id": 513,
+        "status": "publish",
+        "meta": {
+          "_monsterinsights_skip_tracking": false,
+          "_uf_show_specific_survey": 0,
+          "_uf_disable_surveys": false,
+          "neve_meta_sidebar": "",
+          "neve_meta_container": "",
+          "neve_meta_enable_content_width": "",
+          "neve_meta_content_width": 0,
+          "neve_meta_title_alignment": "",
+          "neve_meta_author_avatar": "",
+          "neve_post_elements_order": "",
+          "neve_meta_disable_header": "",
+          "neve_meta_disable_footer": "",
+          "neve_meta_disable_title": "",
+          "_fyz_content_language": "en",
+          "_fyz_content_kind": "signal",
+          "footnotes": ""
+        }
+      }
+    }
+  },
+  "passed": true,
+  "cleanup_deleted": [
+    628,
+    629,
+    630,
+    632,
+    634,
+    635
+  ]
+}

@@ -4,8 +4,8 @@
  * Description: Language-explicit, type-explicit homepage feeds (signals/guides)
  *              with locale+type+query-version keyed cache, precise invalidation,
  *              a QA decision trace and QA-only REST endpoints.
- *              UI V2 0.3.6 Feed Hardening — v1.2.0 (explicit-only decision path).
- * Version: 1.2.0
+ *              UI V2 0.3.6 Feed Hardening — v1.2.2 (explicit-only; class-API purge; QA routes no-cache).
+ * Version: 1.2.2
  * Author: FYZSXNB Engineering
  */
 
@@ -272,7 +272,11 @@ function fyzsxnb_feed_invalidate( $locales, $types = array( 'signals', 'guides' 
 }
 
 function fyzsxnb_feed_purge_pages() {
-	foreach ( array( home_url( '/' ), home_url( '/ru/' ) ) as $url ) {
+	$urls = array( home_url( '/' ), home_url( '/ru/' ) );
+	foreach ( array( 'fyzsxnb/v1/feed-state', 'fyzsxnb/v1/feed-trace', 'fyzsxnb/v1/feed-cache' ) as $rest_path ) {
+		$urls[] = rest_url( $rest_path );
+	}
+	foreach ( $urls as $url ) {
 		do_action( 'litespeed_purge_url', $url );
 		if ( function_exists( 'rocket_clean_files' ) ) {
 			rocket_clean_files( array( $url ) );
@@ -281,6 +285,24 @@ function fyzsxnb_feed_purge_pages() {
 			w3tc_flush_url( $url );
 		}
 	}
+	// Class-based URL purge — more reliable on LiteSpeed builds where the
+	// action-only path is not wired (observed on Hostinger + LSCWP 7.9).
+	if ( class_exists( '\LiteSpeed\Purge' ) && method_exists( '\LiteSpeed\Purge', 'purge_url' ) ) {
+		try {
+			\LiteSpeed\Purge::purge_url( $urls );
+		} catch ( \Throwable $e ) {
+			// Purge must never break the request.
+		}
+	}
+}
+
+/** QA responses must never be cached (LiteSpeed cached an authed 200 once). */
+function fyzsxnb_feed_qa_nocache() {
+	nocache_headers();
+	if ( ! headers_sent() ) {
+		header( 'Cache-Control: no-cache, no-store, must-revalidate' );
+	}
+	do_action( 'litespeed_control_set_nocache', 'fyzsxnb-feed-qa' );
 }
 
 function fyzsxnb_feed_invalidate_for_post( $post_id ) {
@@ -372,6 +394,7 @@ function fyzsxnb_feed_decision_trace( $post_ids ) {
 }
 
 function fyzsxnb_feed_rest_state( WP_REST_Request $request ) {
+	fyzsxnb_feed_qa_nocache();
 	$state   = array();
 	$exclude = array_map( 'absint', explode( ',', (string) $request->get_param( 'exclude' ) ) );
 	$limit   = (int) $request->get_param( 'limit' ); // 0 = report full candidate set
@@ -403,11 +426,13 @@ function fyzsxnb_feed_rest_state( WP_REST_Request $request ) {
 }
 
 function fyzsxnb_feed_rest_trace( WP_REST_Request $request ) {
+	fyzsxnb_feed_qa_nocache();
 	$ids = array_filter( array_map( 'absint', explode( ',', (string) $request->get_param( 'ids' ) ) ) );
 	return rest_ensure_response( fyzsxnb_feed_decision_trace( $ids ) );
 }
 
 function fyzsxnb_feed_rest_cache_delete() {
+	fyzsxnb_feed_qa_nocache();
 	$keys = array();
 	foreach ( array( 'en-US', 'ru-RU' ) as $locale ) {
 		foreach ( array( 'signals', 'guides' ) as $type ) {

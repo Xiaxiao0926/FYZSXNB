@@ -1,0 +1,57 @@
+{
+  "home-en-1440": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "failed": [],
+    "asset404": [],
+    "overflow": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false
+    }
+  },
+  "home-en-390": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "failed": [],
+    "asset404": [],
+    "overflow": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    }
+  },
+  "home-ru-1440": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "failed": [],
+    "asset404": [],
+    "overflow": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false
+    }
+  },
+  "home-ru-390": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "failed": [],
+    "asset404": [],
+    "overflow": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    }
+  },
+  "article-en-1440": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "failed": [],
+    "asset404": [],
+    "overflow": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false
+    }
+  }
+}

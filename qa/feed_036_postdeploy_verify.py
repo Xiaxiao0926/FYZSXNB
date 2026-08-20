@@ -25,12 +25,12 @@ CARD_RE = {
 }
 
 
-def get(url, ua="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36", auth=None):
+def get(url, ua="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36", auth=None, method="GET"):
     h = {"User-Agent": ua, "Accept": "text/html"}
     if auth:
         h["Authorization"] = "Basic " + base64.b64encode(auth.encode()).decode()
     try:
-        with urlopen(Request(url, headers=h), timeout=45) as r:
+        with urlopen(Request(url, headers=h, method=method), timeout=45) as r:
             return r.status, r.read().decode("utf-8", "replace")
     except HTTPError as e:
         return e.code, e.read().decode("utf-8", "replace")[:400]
@@ -67,9 +67,9 @@ def main():
         check(f"{key}.lang", lang_ok, {"lang_found": lang_ok})
 
     # QA endpoints must be auth-gated (401/403 without credentials)
-    for ep in ("/feed-state", "/feed-trace?ids=1", "/feed-cache"):
-        st, _ = get(SITE + "/wp-json/fyzsxnb/v1" + ep, ua="fyz-036-verify/0.1")
-        check("qa_gated." + ep.replace("/", "_"), st in (401, 403), {"http": st})
+    for ep, method in (("/feed-state", "GET"), ("/feed-trace?ids=1", "GET"), ("/feed-cache", "DELETE")):
+        st, _ = get(SITE + "/wp-json/fyzsxnb/v1" + ep, ua="fyz-036-verify/0.1", method=method)
+        check("qa_gated." + ep.replace("/", "_").replace("?", "_"), st in (401, 403), {"http": st})
 
     report["passed"] = all(v["pass"] for v in report["checks"].values())
     with open(os.path.join(HERE, "feed_036_postdeploy_verify_report.json"), "w", encoding="utf-8") as fh:

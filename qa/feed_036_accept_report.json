@@ -1,0 +1,315 @@
+{
+  "step": "0.3.6 acceptance A-F",
+  "results": {
+    "pre.purge": {
+      "pass": true,
+      "detail": {
+        "http": 200
+      }
+    },
+    "pre.ru_cache_warm": {
+      "pass": true,
+      "detail": {
+        "warm": true,
+        "tries": 1,
+        "ru_cached_at": {
+          "signals": 1787190655,
+          "guides": 1787190655
+        },
+        "http": 200,
+        "note": "informational; LSCWP async purge may flush object cache"
+      }
+    },
+    "A.normal_feeds": {
+      "pass": true,
+      "detail": {
+        "en-US.signals": {
+          "slugs": [
+            "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+            "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+            "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+            "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+          ],
+          "expected": [
+            "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+            "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+            "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+            "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+          ]
+        },
+        "en-US.guides": {
+          "slugs": [
+            "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+            "fda-gudid-accessgudid-procurement-verification-guide",
+            "fda-establishment-registration-device-listing-verification",
+            "fda-foreign-drug-establishment-registration-guide",
+            "fda-labeler-code-foreign-company-checklist",
+            "fda-global-generic-drug-affairs-overseas-teams-guide"
+          ],
+          "expected": [
+            "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+            "fda-gudid-accessgudid-procurement-verification-guide",
+            "fda-establishment-registration-device-listing-verification",
+            "fda-foreign-drug-establishment-registration-guide",
+            "fda-labeler-code-foreign-company-checklist",
+            "fda-global-generic-drug-affairs-overseas-teams-guide"
+          ]
+        },
+        "ru-RU.signals": {
+          "slugs": [
+            "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+            "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+            "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+            "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+          ],
+          "expected": [
+            "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+            "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+            "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+            "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+          ]
+        },
+        "ru-RU.guides": {
+          "slugs": [
+            "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+            "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+            "bambu-lab-china-russia-pre-purchase-check",
+            "check-chinese-ivd-russia-registration-registry",
+            "starter-carburetor-chinese-brushcutter-43-52cc",
+            "ru-ifind-tbr-evidence-russia-laboratory-guide"
+          ],
+          "expected": [
+            "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+            "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+            "bambu-lab-china-russia-pre-purchase-check",
+            "check-chinese-ivd-russia-registration-registry",
+            "starter-carburetor-chinese-brushcutter-43-52cc",
+            "ru-ifind-tbr-evidence-russia-laboratory-guide"
+          ]
+        }
+      }
+    },
+    "B.shortage_shrink": {
+      "pass": true,
+      "detail": {
+        "en-US.signals": {
+          "candidates": 44,
+          "excluded": 41,
+          "got": 3,
+          "in_locale": true
+        },
+        "en-US.guides": {
+          "candidates": 21,
+          "excluded": 18,
+          "got": 3,
+          "in_locale": true
+        },
+        "ru-RU.signals": {
+          "candidates": 25,
+          "excluded": 22,
+          "got": 3,
+          "in_locale": true
+        },
+        "ru-RU.guides": {
+          "candidates": 12,
+          "excluded": 9,
+          "got": 3,
+          "in_locale": true
+        }
+      }
+    },
+    "F.unknown_locale_off": {
+      "pass": true,
+      "detail": {
+        "unknown_ids": [
+          479,
+          470,
+          444,
+          435,
+          424,
+          411,
+          394,
+          388,
+          358,
+          355,
+          347,
+          213,
+          209
+        ],
+        "trace": [
+          {
+            "post_id": 479,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          },
+          {
+            "post_id": 470,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          },
+          {
+            "post_id": 444,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          },
+          {
+            "post_id": 435,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          },
+          {
+            "post_id": 424,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          },
+          {
+            "post_id": 411,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          },
+          {
+            "post_id": 394,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          },
+          {
+            "post_id": 388,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          },
+          {
+            "post_id": 358,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          },
+          {
+            "post_id": 355,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          },
+          {
+            "post_id": 347,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          },
+          {
+            "post_id": 213,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          },
+          {
+            "post_id": 209,
+            "locale": "",
+            "feed_type": [],
+            "eligible": false,
+            "reason": "locale_unknown"
+          }
+        ],
+        "leaked_into_feeds": []
+      }
+    },
+    "C.publish_en": {
+      "pass": true,
+      "detail": {
+        "test_id": 565,
+        "test_slug": "fyz-0-3-6-cache-acceptance-test",
+        "en_signals_head": [
+          "fyz-0-3-6-cache-acceptance-test",
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "ru_signals_head": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii",
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint"
+        ],
+        "en_signals_cached_after_publish": false,
+        "ru_content_unchanged": true,
+        "en_home_has": true,
+        "ru_home_has": false
+      }
+    },
+    "D.retype_to_guide": {
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "en_guides_head": [
+          "fyz-0-3-6-cache-acceptance-test",
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide"
+        ],
+        "en_signals_contains_once": 1,
+        "ru_guides_contains": false
+      }
+    },
+    "E.delete_no_resurrection": {
+      "pass": true,
+      "detail": {
+        "delete_http": 200,
+        "in_en_after": false,
+        "in_en_after_refill": false,
+        "in_ru_after": false,
+        "on_en_home": false
+      }
+    },
+    "X.decision_trace": {
+      "pass": true,
+      "detail": {
+        "guide_sample": [
+          {
+            "post_id": 490,
+            "locale": "en-US",
+            "feed_type": [
+              "signals",
+              "guides"
+            ],
+            "eligible": true,
+            "reason": "explicit_locale+kind_guide"
+          }
+        ],
+        "signal_sample": [
+          {
+            "post_id": 513,
+            "locale": "en-US",
+            "feed_type": [
+              "signals"
+            ],
+            "eligible": true,
+            "reason": "explicit_locale"
+          }
+        ]
+      }
+    }
+  },
+  "passed": true
+}

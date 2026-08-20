@@ -1,0 +1,128 @@
+{
+  "step": "0.3.6 post-deploy public verification",
+  "checks": {
+    "en.page": {
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "h1_count": 1,
+        "canonical": [
+          "https://fyzsxnb.com/"
+        ],
+        "hreflang": [
+          "en",
+          "ru",
+          "x-default"
+        ],
+        "fatal_marker": false,
+        "legacy_wphtml": false,
+        "footer": true,
+        "signals": [
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "signals_expected": [
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "guides": [
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide",
+          "fda-labeler-code-foreign-company-checklist",
+          "fda-global-generic-drug-affairs-overseas-teams-guide"
+        ],
+        "guides_expected": [
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide",
+          "fda-labeler-code-foreign-company-checklist",
+          "fda-global-generic-drug-affairs-overseas-teams-guide"
+        ]
+      }
+    },
+    "en.lang": {
+      "pass": true,
+      "detail": {
+        "lang_found": true
+      }
+    },
+    "ru.page": {
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "h1_count": 1,
+        "canonical": [
+          "https://fyzsxnb.com/ru/"
+        ],
+        "hreflang": [
+          "en",
+          "ru",
+          "x-default"
+        ],
+        "fatal_marker": false,
+        "legacy_wphtml": false,
+        "footer": true,
+        "signals": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+        ],
+        "signals_expected": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+        ],
+        "guides": [
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+          "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+          "bambu-lab-china-russia-pre-purchase-check",
+          "check-chinese-ivd-russia-registration-registry",
+          "starter-carburetor-chinese-brushcutter-43-52cc",
+          "ru-ifind-tbr-evidence-russia-laboratory-guide"
+        ],
+        "guides_expected": [
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+          "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+          "bambu-lab-china-russia-pre-purchase-check",
+          "check-chinese-ivd-russia-registration-registry",
+          "starter-carburetor-chinese-brushcutter-43-52cc",
+          "ru-ifind-tbr-evidence-russia-laboratory-guide"
+        ]
+      }
+    },
+    "ru.lang": {
+      "pass": true,
+      "detail": {
+        "lang_found": true
+      }
+    },
+    "qa_gated._feed-state": {
+      "pass": true,
+      "detail": {
+        "http": 401
+      }
+    },
+    "qa_gated._feed-trace_ids=1": {
+      "pass": true,
+      "detail": {
+        "http": 401
+      }
+    },
+    "qa_gated._feed-cache": {
+      "pass": true,
+      "detail": {
+        "http": 401
+      }
+    }
+  },
+  "passed": true
+}

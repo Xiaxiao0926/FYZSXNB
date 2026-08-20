@@ -13,7 +13,8 @@ DST = os.path.join(DST_DIR, "fyzsxnb-home-dynamic-feeds.php")
 src = open(SRC, encoding="utf-8").read()
 
 # 1) version header
-src = src.replace("Version: 1.2.0", "Version: 1.1.0")
+assert "Version: 1.2.2" in src, "expected canonical v1.2.2 source"
+src = src.replace("Version: 1.2.2", "Version: 1.1.0")
 src = src.replace(
     "UI V2 0.3.6 Feed Hardening — v1.2.0 (explicit-only decision path).",
     "UI V2 0.3.6 Feed Hardening — v1.1.0 (INTERIM: explicit meta with legacy fallback until backfill).",

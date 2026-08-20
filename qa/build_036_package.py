@@ -31,7 +31,7 @@ def entry(path, action, baseline=None):
     }
 
 
-final_dir = os.path.join(PKG, "final")
+final_dir = os.path.join(PKG, "final-v1.2.2")
 os.makedirs(final_dir, exist_ok=True)
 final_path = os.path.join(final_dir, "fyzsxnb-home-dynamic-feeds.php")
 with open(CANONICAL, encoding="utf-8") as fh:
@@ -39,6 +39,11 @@ with open(CANONICAL, encoding="utf-8") as fh:
         out.write(fh.read())
 
 prod_sha = sha(PROD_COPY) if os.path.exists(PROD_COPY) else None
+# Stage 2/3 deployed artifacts are fixed hashes; local copies superseded.
+V120_SHA = "AE10E73365E66BFC4B3B5E0AF02656CAA11E4808096BB0EC3CCA8C9FD96E74E2"
+V120_BYTES = 16752
+V121_SHA = "ED9AC65D36A18BB7FEA6C5D9B0C30AE9F50668DE3E2EE078880093D136A45B4B"
+V121_BYTES = 17169
 manifest = {
     "package": "fyzsxnb-ui2-036",
     "phase": "UI V2 0.3.6 — Feed Hardening (content data layer governance)",
@@ -53,7 +58,19 @@ manifest = {
             "stage": "2-final",
             "plugin_version": "1.2.0",
             "description": "Explicit-only decision path (no heuristic). Same cache keys/version h3; homepage parity guaranteed by backfill.",
-            "files": [entry(final_path, "replace", sha(INTERIM))],
+            "files": [{"path": REMOTE, "action": "replace", "sha256": V120_SHA, "bytes": V120_BYTES, "baseline_sha256": sha(INTERIM)}],
+        },
+        {
+            "stage": "3-final-1.2.1",
+            "plugin_version": "1.2.1",
+            "description": "Adds LiteSpeed class-API URL purge (\\LiteSpeed\\Purge::purge_url) alongside the action hook, because URL-level purge via action only is unreliable on Hostinger + LSCWP 7.9. No decision-path changes.",
+            "files": [{"path": REMOTE, "action": "replace", "sha256": V121_SHA, "bytes": V121_BYTES, "baseline_sha256": V120_SHA}],
+        },
+        {
+            "stage": "4-final-1.2.2",
+            "plugin_version": "1.2.2",
+            "description": "QA REST routes marked no-cache (nocache_headers + Cache-Control: no-store + litespeed_control_set_nocache) and REST URLs added to the purge list — LiteSpeed had cached an authenticated feed-state 200 and served it anonymously. No decision-path changes.",
+            "files": [entry(final_path, "replace", V121_SHA)],
         },
     ],
     "created_at": datetime.now(timezone.utc).isoformat(),

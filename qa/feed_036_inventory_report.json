@@ -1,0 +1,1331 @@
+{
+  "step": "0.3.6 read-only feed inventory (legacy classification)",
+  "api_error": null,
+  "published_total": 96,
+  "locale_stats": {
+    "ru-RU": 25,
+    "en-US": 58,
+    "unknown": 13
+  },
+  "kind_stats": {
+    "guide": 37,
+    "signal_or_other": 59
+  },
+  "migration": [
+    {
+      "id": 514,
+      "slug": "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+      "date": "2026-08-18T09:23:01",
+      "title": "DQ381 на Volkswagen Tayron из Китая: аварийный режим, потеря передач и реальные случаи владельцев",
+      "categories": [
+        50,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 513,
+      "slug": "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+      "date": "2026-08-18T09:22:47",
+      "title": "DQ381 Emergency Mode on the China-Market Volkswagen Tayron: What Real Owner Cases Show",
+      "categories": [
+        50
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 512,
+      "slug": "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+      "date": "2026-08-18T08:56:10",
+      "title": "Volkswagen Tayron 330TSI из Китая: что реальные владельцы сообщают о GPF",
+      "categories": [
+        50,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 511,
+      "slug": "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+      "date": "2026-08-18T08:55:48",
+      "title": "China-Market Volkswagen Tayron 330TSI GPF: What Chinese Owner Cases Actually Show",
+      "categories": [
+        50
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 510,
+      "slug": "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+      "date": "2026-08-18T08:34:54",
+      "title": "Volkswagen Tayron 330TSI из Китая: почему DKV, DPL и DTH нужно проверить до заказа запчастей",
+      "categories": [
+        50,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 509,
+      "slug": "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+      "date": "2026-08-18T08:34:39",
+      "title": "China-Market Volkswagen Tayron 330TSI: Why DKV, DPL and DTH Matter Before You Order Parts",
+      "categories": [
+        50
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 504,
+      "slug": "byd-frigate-07-openpilot-dannye-dlya-adaptacii",
+      "date": "2026-08-18T04:54:34",
+      "title": "BYD Frigate 07 и openpilot: какие данные нужны, чтобы оценить сложность адаптации",
+      "categories": [
+        50,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 503,
+      "slug": "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+      "date": "2026-08-18T04:25:09",
+      "title": "Как проверить BYD перед установкой openpilot: камера ADAS, CAN, ECU и fingerprint",
+      "categories": [
+        50,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 500,
+      "slug": "openpilot-byd-2026-support-open-source",
+      "date": "2026-08-18T03:54:04",
+      "title": "Openpilot для BYD в 2026 году: что уже есть в открытом коде и почему «поддержка BYD» ещё не означает plug-and-play",
+      "categories": [
+        50,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 496,
+      "slug": "redmagic-cooler-6-pro-plus-china-launch-buyer-check",
+      "date": "2026-08-13T10:06:43",
+      "title": "REDMAGIC Cooler 6 Pro+ China Launch: Buyer&#8217;s Check",
+      "categories": [
+        53
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 495,
+      "slug": "huawei-matepad-pro-2026-china-announcement-buyer-check",
+      "date": "2026-08-13T10:06:36",
+      "title": "Huawei MatePad Pro 2026 China Announcement Buyer Check",
+      "categories": [
+        50
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 494,
+      "slug": "redmi-kids-watch-pro-china-version-buyer-check",
+      "date": "2026-08-13T10:06:26",
+      "title": "REDMI Kids Watch Pro China Version: Buyer&#8217;s Check",
+      "categories": [
+        50
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 493,
+      "slug": "pet-food-label-manufacturer-distributor-fda-recall-check",
+      "date": "2026-08-13T10:06:19",
+      "title": "Pet Food Label: Find the Manufacturer and Check FDA Recalls",
+      "categories": [
+        58
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 492,
+      "slug": "datchik-davleniya-4-20ma-2-provoda-wika-danfoss",
+      "date": "2026-08-13T10:06:11",
+      "title": "Датчик давления 4-20 мА: WIKA A-10 и Danfoss MBS 3000",
+      "categories": [
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 491,
+      "slug": "g1-4-r1-4-npt-datchik-davleniya-rezba-kitay",
+      "date": "2026-08-12T10:42:52",
+      "title": "G1/4, R1/4 и NPT 1/4: резьба датчика давления из Китая",
+      "categories": [
+        53,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 490,
+      "slug": "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+      "date": "2026-08-12T10:42:37",
+      "title": "Go Raw Pet Food Recall 2026: Lot Codes &#038; Thiamine Risks",
+      "categories": [
+        58
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 489,
+      "slug": "kak-podobrat-datchik-davleniya-4-20ma-dlya-chastotnika",
+      "date": "2026-08-12T09:47:40",
+      "title": "Как подобрать датчик давления 4-20 мА для частотного преобразователя насоса: 7 параметров до покупки",
+      "categories": [
+        53,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 487,
+      "slug": "fda-gudid-accessgudid-procurement-verification-guide",
+      "date": "2026-08-12T09:06:55",
+      "title": "FDA GUDID and AccessGUDID Procurement Verification Guide: DI Fields and Premarket Cross-Checks",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 486,
+      "slug": "tb-tongue-swab-diagnostic-accuracy-appraisal",
+      "date": "2026-08-12T09:06:44",
+      "title": "Tongue-Swab Tuberculosis Diagnostic Accuracy: Evidence Appraisal of a Multicenter Study and Public Health Deployment Boundaries",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 485,
+      "slug": "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+      "date": "2026-08-11T06:23:55",
+      "title": "Бесплатное обновление Android Auto для Chery TIGGO 7 PRO и TIGGO 8 PRO: проверка доступности по комплектации",
+      "categories": [
+        54,
+        56
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 484,
+      "slug": "proverka-epts-po-vin-pered-pokupkoj",
+      "date": "2026-08-11T06:23:47",
+      "title": "Проверка ЭПТС по VIN перед покупкой автомобиля: официальный портал и чек-лист документов",
+      "categories": [
+        54,
+        56
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 480,
+      "slug": "fda-establishment-registration-device-listing-verification",
+      "date": "2026-08-11T01:18:32",
+      "title": "FDA Establishment Registration Verification Guide",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 479,
+      "slug": "nmpa-udi-2027-class2-devices-ivd-implementation-guide",
+      "date": "2026-08-11T01:18:24",
+      "title": "国家药监局第21号公告UDI实施解读：2027二类器械与一类IVD赋码、数据库上传及医保代码对接（已纳入医保代码数据库的产品适用）",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 470,
+      "slug": "crp-saa-poct-antibiotic-stewardship-village-clinics",
+      "date": "2026-08-10T04:20:49",
+      "title": "村卫生室CRP与SAA联合POCT对抗生素处方率影响评估",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 466,
+      "slug": "fda-foreign-drug-establishment-registration-guide",
+      "date": "2026-08-05T06:09:09",
+      "title": "FDA Foreign Drug Establishment Registration Guide",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 465,
+      "slug": "fda-labeler-code-foreign-company-checklist",
+      "date": "2026-08-05T06:08:57",
+      "title": "FDA Labeler Code Checklist for Foreign Companies",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 464,
+      "slug": "fxr0906-china-clinical-trial-approval-evidence-check",
+      "date": "2026-08-05T03:44:32",
+      "title": "FXR0906 Clinical Trial China: Fosun Evidence Check",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 463,
+      "slug": "fda-global-generic-drug-affairs-overseas-teams-guide",
+      "date": "2026-08-05T03:44:23",
+      "title": "FDA Global Generic Drug Affairs: Overseas Team Guide",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 462,
+      "slug": "fda-drug-registration-listing-compliance-map",
+      "date": "2026-08-05T01:44:56",
+      "title": "FDA Drug Registration and Listing: A Pre-Workshop Compliance Map for Manufacturers",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 461,
+      "slug": "gdufa-iii-controlled-correspondence-decision-map",
+      "date": "2026-08-05T01:44:48",
+      "title": "GDUFA III Controlled Correspondence: Scope, Submission Rules, and Eligibility Map for Generic Drug Developers",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 460,
+      "slug": "cgt-bla-readiness-otp-town-hall-guide",
+      "date": "2026-08-05T01:44:40",
+      "title": "Cell and Gene Therapy BLA Readiness: What FDA&#8217;s OTP Town Hall Transcript Clarifies",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 451,
+      "slug": "casgevy-pediatric-evidence-extrapolation-unknowns",
+      "date": "2026-08-01T01:00:00",
+      "title": "Casgevy for Children Aged 2 and Older: Direct Pediatric Evidence, FDA Extrapolation, and Long-Term Unknowns",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 450,
+      "slug": "glp1-generic-development-pathway-checklist",
+      "date": "2026-07-31T13:00:00",
+      "title": "GLP-1 Generic Development Is Not One Pathway: A Product-by-Product Pre-Workshop Checklist",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 449,
+      "slug": "fda-mie-generic-drug-meeting-checklist",
+      "date": "2026-07-31T01:00:00",
+      "title": "Model-Integrated Evidence for Generic Drugs: What an FDA Meeting Request Must Explain",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 448,
+      "slug": "bambu-lab-china-russia-pre-purchase-check",
+      "date": "2026-07-30T17:00:00",
+      "title": "Bambu Lab из Китая для России: что проверить по модели, LAN-режиму и поддержке до покупки",
+      "categories": [
+        50,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 447,
+      "slug": "digitally-derived-endpoints-fda-workshop-readiness-checklist",
+      "date": "2026-07-30T13:00:00",
+      "title": "Digitally Derived Endpoints: A Sponsor Readiness Checklist Before FDA&#8217;s August 2026 Workshop",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 446,
+      "slug": "fda-2026-cgt-cmc-flexibilities-bla-guide",
+      "date": "2026-07-29T03:26:30",
+      "title": "FDA 2026 CGT CMC Guidance: What Is Flexible and Required",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 445,
+      "slug": "check-chinese-ivd-russia-registration-registry",
+      "date": "2026-07-29T03:26:23",
+      "title": "Как проверить регистрацию китайской IVD в России",
+      "categories": [
+        52,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 444,
+      "slug": "russia-eaeu-ivd-registration-transition-2026-2028",
+      "date": "2026-07-29T03:26:10",
+      "title": "2026—2028年俄罗斯与EAEU医疗器械注册过渡期：中国IVD厂家路线图",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 443,
+      "slug": "tb-molecular-test-lod-cfu-10-vs-100",
+      "date": "2026-07-29T03:26:02",
+      "title": "TB Test LoD: What 10 vs 100 CFU/mL Really Means",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 442,
+      "slug": "starter-carburetor-chinese-brushcutter-43-52cc",
+      "date": "2026-07-29T03:25:56",
+      "title": "Стартер и карбюратор бензокосы 43/52cc: проверка совместимости",
+      "categories": [
+        53,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 441,
+      "slug": "ru-ifind-tbr-evidence-russia-laboratory-guide",
+      "date": "2026-07-28T09:08:44",
+      "title": "Китайский тест iFIND TBR: доказательства и требования России",
+      "categories": [
+        52,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 439,
+      "slug": "ifind-ifq-inh-fluoroquinolone-resistance-cartridge-guide",
+      "date": "2026-07-28T06:02:41",
+      "title": "iFIND IFQ INH/FQ Cartridge: Evidence and Procurement Guide",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 437,
+      "slug": "ifind-tbr-mtb-rif-cartridge-procurement-guide",
+      "date": "2026-07-28T06:02:13",
+      "title": "iFIND TBR MTB/RIF Cartridge: Evidence and Procurement Guide",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 435,
+      "slug": "gacc-order-281-special-goods-2026",
+      "date": "2026-07-28T02:22:29",
+      "title": "海关总署令281号详解：2026年特殊物品进出境合规自查清单",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 434,
+      "slug": "petmi-vs-russian-cat-food-label-comparison",
+      "date": "2026-07-28T02:22:14",
+      "title": "Petmi против российских кормов: что доказывает этикетка",
+      "categories": [
+        51,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 433,
+      "slug": "pressure-washer-hose-connector-compatibility-guide",
+      "date": "2026-07-28T02:22:04",
+      "title": "Разъём шланга мойки: как выбрать адаптер без ошибки",
+      "categories": [
+        53,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 432,
+      "slug": "utilization-fee-china-car-import-russia-2026",
+      "date": "2026-07-28T02:21:53",
+      "title": "Утильсбор 2026: три пути ввоза авто из Китая в Россию",
+      "categories": [
+        54,
+        56
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 431,
+      "slug": "fully-automated-molecular-poct-system-ifind-procurement-guide",
+      "date": "2026-07-27T10:03:18",
+      "title": "Fully Automated Molecular POCT: iFIND S2/S4/S8 Procurement Guide",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 426,
+      "slug": "bmw-n55-oil-leak-after-gasket-replacement",
+      "date": "2026-07-27T02:08:00",
+      "title": "BMW N55 снова течет после замены прокладки: крышка, PCV или монтаж?",
+      "categories": [
+        54,
+        56
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 425,
+      "slug": "microplastics-in-pet-food-2026-study-explained",
+      "date": "2026-07-27T02:07:50",
+      "title": "Microplastics in Pet Food: What the 76% Study Actually Found",
+      "categories": [
+        51
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 424,
+      "slug": "national-anti-fraud-center-ai-content-identification-guide",
+      "date": "2026-07-27T02:07:43",
+      "title": "国家反诈中心AI内容鉴定怎么用？结果能证明什么",
+      "categories": [
+        50
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 420,
+      "slug": "honor-iz-kitaya-v-rossii-proverka-pered-pokupkoy",
+      "date": "2026-07-24T16:30:00",
+      "title": "HONOR из Китая для России: 15 проверок перед покупкой — полный разбор",
+      "categories": [
+        50,
+        53,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 415,
+      "slug": "kitayskiy-elektromobil-udalennaya-blokirovka-eksport-risk",
+      "date": "2026-07-24T14:30:00",
+      "title": "Удалённая блокировка китайского электромобиля за границей: что проверить до покупки",
+      "categories": [
+        50,
+        54,
+        56
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 413,
+      "slug": "microplastics-in-pet-food-study-methods-limits",
+      "date": "2026-07-24T12:30:00",
+      "title": "Microplastics in Pet Food: What the Latest Tests Found — and What They Did Not",
+      "categories": [
+        51
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 411,
+      "slug": "china-pharma-exports-2026-formulations-glp1-api",
+      "date": "2026-07-24T06:30:00",
+      "title": "2026 中国西药出口拆解：制剂增长、GLP-1 原料药与新兴市场机会",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 362,
+      "slug": "best-budget-robot-vacuum-2026-reddit-guide",
+      "date": "2026-07-23T15:20:00",
+      "title": "Best Budget Robot Vacuum in 2026: A Durable Buyer&#8217;s Framework",
+      "categories": [
+        53
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 398,
+      "slug": "ai-voice-recorder-buying-guide-subscription-privacy-offline",
+      "date": "2026-07-23T14:30:00",
+      "title": "AI Voice Recorders Compared: Subscription Cost, Privacy, and Offline Limits",
+      "categories": [
+        53
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 361,
+      "slug": "cat-lickable-supplements-calming-nutrition-guide",
+      "date": "2026-07-23T13:20:00",
+      "title": "Lickable Cat Supplements: How to Read Calming and Nutrition Claims",
+      "categories": [
+        51
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 394,
+      "slug": "plaud-baseband-engineer-ai-earbuds-signal-analysis",
+      "date": "2026-07-23T11:30:00",
+      "title": "PLAUD 招聘基带工程师意味着什么：AI 耳机还是独立联网录音设备？",
+      "categories": [
+        50,
+        55
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 405,
+      "slug": "ru-bmw-n55-oil-leak-gasket-fkm-nbr",
+      "date": "2026-07-23T09:00:24",
+      "title": "Течь масла BMW N55: NBR, HNBR или FKM?",
+      "categories": [
+        54,
+        56
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 390,
+      "slug": "kitayskiy-korm-dlya-koshek-v-rossii-sravnenie",
+      "date": "2026-07-23T08:30:00",
+      "title": "Китайский корм для кошек в России: как сравнить состав, цену и контроль качества",
+      "categories": [
+        51,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 388,
+      "slug": "shenzhen-biomed-special-items-import-export-process-2026",
+      "date": "2026-07-23T07:00:00",
+      "title": "深圳生物医药特殊物品进出口机制：哪些环节真的变快了？",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 360,
+      "slug": "best-27-inch-ips-monitor-under-cad-300",
+      "date": "2026-07-22T15:20:00",
+      "title": "How to Choose a 27-Inch IPS Monitor Under CAD $300",
+      "categories": [
+        53
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 359,
+      "slug": "bristol-myers-ai-factory-samsung-biologics-peptide-signal",
+      "date": "2026-07-22T13:20:00",
+      "title": "Bristol Myers&#8217; AI Factory and Samsung&#8217;s Peptide Bet: Two Pharma Signals",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 358,
+      "slug": "waic-2026-agent-phone-robots-product-signal",
+      "date": "2026-07-22T00:45:00",
+      "title": "WAIC 2026 阶跃展台的信号：智能体手机、汽车与机器人，哪类先落地？",
+      "categories": [
+        50
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 357,
+      "slug": "tempus-personalis-mrd-cancer-testing-deal",
+      "date": "2026-07-21T14:40:00",
+      "title": "Tempus to Buy Personalis for $1.5B: What the MRD Deal Signals",
+      "categories": [
+        52
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 356,
+      "slug": "pedigree-wet-dog-food-recall-safety-checklist",
+      "date": "2026-07-21T13:15:00",
+      "title": "Pedigree Wet Dog Food Recall: What Owners Should Check Now",
+      "categories": [
+        51
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 355,
+      "slug": "xiaomi-mijia-water-flosser-pro-product-signal",
+      "date": "2026-07-21T11:30:00",
+      "title": "小米米家智能冲牙器 Pro 开售：349 元定价背后的产品信号与选购框架",
+      "categories": [
+        50
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 372,
+      "slug": "honor-china-vs-eu-version-russia-guide",
+      "date": "2026-07-21T06:08:33",
+      "title": "HONOR Magic V6 для России: китайская версия против глобальной",
+      "categories": [
+        50,
+        53,
+        54
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 350,
+      "slug": "kimi-k3-ru-open-model",
+      "date": "2026-07-21T03:52:57",
+      "title": "Kimi K3: почему китайская открытая модель на 2,8 трлн параметров стала важным сигналом",
+      "categories": [
+        50
+      ],
+      "legacy_locale": "ru-RU",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 349,
+      "slug": "kimi-k3-open-weight-model",
+      "date": "2026-07-21T03:52:52",
+      "title": "Kimi K3 Explained: Why China&#8217;s 2.8T Open-Weight Model Matters",
+      "categories": [
+        50
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 347,
+      "slug": "kimi-k3-zhihu-open-source-model",
+      "date": "2026-07-21T03:52:48",
+      "title": "Kimi K3 为什么刷屏：知乎争议、2.8 万亿参数与开源模型的新问题",
+      "categories": [
+        50
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 304,
+      "slug": "ditch-the-kibble-my-secret-to-healthy-homemade-cat-food-on-a-budget",
+      "date": "2025-11-14T06:53:38",
+      "title": "Ditch the Kibble: My Secret to Healthy, Homemade Cat Food on a Budget",
+      "categories": [
+        21
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 297,
+      "slug": "the-ultimate-cat-wooden-jigsaw-puzzle-a-mindful-escape-for-adults",
+      "date": "2025-11-06T04:15:22",
+      "title": "The Ultimate Cat Wooden Jigsaw Puzzle: A Mindful Escape for Adults",
+      "categories": [
+        21,
+        42
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 290,
+      "slug": "healing-crystal-cat-ornaments-a-guide-to-their-meanings-powers",
+      "date": "2025-11-06T03:40:33",
+      "title": "Healing Crystal Cat Ornaments: A Guide to Their Meanings &amp; Powers",
+      "categories": [
+        42,
+        45
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 287,
+      "slug": "bring-whimsical-charm-to-your-space-with-our-resin-rabbit-garden-statue",
+      "date": "2025-11-06T03:30:22",
+      "title": "Bring Whimsical Charm to Your Space with Our Resin Rabbit Garden Statue",
+      "categories": [
+        42
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 284,
+      "slug": "the-grim-reaper-on-a-toilet-statue-your-ultimate-statement-of-dark-humor",
+      "date": "2025-11-06T03:22:57",
+      "title": "The Grim Reaper on a Toilet Statue: Your Ultimate Statement of Dark Humor",
+      "categories": [
+        42
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 276,
+      "slug": "shan-gui-hua-qian-the-ultimate-guide-to-this-powerful-taoist-protection-charm",
+      "date": "2025-11-05T07:57:59",
+      "title": "Shan Gui Hua Qian: The Ultimate Guide to This Powerful Taoist Protection Charm",
+      "categories": [
+        45
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 268,
+      "slug": "dog-fur-memorial-pendant-carry-their-eternal-love-memory-with-you",
+      "date": "2025-11-05T07:28:03",
+      "title": "Dog Fur Memorial Pendant: Carry Their Eternal Love &amp; Memory With You",
+      "categories": [
+        21
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 257,
+      "slug": "unlock-abundance-the-ancient-wealth-amulet-from-chinas-sacred-mount-heng",
+      "date": "2025-11-05T06:58:47",
+      "title": "Unlock Abundance: The Ancient Wealth Amulet from China&#8217;s Sacred Mount Heng",
+      "categories": [
+        45
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 250,
+      "slug": "how-to-decorate-your-desk-with-leon-the-professional-elements",
+      "date": "2025-11-04T04:12:52",
+      "title": "How to Decorate Your Desk with Léon: The Professional Elements",
+      "categories": [
+        42
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 239,
+      "slug": "how-to-buy-from-taobao-directly-a-step-by-step-guide-for-beginners",
+      "date": "2025-11-03T02:37:37",
+      "title": "How to Buy from Taobao Directly: A Step-by-Step Guide for Beginners",
+      "categories": [
+        39
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 233,
+      "slug": "legacy-of-the-dragon-tomb-chapter-8",
+      "date": "2025-10-29T02:36:55",
+      "title": "Legacy of the Dragon Tomb – Chapter 8",
+      "categories": [
+        32
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 226,
+      "slug": "how-to-choose-the-best-keepsake-for-pet-fur-to-honor-their-memory",
+      "date": "2025-10-23T03:12:35",
+      "title": "How to Choose the Best Keepsake for Pet Fur to Honor Their Memory?",
+      "categories": [
+        21
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 222,
+      "slug": "legacy-of-the-dragon-tomb-chapter-7",
+      "date": "2025-10-21T06:33:37",
+      "title": "Legacy of the Dragon Tomb – Chapter 7",
+      "categories": [
+        32
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 219,
+      "slug": "legacy-of-the-dragon-tomb-chapter-6",
+      "date": "2025-10-16T07:14:15",
+      "title": "Legacy of the Dragon Tomb – Chapter 6",
+      "categories": [
+        32
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 217,
+      "slug": "legacy-of-the-dragon-tomb-chapter-5",
+      "date": "2025-10-16T02:43:14",
+      "title": "Legacy of the Dragon Tomb – Chapter 5",
+      "categories": [
+        32
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 215,
+      "slug": "legacy-of-the-dragon-tomb-chapter-4",
+      "date": "2025-10-16T02:40:05",
+      "title": "Legacy of the Dragon Tomb &#8211; Chapter 4",
+      "categories": [
+        32
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 213,
+      "slug": "%e8%b7%a8%e5%a2%83%e7%94%b5%e5%95%86%e4%ba%9a%e9%a9%ac%e9%80%8a%e5%be%b7%e5%9b%bdschweberegale%ef%bc%88%e6%b5%ae%e5%8a%a8%e6%90%81%e6%9d%bf%ef%bc%89%e5%b8%82%e5%9c%ba%e7%a0%94%e7%a9%b6%e5%88%86",
+      "date": "2025-10-15T10:32:32",
+      "title": "跨境电商亚马逊德国Schweberegale（浮动搁板）市场研究分析报告-20251013",
+      "categories": [
+        33
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 209,
+      "slug": "%e8%b7%a8%e5%a2%83%e7%94%b5%e5%95%86%e4%ba%9a%e9%a9%ac%e9%80%8a%e5%b9%b3%e5%8f%b0%e6%b3%95%e5%9b%bd%e9%a6%96%e9%a5%b0%e6%94%b6%e7%ba%b3%e5%b8%82%e5%9c%ba%e6%b7%b1%e5%ba%a6%e5%88%86%e6%9e%90%e6%8a%a5",
+      "date": "2025-10-15T08:56:57",
+      "title": "跨境电商亚马逊平台法国首饰收纳市场深度分析报告-2025年9月",
+      "categories": [
+        33
+      ],
+      "legacy_locale": "",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 206,
+      "slug": "legacy-of-the-dragon-tomb-chapter-3",
+      "date": "2025-10-15T04:08:34",
+      "title": "Legacy of the Dragon Tomb – Chapter 3",
+      "categories": [
+        32
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 204,
+      "slug": "legacy-of-the-dragon-tomb-chapter-2",
+      "date": "2025-10-15T04:05:56",
+      "title": "Legacy of the Dragon Tomb &#8211; Chapter 2",
+      "categories": [
+        32
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 195,
+      "slug": "legacy-of-the-dragon-tomb",
+      "date": "2025-10-15T03:59:55",
+      "title": "Legacy of the Dragon Tomb &#8211; Chapter 1",
+      "categories": [
+        32
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 193,
+      "slug": "wie-sie-ihre-katze-davon-abhalten-auf-ihrer-tastatur-zu-sitzen-und-sie-trotzdem-ihr-buro-kumpel-bleibt",
+      "date": "2025-10-15T03:19:59",
+      "title": "Wie Sie Ihre Katze davon abhalten, auf Ihrer Tastatur zu sitzen (und sie trotzdem Ihr Büro-Kumpel bleibt)",
+      "categories": [
+        21
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": false,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    },
+    {
+      "id": 52,
+      "slug": "how-to-stop-your-cat-from-sitting-on-your-keyboard-and-still-be-your-office-buddy",
+      "date": "2025-10-13T10:11:20",
+      "title": "How to Stop Your Cat From Sitting on Your Keyboard (And Still Be Your Office Buddy)",
+      "categories": [
+        21
+      ],
+      "legacy_locale": "en-US",
+      "legacy_guide": true,
+      "has_locale_meta": false,
+      "has_kind_meta": false
+    }
+  ],
+  "home_baseline": {
+    "en": {
+      "url": "https://fyzsxnb.com/",
+      "signals": [
+        "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+        "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+        "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+        "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+      ],
+      "guides": [
+        "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+        "fda-gudid-accessgudid-procurement-verification-guide",
+        "fda-establishment-registration-device-listing-verification",
+        "fda-foreign-drug-establishment-registration-guide",
+        "fda-labeler-code-foreign-company-checklist",
+        "fda-global-generic-drug-affairs-overseas-teams-guide"
+      ],
+      "has_feed_marker": false
+    },
+    "ru": {
+      "url": "https://fyzsxnb.com/ru/",
+      "signals": [
+        "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+        "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+        "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+        "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+      ],
+      "guides": [
+        "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+        "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+        "bambu-lab-china-russia-pre-purchase-check",
+        "check-chinese-ivd-russia-registration-registry",
+        "starter-carburetor-chinese-brushcutter-43-52cc",
+        "ru-ifind-tbr-evidence-russia-laboratory-guide"
+      ],
+      "has_feed_marker": false
+    }
+  }
+}

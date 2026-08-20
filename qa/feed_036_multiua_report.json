@@ -1,0 +1,585 @@
+{
+  "pages": {
+    "en_chrome_clean": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "guides": [
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide",
+          "fda-labeler-code-foreign-company-checklist",
+          "fda-global-generic-drug-affairs-overseas-teams-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "en_chrome_bust": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "guides": [
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide",
+          "fda-labeler-code-foreign-company-checklist",
+          "fda-global-generic-drug-affairs-overseas-teams-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "miss"
+    },
+    "en_mobile_clean": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "guides": [
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide",
+          "fda-labeler-code-foreign-company-checklist",
+          "fda-global-generic-drug-affairs-overseas-teams-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "miss"
+    },
+    "en_mobile_bust": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "guides": [
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide",
+          "fda-labeler-code-foreign-company-checklist",
+          "fda-global-generic-drug-affairs-overseas-teams-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "miss"
+    },
+    "en_googlebot_clean": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "guides": [
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide",
+          "fda-labeler-code-foreign-company-checklist",
+          "fda-global-generic-drug-affairs-overseas-teams-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "en_googlebot_bust": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "guides": [
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide",
+          "fda-labeler-code-foreign-company-checklist",
+          "fda-global-generic-drug-affairs-overseas-teams-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "en_plain_clean": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "guides": [
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide",
+          "fda-labeler-code-foreign-company-checklist",
+          "fda-global-generic-drug-affairs-overseas-teams-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "en_plain_bust": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "guides": [
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide",
+          "fda-labeler-code-foreign-company-checklist",
+          "fda-global-generic-drug-affairs-overseas-teams-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "en_bingbot_clean": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "guides": [
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide",
+          "fda-labeler-code-foreign-company-checklist",
+          "fda-global-generic-drug-affairs-overseas-teams-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "en_bingbot_bust": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+          "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+          "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+        ],
+        "guides": [
+          "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+          "fda-gudid-accessgudid-procurement-verification-guide",
+          "fda-establishment-registration-device-listing-verification",
+          "fda-foreign-drug-establishment-registration-guide",
+          "fda-labeler-code-foreign-company-checklist",
+          "fda-global-generic-drug-affairs-overseas-teams-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "ru_chrome_clean": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+        ],
+        "guides": [
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+          "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+          "bambu-lab-china-russia-pre-purchase-check",
+          "check-chinese-ivd-russia-registration-registry",
+          "starter-carburetor-chinese-brushcutter-43-52cc",
+          "ru-ifind-tbr-evidence-russia-laboratory-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "ru_chrome_bust": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+        ],
+        "guides": [
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+          "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+          "bambu-lab-china-russia-pre-purchase-check",
+          "check-chinese-ivd-russia-registration-registry",
+          "starter-carburetor-chinese-brushcutter-43-52cc",
+          "ru-ifind-tbr-evidence-russia-laboratory-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "miss"
+    },
+    "ru_mobile_clean": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+        ],
+        "guides": [
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+          "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+          "bambu-lab-china-russia-pre-purchase-check",
+          "check-chinese-ivd-russia-registration-registry",
+          "starter-carburetor-chinese-brushcutter-43-52cc",
+          "ru-ifind-tbr-evidence-russia-laboratory-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "miss"
+    },
+    "ru_mobile_bust": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+        ],
+        "guides": [
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+          "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+          "bambu-lab-china-russia-pre-purchase-check",
+          "check-chinese-ivd-russia-registration-registry",
+          "starter-carburetor-chinese-brushcutter-43-52cc",
+          "ru-ifind-tbr-evidence-russia-laboratory-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "miss"
+    },
+    "ru_googlebot_clean": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+        ],
+        "guides": [
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+          "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+          "bambu-lab-china-russia-pre-purchase-check",
+          "check-chinese-ivd-russia-registration-registry",
+          "starter-carburetor-chinese-brushcutter-43-52cc",
+          "ru-ifind-tbr-evidence-russia-laboratory-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "ru_googlebot_bust": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+        ],
+        "guides": [
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+          "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+          "bambu-lab-china-russia-pre-purchase-check",
+          "check-chinese-ivd-russia-registration-registry",
+          "starter-carburetor-chinese-brushcutter-43-52cc",
+          "ru-ifind-tbr-evidence-russia-laboratory-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "ru_plain_clean": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+        ],
+        "guides": [
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+          "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+          "bambu-lab-china-russia-pre-purchase-check",
+          "check-chinese-ivd-russia-registration-registry",
+          "starter-carburetor-chinese-brushcutter-43-52cc",
+          "ru-ifind-tbr-evidence-russia-laboratory-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "ru_plain_bust": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+        ],
+        "guides": [
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+          "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+          "bambu-lab-china-russia-pre-purchase-check",
+          "check-chinese-ivd-russia-registration-registry",
+          "starter-carburetor-chinese-brushcutter-43-52cc",
+          "ru-ifind-tbr-evidence-russia-laboratory-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "ru_bingbot_clean": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+        ],
+        "guides": [
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+          "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+          "bambu-lab-china-russia-pre-purchase-check",
+          "check-chinese-ivd-russia-registration-registry",
+          "starter-carburetor-chinese-brushcutter-43-52cc",
+          "ru-ifind-tbr-evidence-russia-laboratory-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    },
+    "ru_bingbot_bust": {
+      "http": 200,
+      "cards": {
+        "signals": [
+          "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+          "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+          "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+          "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+        ],
+        "guides": [
+          "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+          "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+          "bambu-lab-china-russia-pre-purchase-check",
+          "check-chinese-ivd-russia-registration-registry",
+          "starter-carburetor-chinese-brushcutter-43-52cc",
+          "ru-ifind-tbr-evidence-russia-laboratory-guide"
+        ]
+      },
+      "markers": {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      },
+      "cache": "hit"
+    }
+  },
+  "consistent": true,
+  "en_consistency": {
+    "reference": [
+      [
+        "china-market-volkswagen-tayron-dq381-emergency-mode-owner-cases",
+        "china-market-volkswagen-tayron-330tsi-gpf-owner-cases",
+        "china-market-volkswagen-tayron-330tsi-dkv-dpl-dth-parts",
+        "redmagic-cooler-6-pro-plus-china-launch-buyer-check"
+      ],
+      [
+        "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+        "fda-gudid-accessgudid-procurement-verification-guide",
+        "fda-establishment-registration-device-listing-verification",
+        "fda-foreign-drug-establishment-registration-guide",
+        "fda-labeler-code-foreign-company-checklist",
+        "fda-global-generic-drug-affairs-overseas-teams-guide"
+      ],
+      {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      }
+    ],
+    "mismatches": {}
+  },
+  "ru_consistency": {
+    "reference": [
+      [
+        "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+        "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+        "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+        "byd-frigate-07-openpilot-dannye-dlya-adaptacii"
+      ],
+      [
+        "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+        "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+        "bambu-lab-china-russia-pre-purchase-check",
+        "check-chinese-ivd-russia-registration-registry",
+        "starter-carburetor-chinese-brushcutter-43-52cc",
+        "ru-ifind-tbr-evidence-russia-laboratory-guide"
+      ],
+      {
+        "h1_count": 1,
+        "has_nav": true,
+        "has_footer": true,
+        "has_feed_marker": false
+      }
+    ],
+    "mismatches": {}
+  },
+  "assets": {
+    "en": {
+      "scanned": 4,
+      "bad": []
+    },
+    "ru": {
+      "scanned": 4,
+      "bad": []
+    }
+  }
+}

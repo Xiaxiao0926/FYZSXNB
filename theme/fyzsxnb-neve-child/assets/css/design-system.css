@@ -30,7 +30,7 @@
   --fyz-display: "Noto Serif", "Source Serif 4", Georgia, serif;
   --fyz-body: Inter, "Noto Sans", "Segoe UI", Arial, sans-serif;
   --fyz-site-width: 1200px;
-  --fyz-reading-width: 660px;
+  --fyz-reading-width: 820px;
   --fyz-radius: 6px;
 }
 /* Self-hosted fonts — Inter Variable + Noto Serif Variable (Latin/Cyrillic subsets) */
@@ -162,12 +162,14 @@
   padding-bottom: 88px;
 }
 
-.fyz-design-system.single-post
-  .neve-main
-  > .single-post-container
-  .nv-single-post-wrap.col {
-  max-width: var(--fyz-reading-width);
+.fyz-design-system.single-post .neve-main > .single-post-container .nv-single-post-wrap.col,
+.fyz-design-system.single-post .neve-main > .single-post-container .nv-single-post-wrap.col:not(.fyz-has-toc) {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  max-width: min(100%, var(--fyz-reading-width));
   margin-inline: auto;
+  padding-inline: 0;
 }
 
 .fyz-design-system.single-post .entry-header {
@@ -177,7 +179,7 @@
 }
 
 .fyz-design-system.single-post h1.entry-title {
-  max-width: 18ch;
+  max-width: 28ch;
   margin: 0 0 24px;
   color: var(--fyz-ink);
   font-family: var(--fyz-display);
@@ -605,16 +607,20 @@ html[lang^="ru"] .fyz-design-system h2 {
 
 /* ===== UI V2 0.3.4 — Article shell & layout ===== */
 .fyz-design-system.single-post .nv-single-post-wrap.col {
-  max-width: 1120px;
+  max-width: 1180px;
   margin-inline: auto;
 }
 
 /* TOC-left layout only when JS actually built a TOC (no empty sidebar with JS off). */
+.fyz-design-system.single-post .neve-main > .single-post-container .nv-single-post-wrap.col.fyz-has-toc,
 .fyz-design-system.single-post .nv-single-post-wrap.col.fyz-has-toc {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
   gap: 44px;
   align-items: start;
+  max-width: min(100%, 1180px) !important;
+  width: 100%;
+  margin-inline: auto;
 }
 
 .fyz-design-system.single-post .fyz-has-toc .entry-header { grid-column: 1 / -1; }
@@ -622,7 +628,7 @@ html[lang^="ru"] .fyz-design-system h2 {
 .fyz-design-system.single-post .fyz-has-toc .fyz-article-top__meta,
 .fyz-design-system.single-post .fyz-has-toc .fyz-article-deck { grid-column: 2; }
 .fyz-design-system.single-post .fyz-has-toc .fyz-article-toc { grid-column: 1; position: sticky; top: 28px; }
-.fyz-design-system.single-post .fyz-has-toc .nv-content-wrap { grid-column: 2; max-width: var(--fyz-reading-width); }
+.fyz-design-system.single-post .fyz-has-toc .nv-content-wrap { grid-column: 2; width: 100%; max-width: var(--fyz-reading-width); }
 .fyz-design-system.single-post .fyz-has-toc .fyz-related,
 .fyz-design-system.single-post .fyz-has-toc .fyz-research-cta { grid-column: 1 / -1; }
 

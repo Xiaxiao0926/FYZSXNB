@@ -8,7 +8,7 @@
 get_header();
 $ru = fyzsxnb_is_russian_view();
 $title = $ru ? 'Страница не найдена' : 'This page could not be found';
-$copy  = $ru ? 'Возможно, адрес изменился. Воспользуйтесь поиском или вернитесь к одному из основных исследовательских разделов.' : 'The address may have changed. Search the archive or return to one of the main research desks.';
+$copy  = $ru ? 'Возможно, адрес изменился. Воспользуйтесь поиском или перейдите к аналитическим разделам и техническим отчётам.' : 'The requested page may have moved. Search our knowledge base or navigate to our industry intelligence sections.';
 $links_label = $ru ? 'Полезные ссылки' : 'Useful links';
 $link_home = $ru ? 'Английская главная' : 'English homepage';
 $link_ru   = $ru ? 'Русские решения' : 'Russian solutions';

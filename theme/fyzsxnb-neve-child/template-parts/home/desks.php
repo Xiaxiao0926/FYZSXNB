@@ -15,10 +15,10 @@ $ru = 'ru-RU' === ( isset( $args['locale'] ) ? $args['locale'] : '' );
   <div class="fyz-inner">
     <div class="fyz-desks__head">
       <div>
-        <p class="fyz-eyebrow"><?php echo esc_html( $ru ? 'Разделы исследований' : 'Research desks' ); ?></p>
-        <h2 id="fyz-desks-title"><?php echo esc_html( $ru ? 'Что мы исследуем' : 'Follow the question, not the category label' ); ?></h2>
+        <p class="fyz-eyebrow"><?php echo esc_html( $ru ? 'Направления аналитики' : 'Intelligence Desks' ); ?></p>
+        <h2 id="fyz-desks-title"><?php echo esc_html( $ru ? 'Практическая аналитика по ключевым направлениям' : 'Follow the question, not the category label' ); ?></h2>
       </div>
-      <p><?php echo esc_html( $ru ? 'Не общие новости, а темы, где доступ к китайской информации даёт реальное преимущество покупателю, инженеру, врачу, исследователю или закупщику.' : 'Each desk connects reporting to a practical decision while keeping language and evidence boundaries visible.' ); ?></p>
+      <p><?php echo esc_html( $ru ? 'Инженерные разборы, регламенты обслуживания и проверенные данные от производителей для точных коммерческих и технических решений.' : 'Actionable technical intelligence, cross-border diagnostic standards, and verified supply chain insights for engineers, buyers, and industry professionals.' ); ?></p>
     </div>
     <div class="fyz-desk-grid">
       <?php foreach ( $desks as $desk ) : ?>

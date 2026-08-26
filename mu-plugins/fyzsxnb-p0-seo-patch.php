@@ -19,17 +19,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Plugin version constant.
  */
-define( 'FYZSXNB_P0_SEO_VERSION', '1.4.0' );
+define( 'FYZSXNB_P0_SEO_VERSION', '1.3.1' );
 
 /* -------------------------------------------------------------------------
- * Shared helpers & Central Locale Resolver (0.4.1 Dual-Read Architecture)
+ * Shared helpers
  * ---------------------------------------------------------------------- */
 
 /**
- * Explicit Russian post ID set (LEGACY detector fallback).
+ * Explicit Russian post ID set (PRIMARY detector).
  *
- * Retained in 0.4.1 as the authoritative fallback set.
- * Page 400 is the /ru/ hub. Posts 448..350 are legacy Russian articles.
+ * This set is the authoritative list of Russian-language objects. It includes
+ * page 400 (the /ru/ hub) and every Russian post, including post 350 which is
+ * Russian but does NOT belong to category 54.
+ *
+ * NOTE: Category 56 is intentionally NOT used as a language detector because it
+ * is a topic category, not a language category. Category 54 is used only as a
+ * SECONDARY detector for posts that may be added later and assigned to it.
  *
  * @return int[]
  */
@@ -38,141 +43,40 @@ function fyzsxnb_get_russian_post_ids() {
 }
 
 /**
- * Resolve the content locale for a single post object.
- *
- * Decision flow:
- *   1. Primary: Explicit publication metadata (_fyz_content_language).
- *      - ru + Cat54 -> valid RU (source: meta)
- *      - en + no Cat54 -> valid EN (source: meta)
- *      - Structural conflict -> flagged invalid, safe legacy fallback applied.
- *   2. Fallback: Legacy detector (fyzsxnb_get_russian_post_ids + Cat54).
- *   3. Default: en (source: default).
- *
- * @param int $post_id Post ID.
- * @return array Array with 'locale' ('ru'|'en'), 'source' ('meta'|'legacy'|'default'), 'valid' (bool), 'conflict' (bool).
- */
-function fyzsxnb_resolve_content_locale( $post_id ) {
-	$pid = (int) $post_id;
-	if ( $pid <= 0 ) {
-		return array(
-			'locale'   => 'en',
-			'source'   => 'default',
-			'valid'    => true,
-			'conflict' => false,
-		);
-	}
-
-	$meta_lang = strtolower( trim( (string) get_post_meta( $pid, '_fyz_content_language', true ) ) );
-	$has_cat54 = has_category( 54, $pid );
-
-	// Normalize metadata locale
-	if ( in_array( $meta_lang, array( 'ru', 'ru-ru' ), true ) ) {
-		$norm_meta = 'ru';
-	} elseif ( in_array( $meta_lang, array( 'en', 'en-us', 'en-gb' ), true ) ) {
-		$norm_meta = 'en';
-	} else {
-		$norm_meta = '';
-	}
-
-	// 1. Explicit metadata check with structural validation
-	if ( 'ru' === $norm_meta ) {
-		if ( $has_cat54 ) {
-			return array(
-				'locale'   => 'ru',
-				'source'   => 'meta',
-				'valid'    => true,
-				'conflict' => false,
-			);
-		} else {
-			// Structural conflict: RU metadata without Category 54
-			$legacy_is_ru = in_array( $pid, fyzsxnb_get_russian_post_ids(), true ) || $has_cat54;
-			return array(
-				'locale'   => $legacy_is_ru ? 'ru' : 'en',
-				'source'   => $legacy_is_ru ? 'legacy' : 'default',
-				'valid'    => false,
-				'conflict' => true,
-				'reason'   => 'ru_meta_missing_cat54',
-			);
-		}
-	} elseif ( 'en' === $norm_meta ) {
-		if ( ! $has_cat54 ) {
-			return array(
-				'locale'   => 'en',
-				'source'   => 'meta',
-				'valid'    => true,
-				'conflict' => false,
-			);
-		} else {
-			// Structural conflict: EN metadata with Category 54
-			$legacy_is_ru = in_array( $pid, fyzsxnb_get_russian_post_ids(), true ) || $has_cat54;
-			return array(
-				'locale'   => $legacy_is_ru ? 'ru' : 'en',
-				'source'   => $legacy_is_ru ? 'legacy' : 'default',
-				'valid'    => false,
-				'conflict' => true,
-				'reason'   => 'en_meta_has_cat54',
-			);
-		}
-	}
-
-	// 2. Metadata missing / unknown -> legacy fallback
-	if ( in_array( $pid, fyzsxnb_get_russian_post_ids(), true ) || $has_cat54 ) {
-		return array(
-			'locale'   => 'ru',
-			'source'   => 'legacy',
-			'valid'    => true,
-			'conflict' => false,
-		);
-	}
-
-	return array(
-		'locale'   => 'en',
-		'source'   => 'default',
-		'valid'    => true,
-		'conflict' => false,
-	);
-}
-
-/**
  * Determine whether the currently-rendered object is a Russian target.
  *
- * 0.4.1 Architecture:
- *   - For single posts: delegates to central content locale resolver (metadata primary, legacy fallback).
- *   - For non-post / pages (e.g. Page 400 RU home): evaluates explicit page IDs and category 54.
+ * Detection order:
+ *   1. The current queried object ID is in the explicit Russian post ID set.
+ *   2. The current queried object is a post that belongs to category 54
+ *      (secondary detector).
  *
- * @param int|null $target_id Optional target ID override.
- * @return bool True when the target object should receive Russian SEO attributes.
+ * Page 400 is covered by the explicit set. Category 56 is deliberately
+ * excluded as a detector.
+ *
+ * @return bool True when the current object should be treated as Russian.
  */
-function fyzsxnb_is_russian_target( $target_id = null ) {
+function fyzsxnb_is_russian_target() {
 	// Never act inside the admin context.
 	if ( is_admin() ) {
 		return false;
 	}
 
-	if ( null !== $target_id ) {
-		$current_id = (int) $target_id;
-	} elseif ( is_singular() ) {
-		$current_id = (int) get_queried_object_id();
-	} else {
-		$current_id = 0;
+	// Only singular requests have a meaningful "current object" to evaluate.
+	if ( ! is_singular() ) {
+		return false;
 	}
 
+	$current_id = (int) get_queried_object_id();
 	if ( $current_id <= 0 ) {
 		return false;
 	}
 
-	// Single Post context -> use central content locale resolver
-	$post_type = get_post_type( $current_id );
-	if ( 'post' === $post_type || empty( $post_type ) ) {
-		$resolved = fyzsxnb_resolve_content_locale( $current_id );
-		return ( 'ru' === $resolved['locale'] );
-	}
-
-	// Non-post / Page context (e.g. Page 400 /ru/ home) -> legacy request detector
+	// 1) Primary detector: explicit Russian post ID set.
 	if ( in_array( $current_id, fyzsxnb_get_russian_post_ids(), true ) ) {
 		return true;
 	}
 
+	// 2) Secondary detector: category 54 membership (posts only).
 	if ( has_category( 54, $current_id ) ) {
 		return true;
 	}
@@ -751,34 +655,3 @@ function fyzsxnb_render_blog_h1_on_loop_start( $query ) {
 	fyzsxnb_maybe_render_blog_h1();
 }
 add_action( 'loop_start', 'fyzsxnb_render_blog_h1_on_loop_start' );
-
-/* -------------------------------------------------------------------------
- * Diagnostic Trace Helper (Internal / Authenticated QA)
- * ---------------------------------------------------------------------- */
-
-/**
- * Return detailed diagnostic locale resolution facts for a given post.
- *
- * @param int $post_id Post ID.
- * @return array
- */
-function fyzsxnb_get_locale_trace( $post_id ) {
-	$pid       = (int) $post_id;
-	$meta_lang = get_post_meta( $pid, '_fyz_content_language', true );
-	$cats      = wp_get_post_categories( $pid );
-	$has_cat54 = in_array( 54, $cats, true );
-	$legacy_ru = in_array( $pid, fyzsxnb_get_russian_post_ids(), true );
-	$resolved  = fyzsxnb_resolve_content_locale( $pid );
-
-	return array(
-		'post_id'         => $pid,
-		'meta_language'   => $meta_lang ? $meta_lang : '',
-		'has_cat54'       => $has_cat54,
-		'in_legacy_array' => $legacy_ru,
-		'resolved_locale' => $resolved['locale'],
-		'resolver_source' => $resolved['source'],
-		'is_valid'        => $resolved['valid'],
-		'is_conflict'     => $resolved['conflict'],
-		'conflict_reason' => isset( $resolved['reason'] ) ? $resolved['reason'] : '',
-	);
-}

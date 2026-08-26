@@ -110,7 +110,7 @@ function fyzsxnb_editorial_author_markup( $markup, $post_id, $show_before ) {
 	unset( $markup, $post_id );
 
 	$is_russian = fyzsxnb_is_russian_view();
-	$label      = $is_russian ? 'Редакция FYZSXNB' : 'FYZSXNB Editorial Desk';
+	$label      = $is_russian ? 'FYZSXNB Аналитика' : 'FYZSXNB Intelligence';
 	$prefix     = ( $show_before && ! $is_russian ) ? 'by ' : '';
 
 	return '<span class="author-name fn">' . esc_html( $prefix . $label ) . '</span>';
@@ -256,7 +256,7 @@ function fyzsxnb_print_toc_inline() {
 	if ( false === $code || false !== strpos( $code, '</script' ) ) {
 		return;
 	}
-	echo '<script id="fyzsxnb-toc-inline">' . $code . '</script>';
+	echo '<script id="fyzsxnb-toc-inline" data-no-optimize="1" data-pagespeed-no-defer="1">' . $code . '</script>';
 }
 add_action( 'wp_footer', 'fyzsxnb_print_toc_inline', 99 );
 
@@ -308,7 +308,7 @@ function fyzsxnb_article_shell_meta() {
 		echo '<span class="fyz-meta">' . esc_html( implode( ', ', array_slice( $types, 0, 2 ) ) ) . '</span>';
 	}
 
-	echo '<span class="fyz-meta">' . esc_html( $ru ? 'Редакция FYZSXNB' : 'FYZSXNB Editorial Desk' ) . '</span>';
+	echo '<span class="fyz-meta">' . esc_html( $ru ? 'FYZSXNB Аналитика' : 'FYZSXNB Intelligence' ) . '</span>';
 	echo '<span class="fyz-meta">' . esc_html( $ru ? 'RU' : 'EN' ) . '</span>';
 	echo '</div>';
 
@@ -423,7 +423,7 @@ function fyzsxnb_footer_credit( $content ) {
 	$ru = function_exists( 'fyzsxnb_is_russian_view' ) && fyzsxnb_is_russian_view();
 	$year = gmdate( 'Y' );
 	unset( $content );
-	return '© ' . $year . ' FYZSXNB' . ( $ru ? ' — исследовательский деск' : ' — Research Desk' );
+	return '© ' . $year . ' FYZSXNB' . ( $ru ? ' — Аналитический центр' : ' — Cross-Border Intelligence' );
 }
 add_filter( 'theme_mod_footer_copyright_content', 'fyzsxnb_footer_credit' );
 

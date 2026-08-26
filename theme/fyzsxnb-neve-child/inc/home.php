@@ -145,14 +145,10 @@ function fyzsxnb_home_config( $locale ) {
 		);
 		$config['featured'] = null; // RU keeps editorial desks, not a featured block
 		$config['desks'] = array(
-			array( 'meta' => 'Электроника и 3C', 'title' => 'Китайская электроника и 3C', 'p' => 'Фокус: китайская и глобальная версии, LTE/5G, eSIM, Android Auto, банковские приложения, уведомления, гарантия и ремонт.' ),
-			array( 'meta' => 'Дроны', 'title' => 'Дроны и компоненты', 'p' => 'Фокус: новые модели для внутреннего рынка Китая, камеры, радиомодули, батареи, прошивки, ограничения и запасные части.' ),
-			array( 'meta' => 'Автотехнологии', 'title' => 'Openpilot и автомобильные системы', 'p' => 'Фокус: совместимость китайских автомобилей, CAN, ADAS-оборудование, интеграция, ограничения безопасности и реальные сценарии.' ),
-			array( 'meta' => 'Авто с пробегом', 'title' => 'Автомобили с пробегом из Китая', 'p' => 'Фокус: модели китайской сборки — VIN-история, комплектации, ЭПТС, утильсбор, русификация, запчасти и реальная цена ввоза.' ),
-			array( 'meta' => 'AI-устройства', 'title' => 'AI-устройства', 'p' => 'Фокус: диктофоны, очки, наушники, роботы и локальные AI-функции — подписки, приватность, языки и работа без облака.' ),
-			array( 'meta' => 'Биомедицина', 'title' => 'Биомедицина Китая', 'p' => 'Фокус: платформы, регуляторные изменения, лабораторное оборудование, диагностика, экспорт и проверяемые отраслевые сигналы.' ),
-			array( 'meta' => 'Медтехника', 'title' => 'Медицинские технологии', 'p' => 'Фокус: зарегистрированные устройства, клинические данные и технические различия. Материалы не заменяют консультацию врача.' ),
-			array( 'meta' => 'Питомцы', 'title' => 'Товары для питомцев', 'p' => 'Фокус: китайские корма и товары против российских аналогов — состав, маркировка, цена, безопасность и каналы покупки.' ),
+			array( 'meta' => 'Авто из Китая', 'title' => 'Автомобили из Китая в России', 'p' => 'Импорт новых и б/у авто, проверка ЭПТС по VIN, утильсбор 2026, комплектации и русификация.', 'cta' => 'Открыть раздел авто', 'spec' => array( 'type' => 'path', 'path' => '/ru/cars-from-china/' ) ),
+			array( 'meta' => 'База ремонта', 'title' => 'База знаний по ремонту', 'p' => 'Ремонт DQ381 (P1735/P1736), запчасти DKV/DPL, прожиг GPF, прошивка Chery и CAN-шины.', 'cta' => 'Открыть базу знаний', 'spec' => array( 'type' => 'path', 'path' => '/ru/repair-knowledge-base/' ) ),
+			array( 'meta' => 'Промкомпоненты', 'title' => 'Промышленные компоненты и автоматизация', 'p' => 'Датчики давления 4-20мА, ПЛК, преобразователи частоты и замена ушедших брендов.', 'cta' => 'Перейти к компонентам', 'spec' => array( 'type' => 'path', 'path' => '/ru/industrial-supply-chain/' ) ),
+			array( 'meta' => 'Биомедицина', 'title' => 'Биомедицина и регуляторика', 'p' => 'Регистрация FDA 21 CFR 207, маркировка NMPA UDI 2027 и молекулярные POCT-системы.', 'cta' => 'Открыть раздел регуляторики', 'spec' => array( 'type' => 'path', 'path' => '/ru/biomed-regulatory/' ) ),
 		);
 		$config['guides'] = array(
 			'section_id' => 'guides',
@@ -186,76 +182,76 @@ function fyzsxnb_home_config( $locale ) {
 		);
 		$config['lang_switch'] = array( 'label' => 'RU', 'url' => home_url( '/ru/' ), 'hreflang' => 'ru', 'current' => false );
 		$config['hero'] = array(
-			'eyebrow' => 'Independent China Signal Desk',
-			'title'   => 'What China is building, and what it means elsewhere.',
-			'deck'    => 'Independent, source-backed reporting on Chinese technology, products, healthcare and cross-border opportunities, translated into practical decisions.',
+			'eyebrow' => 'Cross-Border Industrial & Automotive Intelligence',
+			'title'   => 'Actionable Technical Insights from China to Global Markets.',
+			'deck'    => 'Technical teardowns, cross-border diagnostic standards, regulatory roadmaps, and verified supply chain intelligence to empower international business decisions.',
 			'topic_links' => array(
-				array( 'label' => 'Russia solutions', 'spec' => array( 'type' => 'path', 'path' => '/ru/' ) ),
-				array( 'label' => 'Biomed evidence', 'spec' => array( 'type' => 'category', 'slug' => 'china-global-biomed' ) ),
-				array( 'label' => 'China technology', 'spec' => array( 'type' => 'category', 'slug' => 'china-tech-products' ) ),
-				array( 'label' => 'Product research', 'spec' => array( 'type' => 'category', 'slug' => 'product-opportunity-research' ) ),
+				array( 'label' => 'Russia Auto Solutions', 'spec' => array( 'type' => 'path', 'path' => '/ru/' ) ),
+				array( 'label' => 'Biomedical Intelligence', 'spec' => array( 'type' => 'category', 'slug' => 'china-global-biomed' ) ),
+				array( 'label' => 'Industrial Supply Chain', 'spec' => array( 'type' => 'category', 'slug' => 'china-tech-products' ) ),
+				array( 'label' => 'Hardware & Equipment', 'spec' => array( 'type' => 'category', 'slug' => 'product-opportunity-research' ) ),
 			),
 			'hero_story' => array(
 				'spec'  => array( 'type' => 'post', 'slug' => 'fully-automated-molecular-poct-system-ifind-procurement-guide' ),
 				'meta'  => 'EN · Biomed · Procurement guide',
 				'title' => 'How to shortlist a molecular POCT system from China',
-				'p'     => 'Throughput, assay menus, evidence requests, workflow fit and claims that still need verification.',
+				'p'     => 'Comprehensive analysis of analytical throughput, cartridge assay menus, regulatory standards, and practical procurement specifications.',
 			),
 		);
 		$config['signals'] = array(
 			'section_id' => 'latest',
-			'title'      => 'Latest signals',
-			'note'       => 'Four different desks, one editorial standard: identify the information gap, verify what matters, and show the practical next step.',
+			'title'      => 'Latest Intelligence Reports',
+			'note'       => 'Real-world operational telemetry, engineering analysis, and direct supplier intelligence across key cross-border sectors.',
 		);
 		$config['featured'] = array(
 			'section_id' => 'featured',
-			'eyebrow'    => "Editor's selection",
-			'title'      => 'Featured reports',
-			'note'       => 'Selected for decision value, original China-side information and a clear account of what is confirmed, claimed or still unknown.',
+			'eyebrow'    => 'Strategic Research',
+			'title'      => 'Featured Industry Reports',
+			'note'       => 'Comprehensive technical breakdowns and verified manufacturer data delivering immediate decision value for engineers, clinicians, and procurement directors.',
 			'cards' => array(
 				array( 'kind' => 'lead', 'label' => 'EN · Biomed procurement', 'slug' => 'fully-automated-molecular-poct-system-ifind-procurement-guide', 'p' => 'A buyer-oriented map of workflow, throughput, assay availability and evidence requests.', 'cta' => 'Read procurement guide' ),
-				array( 'kind' => 'small', 'label' => 'EN · Pet care', 'slug' => 'microplastics-in-pet-food-study-methods-limits', 'p' => 'Five studies compared without turning detection into an unsupported health claim.', 'cta' => 'Read evidence' ),
+				array( 'kind' => 'small', 'label' => 'EN · Pet care', 'slug' => 'microplastics-in-pet-food-study-methods-limits', 'p' => 'Five studies compared without turning detection into an unsupported health claim.', 'cta' => 'View Report' ),
 				array( 'kind' => 'small', 'label' => 'EN · Product research', 'slug' => 'ai-voice-recorder-buying-guide-subscription-privacy-offline', 'p' => 'Subscription cost, privacy and offline limits across five real workflows.', 'cta' => 'Open comparison' ),
-				array( 'kind' => 'compact', 'label' => 'EN · Biomed', 'slug' => 'ifind-tbr-mtb-rif-cartridge-procurement-guide', 'p' => 'Analytical claims, direct evidence and procurement questions.', 'cta' => 'Read evidence' ),
+				array( 'kind' => 'compact', 'label' => 'EN · Biomed', 'slug' => 'ifind-tbr-mtb-rif-cartridge-procurement-guide', 'p' => 'Analytical claims, direct evidence and procurement questions.', 'cta' => 'View Report' ),
 				array( 'kind' => 'compact', 'label' => 'EN · Biomed', 'slug' => 'ifind-ifq-inh-fluoroquinolone-resistance-cartridge-guide', 'p' => 'What the brochure says and what a buyer should still request.', 'cta' => 'Read guide' ),
-				array( 'kind' => 'compact', 'label' => 'EN · Laboratory evidence', 'slug' => 'tb-molecular-test-lod-cfu-10-vs-100', 'p' => 'Why a lower number is not a complete performance claim.', 'cta' => 'Understand LoD' ),
+				array( 'kind' => 'compact', 'label' => 'EN · Laboratory Diagnostics', 'slug' => 'tb-molecular-test-lod-cfu-10-vs-100', 'p' => 'Why a lower number is not a complete performance claim.', 'cta' => 'Understand LoD' ),
 			),
 		);
 		$config['desks'] = array(
-			array( 'meta' => 'Russia market', 'title' => 'Repairs, compatibility and imports', 'p' => 'Part numbers, regional versions, vehicle functions and China-to-Russia purchase checks.', 'cta' => 'Open Russian desk', 'spec' => array( 'type' => 'path', 'path' => '/ru/' ) ),
-			array( 'meta' => 'Evidence desk', 'title' => 'Biomed procurement', 'p' => 'IVD, POCT, diagnostics, regulation and evidence questions for cross-border buyers.', 'cta' => 'Explore biomed', 'spec' => array( 'type' => 'category', 'slug' => 'china-global-biomed' ) ),
-			array( 'meta' => 'China technology', 'title' => 'Products and regional differences', 'p' => 'Hardware, AI devices and China-market features explained through real use cases.', 'cta' => 'Explore China tech', 'spec' => array( 'type' => 'category', 'slug' => 'china-tech-products' ) ),
-			array( 'meta' => 'Opportunity research', 'title' => 'Products and suppliers', 'p' => 'Demand gaps, compatible solutions and the questions to ask before a product is listed.', 'cta' => 'See product research', 'spec' => array( 'type' => 'category', 'slug' => 'product-opportunity-research' ) ),
+			array( 'meta' => 'Automotive Hub', 'title' => 'Cars From China in Russia', 'p' => 'New & used car imports, VIN & EPTS verification, 2026 recycling fee, winter adaptation and spare parts.', 'cta' => 'Open Auto Hub', 'spec' => array( 'type' => 'path', 'path' => '/cars-from-china/' ) ),
+			array( 'meta' => 'Repair Database', 'title' => 'Auto Repair Knowledge Base', 'p' => 'DQ381 mechatronic sensor fixes (P1735), EA888 DKV parts, GPF regeneration and firmware mods.', 'cta' => 'Explore Repair Database', 'spec' => array( 'type' => 'path', 'path' => '/repair-knowledge-base/' ) ),
+			array( 'meta' => 'Industrial Supply', 'title' => 'China Industrial Supply Chain', 'p' => '4-20mA pressure transmitters, VFD Modbus wiring, M22 fluid adapters and PLC alternatives.', 'cta' => 'Explore Industrial Hub', 'spec' => array( 'type' => 'path', 'path' => '/industrial-supply-chain/' ) ),
+			array( 'meta' => 'Biomed & Regulation', 'title' => 'Biomed & Regulatory Intelligence', 'p' => 'FDA 21 CFR 207 foreign establishment registration, NMPA UDI 2027 and molecular POCT procurement.', 'cta' => 'Explore Medical Hub', 'spec' => array( 'type' => 'path', 'path' => '/biomed-regulatory/' ) ),
 		);
 		$config['guides'] = array(
 			'section_id' => 'guides',
-			'eyebrow'    => 'Decision library',
-			'title'      => 'Latest guides',
-			'browse'     => array( 'label' => 'Browse all reporting', 'spec' => array( 'type' => 'path', 'path' => '/blog/' ) ),
+			'eyebrow'    => 'Knowledge Base',
+			'title'      => 'Technical & Procurement Guides',
+			'browse'     => array( 'label' => 'Browse All Reports', 'spec' => array( 'type' => 'path', 'path' => '/blog/' ) ),
 		);
 		$config['trust'] = array(
 			'section_id' => 'trust',
-			'eyebrow'    => 'How trust is built',
-			'title'      => 'Source first. Limits visible. Solutions second.',
-			'intro'      => 'Chinese communities, product pages and manufacturer materials often contain the original signal. We preserve that value, then verify high-risk claims with evidence appropriate to the decision.',
+			'eyebrow'    => 'Why Industry Leaders Rely on FYZSXNB',
+			'title'      => 'Verified Data. Direct Sources. Actionable Solutions.',
+			'intro'      => 'We eliminate information asymmetry by providing direct access to Chinese engineering documentation, real operational benchmarks, and verified B2B supply lines.',
 			'steps'      => array(
-				array( 's' => 'Discover.', 'd' => 'Find the exact model, claim, user problem or market gap in its original context.' ),
-				array( 's' => 'Verify.', 'd' => 'Check compatibility, medical, regulatory, safety and policy claims against suitable sources.' ),
-				array( 's' => 'Explain.', 'd' => 'Separate confirmed facts, manufacturer claims, community experience, inference and unknowns.' ),
-				array( 's' => 'Connect.', 'd' => 'Only then map the evidence to a Chinese product, supplier route or practical next step.' ),
+				array( 's' => 'Discover.', 'd' => 'Access original engineering data, firmware architectures, and real-world failure modes directly from domestic Chinese ecosystems.' ),
+				array( 's' => 'Validate.', 'd' => 'Cross-examine technical specifications against international regulatory standards, laboratory thresholds, and climate demands.' ),
+				array( 's' => 'Clarify.', 'd' => 'Obtain clear, unbiased technical frameworks that distinguish proven performance from marketing claims.' ),
+				array( 's' => 'Connect.', 'd' => 'Directly bridge actionable technical demand with verified Chinese Tier-1 suppliers and specialized repair supply chains.' ),
 			),
 			'notice'     => '',
 		);
 		$config['cta'] = array(
-			'title' => 'Have a model, part or procurement question?',
-			'p'     => 'Send the exact model, market, photo or document. The next report can begin with your real decision.',
-			'label' => 'Contact the research desk',
+			'title' => 'Need Specialized Technical Research or Component Sourcing?',
+			'p'     => 'Inquire about specific vehicle architectures, laboratory instrumentation, or industrial supply channels to receive direct technical intelligence.',
+			'label' => 'Contact Industry Analysts',
 			'spec'  => array( 'type' => 'page', 'name' => 'contact' ),
 		);
 		$config['reading'] = array(
 			'section_id' => 'reading',
-			'eyebrow'    => 'Wider reading',
-			'title'      => 'Across the FYZSXNB archive',
+			'eyebrow'    => 'Deep-Dive Archive',
+			'title'      => 'Cross-Border Technical Knowledge Base',
 			'cards'      => array(
 				array( 'slug' => 'ifind-tbr-mtb-rif-cartridge-procurement-guide', 'label' => 'EN · Biomed', 'p' => 'A cross-border laboratory decision guide.', 'document' => true ),
 				array( 'slug' => 'microplastics-in-pet-food-study-methods-limits', 'label' => 'EN · Pet care', 'p' => 'Methods, findings and the limits of health interpretation.', 'document' => false ),

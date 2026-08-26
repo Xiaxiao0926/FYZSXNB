@@ -4,8 +4,8 @@
  * Description: Language-explicit, type-explicit homepage feeds (signals/guides)
  *              with locale+type+query-version keyed cache, precise invalidation,
  *              a QA decision trace and QA-only REST endpoints.
- *              UI V2 0.3.6.1 — v1.2.4 (publication gate: REST enforced after meta settles; admin save_post path).
- * Version: 1.2.4
+ *              UI V2 0.4.5-A — v1.2.5 (Language Contract V2: en/ru/zh support; strict feed isolation).
+ * Version: 1.2.5
  * Author: FYZSXNB Engineering
  */
 
@@ -89,6 +89,9 @@ function fyzsxnb_feed_sanitize_language( $value ) {
 	if ( in_array( $v, array( 'ru', 'ru-ru' ), true ) ) {
 		return 'ru';
 	}
+	if ( in_array( $v, array( 'zh', 'zh-cn', 'zh-hans', 'zh_cn', 'zh_hans' ), true ) ) {
+		return 'zh';
+	}
 	return '';
 }
 
@@ -98,7 +101,7 @@ function fyzsxnb_feed_sanitize_kind( $value ) {
 }
 
 /* ---------------------------------------------------------------------------
- * Explicit decision functions (v1.2.0: no heuristic fallback)
+ * Explicit decision functions (v1.2.0: no heuristic fallback; v1.2.5: zh support)
  * ------------------------------------------------------------------------- */
 function fyzsxnb_home_post_locale( $post_id ) {
 	$declared = strtolower( trim( (string) get_post_meta( $post_id, '_fyz_content_language', true ) ) );
@@ -107,6 +110,9 @@ function fyzsxnb_home_post_locale( $post_id ) {
 	}
 	if ( in_array( $declared, array( 'ru', 'ru-ru' ), true ) ) {
 		return 'ru-RU';
+	}
+	if ( in_array( $declared, array( 'zh', 'zh-cn', 'zh-hans', 'zh_cn', 'zh_hans' ), true ) ) {
+		return 'zh-CN';
 	}
 	// Structural confirm per the language contract: RU Library category.
 	if ( has_category( FYZSXNB_FEED_RU_LIBRARY_CAT, $post_id ) ) {
@@ -223,8 +229,14 @@ function fyzsxnb_render_home_feed( $posts, $locale, $type ) {
 			<?php
 			$post_id = (int) $feed_post->ID;
 			$excerpt = wp_trim_words( get_the_excerpt( $post_id ), 'signals' === $type ? 22 : 18, '&hellip;' );
+			$thumb   = has_post_thumbnail( $post_id ) ? get_the_post_thumbnail( $post_id, 'medium', array( 'loading' => 'lazy', 'alt' => esc_attr( get_the_title( $post_id ) ) ) ) : '';
 			?>
 			<article class="<?php echo esc_attr( $card_class ); ?>">
+				<?php if ( ! empty( $thumb ) ) : ?>
+					<div class="fyz-card__thumb">
+						<a href="<?php echo esc_url( get_permalink( $post_id ) ); ?>" tabindex="-1" aria-hidden="true"><?php echo $thumb; ?></a>
+					</div>
+				<?php endif; ?>
 				<span class="fyz-meta"><?php echo esc_html( $label . ' · ' . get_the_date( 'j M Y', $post_id ) ); ?></span>
 				<h3><a href="<?php echo esc_url( get_permalink( $post_id ) ); ?>"><?php echo esc_html( get_the_title( $post_id ) ); ?></a></h3>
 				<?php if ( '' !== trim( $excerpt ) ) : ?><p><?php echo esc_html( $excerpt ); ?></p><?php endif; ?>
@@ -516,13 +528,16 @@ function fyzsxnb_pubmeta_render_meta_box( $post ) {
 		$lang = 'en';
 	} elseif ( in_array( $lang, array( 'ru', 'ru-ru' ), true ) ) {
 		$lang = 'ru';
+	} elseif ( in_array( $lang, array( 'zh', 'zh-cn', 'zh-hans', 'zh_cn', 'zh_hans' ), true ) ) {
+		$lang = 'zh';
 	}
 	if ( ! in_array( $kind, array( 'signal', 'guide' ), true ) ) {
 		$kind = '';
 	}
 	echo '<p><strong>Language</strong></p>';
 	echo '<label><input type="radio" name="fyzsxnb_content_language" value="en"' . checked( $lang, 'en', false ) . '> English</label><br>';
-	echo '<label><input type="radio" name="fyzsxnb_content_language" value="ru"' . checked( $lang, 'ru', false ) . '> Russian</label>';
+	echo '<label><input type="radio" name="fyzsxnb_content_language" value="ru"' . checked( $lang, 'ru', false ) . '> Russian</label><br>';
+	echo '<label><input type="radio" name="fyzsxnb_content_language" value="zh"' . checked( $lang, 'zh', false ) . '> Chinese (zh)</label>';
 	echo '<p><strong>Content kind</strong></p>';
 	echo '<label><input type="radio" name="fyzsxnb_content_kind" value="signal"' . checked( $kind, 'signal', false ) . '> Signal</label><br>';
 	echo '<label><input type="radio" name="fyzsxnb_content_kind" value="guide"' . checked( $kind, 'guide', false ) . '> Guide</label>';
@@ -533,6 +548,9 @@ function fyzsxnb_pubmeta_render_meta_box( $post ) {
 	}
 	if ( '' === $lang && preg_match( '/[\x{0400}-\x{04FF}]/u', (string) get_the_title( $post->ID ) ) ) {
 		echo '<p class="description" style="color:#b26b00">Hint: the title contains Cyrillic text, but Content language is not set.</p>';
+	}
+	if ( 'zh' === $lang && has_category( FYZSXNB_FEED_RU_LIBRARY_CAT, $post->ID ) ) {
+		echo '<p class="description" style="color:#b32d2e">Warning: Content language is set to Chinese (zh), but post is assigned to Russian Library (category 54). Remove category 54.</p>';
 	}
 	$missing = get_post_meta( $post->ID, '_fyz_pubmeta_blocks', true );
 	if ( $missing ) {
@@ -610,7 +628,7 @@ function fyzsxnb_pubmeta_missing_fields( $post_id ) {
 	$lang = strtolower( trim( (string) get_post_meta( $post_id, '_fyz_content_language', true ) ) );
 	$kind = strtolower( trim( (string) get_post_meta( $post_id, '_fyz_content_kind', true ) ) );
 	$missing = array();
-	if ( ! in_array( $lang, array( 'en', 'ru' ), true ) ) {
+	if ( ! in_array( $lang, array( 'en', 'ru', 'zh' ), true ) ) {
 		$missing[] = 'language';
 	}
 	if ( ! in_array( $kind, array( 'signal', 'guide' ), true ) ) {

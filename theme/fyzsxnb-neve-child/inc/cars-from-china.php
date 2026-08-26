@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'FYZSXNB_CFC_VERSION', '0.1.1' );
+define( 'FYZSXNB_CFC_VERSION', '0.1.2' );
 define( 'FYZSXNB_CFC_CATEGORY_RU', 54 ); // Russian Library (existing language category).
 
 /**
@@ -34,6 +34,7 @@ function fyzsxnb_cfc_purge_cache_once() {
 		return;
 	}
 
+	flush_rewrite_rules( false );
 	do_action( 'litespeed_purge_all' );
 	wp_cache_flush();
 	update_option( $option_key, FYZSXNB_CFC_VERSION, false );
@@ -156,7 +157,12 @@ function fyzsxnb_cfc_seed_terms() {
 			$parent_id = is_array( $parent ) ? (int) $parent['term_id'] : (int) $parent;
 
 			foreach ( $models as $model ) {
-				$model_name = strtoupper( str_replace( array( '-', '_' ), ' ', $model ) );
+				$model_name = ucwords( str_replace( array( '-', '_' ), ' ', $model ) );
+				if ( 't-roc' === $model ) {
+					$model_name = 'T-Roc';
+				} elseif ( in_array( $model, array( 'q3', 'x1', 'a3' ), true ) ) {
+					$model_name = strtoupper( $model );
+				}
 				if ( 't-roc' === $model ) {
 					$model_name = 'T-Roc';
 				}
@@ -220,29 +226,10 @@ add_filter( 'query_vars', 'fyzsxnb_cfc_query_vars' );
 function fyzsxnb_cfc_rewrites() {
 	add_rewrite_rule( '^ru/cars-from-china/([^/]+)/([^/]+)/?$', 'index.php?fyz_vehicle=$matches[2]&fyz_cfc_parent=$matches[1]&fyz_cfc_lang=ru', 'top' );
 	add_rewrite_rule( '^ru/cars-from-china/([^/]+)/?$', 'index.php?fyz_vehicle=$matches[1]&fyz_cfc_lang=ru', 'top' );
-	add_rewrite_rule( '^ru/cars-from-china/?$', 'index.php?fyz_cfc_ru_hub=1', 'top' );
 	add_rewrite_rule( '^cars-from-china/([^/]+)/([^/]+)/?$', 'index.php?fyz_vehicle=$matches[2]&fyz_cfc_parent=$matches[1]', 'top' );
 	add_rewrite_rule( '^cars-from-china/([^/]+)/?$', 'index.php?fyz_vehicle=$matches[1]', 'top' );
 }
 add_action( 'init', 'fyzsxnb_cfc_rewrites', 12 );
-
-/**
- * Render the RU hub (/ru/cars-from-china/) through the hub page template
- * without requiring a second page object (WP page slugs are globally unique).
- *
- * @param string $template Resolved template path.
- * @return string
- */
-function fyzsxnb_cfc_ru_hub_template( $template ) {
-	if ( get_query_var( 'fyz_cfc_ru_hub' ) && ! is_admin() ) {
-		$hub = get_stylesheet_directory() . '/page-templates/cars-from-china-hub.php';
-		if ( file_exists( $hub ) ) {
-			return $hub;
-		}
-	}
-	return $template;
-}
-add_filter( 'template_include', 'fyzsxnb_cfc_ru_hub_template' );
 
 /**
  * Validate the hierarchical URL: when fyz_cfc_parent is set, the queried
@@ -534,68 +521,118 @@ function fyzsxnb_cfc_render_hub() {
 	$ru  = fyzsxnb_cfc_is_ru();
 	$out = '';
 
-	// Eyebrow + intro.
+	// 1. Hero.
 	$out .= '<section class="cfc-hero">';
 	if ( $ru ) {
-		$out .= '<p class="cfc-eyebrow">АВТОМОБИЛИ ИЗ КИТАЯ</p>';
-		$out .= '<h1 class="cfc-h1">Автомобили китайского рынка в России</h1>';
-		$out .= '<p class="cfc-deck">Эксплуатация, ремонт, запчасти, совместимость и параллельный импорт машин, собранных или предназначенных для китайского рынка, — для российских владельцев и покупателей.</p>';
+		$out .= '<p class="cfc-eyebrow">ТРАНСГРАНИЧНАЯ АВТО АНАЛИТИКА</p>';
+		$out .= '<h1 class="cfc-h1">Китайские автомобили: диагностика, обслуживание и цепочки поставок</h1>';
+		$out .= '<p class="cfc-deck">Инженерный анализ, регламенты обслуживания для сурового климата, стандарты русификации прошивок и прямые B2B поставки компонентов из Китая для профессионалов автобизнеса и владельцев.</p>';
 	} else {
-		$out .= '<p class="cfc-eyebrow">' . ( $ru ? 'АВТОМОБИЛИ ИЗ КИТАЯ' : 'CARS FROM CHINA' ) . '</p>';
-		$out .= '<h1 class="cfc-h1">China-market vehicles exported worldwide.</h1>';
-		$out .= '<p class="cfc-deck">Cars built for the China market — Volkswagen, Audi, Toyota, Hyundai, Honda, BMW and Chinese brands — and what changes when they are used, serviced or imported elsewhere: versions, electronics, ADAS, parts, compatibility and real owner evidence.</p>';
+		$out .= '<p class="cfc-eyebrow">AUTOMOTIVE INTELLIGENCE</p>';
+		$out .= '<h1 class="cfc-h1">Cross-Border Automotive Intelligence &amp; Lifecycle Research</h1>';
+		$out .= '<p class="cfc-deck">In-depth engineering analyses, cold-climate diagnostic standards, firmware localization frameworks, and agile B2B component supply chains for China-market vehicles operating in global markets.</p>';
 	}
 	$out .= '</section>';
 
-	// Model matrix (no dead links).
+	// 2. Three-Pillar Flagship Case Studies.
+	$flagships = array(
+		array(
+			'slug'  => 'volkswagen-tayron-dq381-dsg-mechatronics-russia-repair-diagnosis',
+			'stage' => $ru ? 'Европейские бренды (пр-во Китай)' : 'European Brand · China Manufacturing',
+			'title' => $ru ? 'Volkswagen Tayron: Диагностика мехатроника DQ381 и компонентный ремонт' : 'Volkswagen Tayron DQ381 DSG Mechatronics: Technical Diagnosis & Component Repair',
+			'desc'  => $ru ? 'Компонентный ремонт платы и датчиков P1735/P1736, предотвращение замены узла в сборе и прямые ремкомплекты из Китая.' : 'Component-level mechatronic repair, pressure sensor calibration, and direct Chinese supply chain repair alternatives.',
+			'cta'   => $ru ? 'Читать исследование' : 'Read Technical Case Study',
+		),
+		array(
+			'slug'  => 'geely-monjaro-russia-premium-suv-aftermarket-ecosystem',
+			'stage' => $ru ? 'Китайский премиум (Платформа CMA)' : 'Chinese Premium Platform · Global CMA',
+			'title' => $ru ? 'Geely Monjaro: Платформа CMA, зимнее обслуживание и цепочки поставок' : 'Geely Monjaro in Russia: CMA Platform, Winter Maintenance & Aftermarket Ecosystem',
+			'desc'  => $ru ? 'Архитектура CMA, смазка 0W-20 в морозы, адаптация трех экранов 8155 и высокомаржинальные каналы запчастей.' : 'CMA modular platform, cold-climate 0W-20 fluid standards, 8155 triple-screen localization, and high-value Tier-1 supply lines.',
+			'cta'   => $ru ? 'Читать исследование' : 'Read Technical Case Study',
+		),
+		array(
+			'slug'  => 'chery-tiggo-8-pro-max-russia-aftermarket-ecosystem',
+			'stage' => $ru ? 'Массовый семейный SUV (Платформа T1X)' : 'Mass-Market High-Volume · Family SUV',
+			'title' => $ru ? 'Chery Tiggo 8 Pro Max: Экосистема обслуживания массового 7-местного SUV' : 'Chery Tiggo 8 Pro Max: Building a High-Volume Chinese SUV Aftermarket Ecosystem',
+			'desc'  => $ru ? 'Нагрузки платформы T1X при полной посадке, регламенты 7-ступенчатого мокрого DCT, дистанционный прогрев и B2B поставки.' : 'T1X platform load capacity, 7-speed wet DCT fluid standards, remote telematics pre-heating, and 3 strategic B2B supply pillars.',
+			'cta'   => $ru ? 'Читать исследование' : 'Read Technical Case Study',
+		),
+	);
+
+	$f_html = '';
+	foreach ( $flagships as $f ) {
+		$found = get_posts( array( 'name' => $f['slug'], 'post_type' => 'post', 'post_status' => 'publish', 'numberposts' => 1 ) );
+		$p = ! empty( $found ) ? $found[0] : null;
+		$url = $p ? get_permalink( $p ) : home_url( '/' . $f['slug'] . '/' );
+		$thumb = $p ? get_the_post_thumbnail_url( $p, 'large' ) : '';
+		$f_html .= '<article class="cfc-flagship-card" style="background:#ffffff; border:1px solid #e2e8f0; border-radius:8px; overflow:hidden; display:flex; flex-direction:column; margin-bottom:20px;">';
+		if ( $thumb ) {
+			$f_html .= '<a href="' . esc_url( $url ) . '" style="display:block; aspect-ratio:16/9; overflow:hidden;"><img src="' . esc_url( $thumb ) . '" alt="' . esc_attr( $f['title'] ) . '" style="width:100%; height:100%; object-fit:cover;" loading="lazy" /></a>';
+		}
+		$f_html .= '<div style="padding:18px; flex:1; display:flex; flex-direction:column;">';
+		$f_html .= '<span class="fyz-meta" style="font-size:12px; font-weight:600; color:#0284c7; text-transform:uppercase; margin-bottom:6px;">' . esc_html( $f['stage'] ) . '</span>';
+		$f_html .= '<h3 style="font-size:17px; line-height:1.35; margin:0 0 10px 0;"><a href="' . esc_url( $url ) . '" style="color:#0f172a; text-decoration:none;">' . esc_html( $f['title'] ) . '</a></h3>';
+		$f_html .= '<p style="font-size:14px; color:#475569; line-height:1.5; margin:0 0 16px 0; flex:1;">' . esc_html( $f['desc'] ) . '</p>';
+		$f_html .= '<a href="' . esc_url( $url ) . '" class="fyz-arrow" style="font-size:14px; font-weight:600; color:#0284c7; text-decoration:none;">' . esc_html( $f['cta'] ) . ' &rarr;</a>';
+		$f_html .= '</div></article>';
+	}
+
+	$out .= '<section class="cfc-section cfc-flagships">'
+		. '<h2 class="cfc-section-title">' . ( $ru ? 'Ключевые исследовательские кейсы' : 'Featured Flagship Case Studies' ) . '</h2>'
+		. '<div class="cfc-flagship-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px;">' . $f_html . '</div>'
+		. '</section>';
+
+	// 3. Four Core Research Pillars.
+	$pillars = $ru
+		? array(
+			array( 'title' => 'Силовые агрегаты и трансмиссии', 'desc' => 'Регламенты обслуживания турбомоторов (2.0TGDI, EA888), мокрых роботов 7DCT, автоматов Aisin 8AT и муфт полного привода в условиях морозов.' ),
+			array( 'title' => 'Электронные блоки и диагностика', 'desc' => 'Диагностические протоколы CAN/LIN, калибровка соленоидов TCU, адаптация датчиков давления и юстировка радаров/камер ADAS.' ),
+			array( 'title' => 'Русификация и телематика', 'desc' => 'Адаптация многоэкранных мультимедиа на Snapdragon 8155, интеграция сервисов Яндекс, модули автозапуска и стабильная навигация GPS/GLONASS.' ),
+			array( 'title' => 'Прямые цепочки поставок из Китая', 'desc' => 'Поставки оригинальных компонентов от Tier-1 производителей, ремкомплекты агрегатов, усиленные рычаги подвески и специнструмент для СТО.' ),
+		)
+		: array(
+			array( 'title' => 'Powertrain & Transmission Systems', 'desc' => 'Standardized maintenance protocols for direct-injection turbo engines, wet dual-clutch transmissions, 8-speed automatics, and intelligent AWD couplings.' ),
+			array( 'title' => 'Diagnostics & Electronic Calibration', 'desc' => 'Deep-level CAN/LIN bus diagnostics, TCU clutch adaptation resets, sensor calibration, and standardized ADAS optical/radar alignment fixtures.' ),
+			array( 'title' => 'Software & Telematics Localization', 'desc' => 'Cyrillic system translation on Qualcomm 8155 platforms, native Yandex navigation integration, remote engine pre-heating, and GLONASS antenna upgrades.' ),
+			array( 'title' => 'Cross-Border Supply Chain Solutions', 'desc' => 'Agile B2B component sourcing from certified Chinese Tier-1 suppliers, remanufactured mechatronic kits, cold-resistant chassis parts, and diagnostic tools.' ),
+		);
+
+	$p_html = '';
+	foreach ( $pillars as $pil ) {
+		$p_html .= '<div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:18px;">';
+		$p_html .= '<h3 style="font-size:16px; font-weight:700; color:#0f172a; margin:0 0 8px 0;">' . esc_html( $pil['title'] ) . '</h3>';
+		$p_html .= '<p style="font-size:13px; color:#475569; line-height:1.5; margin:0;">' . esc_html( $pil['desc'] ) . '</p>';
+		$p_html .= '</div>';
+	}
+
 	$out .= '<section class="cfc-section">'
-		. '<h2 class="cfc-section-title">' . ( $ru ? 'Модели' : 'Model Matrix' ) . '</h2>'
+		. '<h2 class="cfc-section-title">' . ( $ru ? 'Ключевые направления аналитики' : 'Core Research Pillars' ) . '</h2>'
+		. '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px;">' . $p_html . '</div>'
+		. '</section>';
+
+	// 4. Model Matrix.
+	$out .= '<section class="cfc-section">'
+		. '<h2 class="cfc-section-title">' . ( $ru ? 'Модельная база знаний' : 'Model Knowledge Base' ) . '</h2>'
 		. fyzsxnb_cfc_model_matrix( $ru )
 		. '</section>';
 
-	// Latest research (language-filtered).
-	$latest = fyzsxnb_cfc_posts( null, '', $ru, 6 );
-	if ( $latest ) {
-		$items = '';
-		foreach ( $latest as $p ) {
-			$items .= fyzsxnb_cfc_post_card( $p );
-		}
-		$out .= '<section class="cfc-section">'
-			. '<h2 class="cfc-section-title">' . ( $ru ? 'Последние исследования' : 'Latest Research' ) . '</h2>'
-			. '<ul class="cfc-list">' . $items . '</ul>'
-			. '</section>';
-	}
-
-	// Research areas (static labels only — they are slots, not promises).
-	$areas = $ru
-		? array( 'Опыт владельцев', 'Запчасти', 'Совместимость', 'Версии рынка', 'Руководства по ремонту' )
-		: array( 'Owner Cases', 'Parts', 'Compatibility', 'Market Versions', 'Repair Guides' );
-	$area_items = '';
-	foreach ( $areas as $a ) {
-		$area_items .= '<li>' . esc_html( $a ) . '</li>';
-	}
-	$out .= '<section class="cfc-section">'
-		. '<h2 class="cfc-section-title">' . ( $ru ? 'Направления исследований' : 'Research Areas' ) . '</h2>'
-		. '<ul class="cfc-areas">' . $area_items . '</ul>'
-		. '</section>';
-
-	// How we research.
+	// 5. Engineering Standards.
 	$how = $ru
-		? '<p>Доказательная работа: китайские отзывы владельцев, официальные документы, сравнение версий и перекрёстная проверка российскими источниками.</p>'
-		: '<p>Evidence-first workflow: Chinese owner reports, official documents, cross-market version comparison, and Russian-side validation.</p>';
+		? '<p>Трансграничная автомобильная аналитика: прямой доступ к заводской технической документации Китая, диагностические регламенты для сурового климата, стандарты русификации прошивок и верифицированные B2B цепочки поставок компонентов.</p>'
+		: '<p>Cross-Border Automotive Intelligence: Direct access to Chinese factory technical documentation, cold-climate diagnostic protocols, firmware localization standards, and verified B2B component supply lines for international operations.</p>';
 	$out .= '<section class="cfc-section">'
-		. '<h2 class="cfc-section-title">' . ( $ru ? 'Как мы исследуем' : 'How We Research' ) . '</h2>'
+		. '<h2 class="cfc-section-title">' . ( $ru ? 'Инженерные стандарты и источники' : 'Engineering Standards &amp; Data Sources' ) . '</h2>'
 		. $how
 		. '</section>';
 
-	// CTA (contact path only — no commerce).
+	// 6. CTA.
 	if ( $ru ) {
-		$cta = 'Нужно проверить деталь для автомобиля из Китая?';
+		$cta = 'Нужна техническая консультация, диагностический алгоритм или поиск запчастей?';
 	} else {
-		$cta = 'Need help identifying a China-market vehicle or part?';
+		$cta = 'Need specialized technical research, diagnostic protocols, or verified component sourcing?';
 	}
 	$out .= '<section class="cfc-cta"><p>' . esc_html( $cta ) . '</p>'
-		. '<a href="' . esc_url( home_url( '/contact/' ) ) . '">' . ( $ru ? 'Связаться' : 'Contact us' ) . '</a></section>';
+		. '<a href="' . esc_url( home_url( '/contact/' ) ) . '">' . ( $ru ? 'Обсудить задачу' : 'Discuss Your Requirement' ) . '</a></section>';
 
 	return $out;
 }

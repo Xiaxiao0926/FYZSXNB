@@ -37,7 +37,7 @@ $nav = isset( $cfg['nav'] ) ? $cfg['nav'] : array();
       <h1 id="fyz-home-title"><?php echo esc_html( isset( $hero['title'] ) ? $hero['title'] : '' ); ?></h1>
       <?php if ( ! empty( $hero['deck'] ) ) : ?><p class="fyz-hero__deck"><?php echo esc_html( $hero['deck'] ); ?></p><?php endif; ?>
       <?php if ( ! empty( $hero['topic_links'] ) ) : ?>
-        <ul class="fyz-topic-links" aria-label="<?php echo esc_attr( $ru ? 'Разделы исследований' : 'Research desks' ); ?>">
+        <ul class="fyz-topic-links" aria-label="<?php echo esc_attr( $ru ? 'Направления аналитики' : 'Intelligence Topics' ); ?>">
           <?php foreach ( $hero['topic_links'] as $tl ) : ?>
             <?php $url = fyzsxnb_home_target( $tl['spec'] ); if ( $url ) : ?>
               <li><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $tl['label'] ); ?></a></li>
@@ -46,7 +46,7 @@ $nav = isset( $cfg['nav'] ) ? $cfg['nav'] : array();
         </ul>
       <?php endif; ?>
       <?php if ( ! empty( $hero['promise'] ) ) : ?>
-        <div class="fyz-promise" aria-label="<?php echo esc_attr( $ru ? 'Редакционные принципы' : 'Editorial principles' ); ?>">
+        <div class="fyz-promise" aria-label="<?php echo esc_attr( $ru ? 'Ключевые преимущества' : 'Core Value' ); ?>">
           <?php foreach ( $hero['promise'] as $pr ) : ?>
             <div><strong><?php echo esc_html( $pr['strong'] ); ?></strong><span><?php echo esc_html( $pr['span'] ); ?></span></div>
           <?php endforeach; ?>

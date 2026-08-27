@@ -66,9 +66,18 @@ IMAGE_UPLOAD_OCCURRED = NO
 CACHE_PURGE_OCCURRED = NO
 PRODUCTION_WRITE_OCCURRED = NO
 
-PREP_COMMIT = <filled after commit>
-LOCAL_REMOTE_MATCH = <filled after verify>
-REMOTE_BACKUP_VERIFIED = <filled after verify>
+PREP_COMMIT = 17b35e0
+LOCAL_REMOTE_MATCH = YES
+REMOTE_BACKUP_VERIFIED = YES
 
-NEXT = GPT-5.6 VISUAL + PUBLISH PAYLOAD FINAL QA
+## Closeout 追加（PUBLISH-PREP-CLOSEOUT-001，2026-08-27）
+
+- WP-CONTENT-FRAGMENT-001.html 生成（无 doctype/html/head/title/h1；主题单 H1 安全）
+- 6 个 contextual 内链实际嵌入正文（Article001/004、Case001/002/003、Hub），复验 6/6 HTTP 200
+- Sources 28 条全部转可点击 `<a href target=_blank rel=noopener noreferrer>`
+- `{MEDIA}` placeholder = 3（发布前替换 + `PLACEHOLDER_COUNT=0` 扫描）
+- Hero（照片级）= PENDING —— 最终发布唯一外部前置（HERO_SPEC=PASS，本运行时无图像生成能力，未伪造）
+- 更新 commit 见终值
+
+NEXT = GPT-5.6 VISUAL + PUBLISH PAYLOAD FINAL QA → Publish Gate（MEDIA upload → draft/preview → slug collision → single H1 → metadata/locale → FINAL PUBLISH → post-publish QA → Feed baseline delta）
 ```

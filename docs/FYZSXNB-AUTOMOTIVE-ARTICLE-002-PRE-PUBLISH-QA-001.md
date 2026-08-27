@@ -24,13 +24,23 @@
 | Figure 3 无 vendor endorsement 暗示（注已标） | ✅ |
 | Hero（照片级） | **DEFERRED**（本运行时无图像生成；规格卡 HERO-SPEC-001 已备，Publish Gate 前置条件） |
 
-## 链接 QA
+## 链接 QA（Closeout 更新 2026-08-27）
 
 | Item | Result |
 |---|---|
-| 内部链接 6 目标 HTTP 200（Article001/004、Case001/002/003、Hub，2026-08-27 实测） | ✅ 6/6 |
+| 内部链接 **实际嵌入正文**（WP-CONTENT-FRAGMENT-001.html）：Article001 / Article004 / Case001 / Case003 / Hub / Case002 = 6 contextual anchors | ✅ 6/6 已嵌入（非仅验证可访问性） |
+| 嵌入链接目标 HTTP 200 复验（closeout 日实测） | ✅ 6/6 |
 | 无跨语言链接（EN⇄EN only） | ✅ |
-| 外部来源 URL 28 条已在 draft 校验（BMW/MINI 为 primary PDF 直链） | ✅ |
+| 外部来源 URL 28 条全部可点击 `<a href>` + `target="_blank" rel="noopener noreferrer"`（BMW/MINI primary PDF 直链） | ✅（fragment 内 91 处安全属性外链） |
+
+## 发布载荷约束（Closeout 更新）
+
+| Item | Result |
+|---|---|
+| WP-CONTENT-FRAGMENT-001.html：无 doctype / html / head / title / h1（扫描 5 项全 clean）→ public page 单 H1（theme 标题） | ✅ |
+| `{MEDIA}` placeholders | 3（figure 1/2/3）——发布前替换并扫描 `PLACEHOLDER_COUNT=0` |
+| S1–S28 引用编号 ↔ Sources 列表对应 | ✅ |
+| Hero（照片级） | PENDING（发布唯一前置；HERO-SPEC-001 已 PASS） |
 
 ## Meta / Taxonomy QA
 

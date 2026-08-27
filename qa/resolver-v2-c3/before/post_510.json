@@ -1,0 +1,31 @@
+{
+  "post_id": 510,
+  "slug": "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay",
+  "mode": "Legacy",
+  "resolved_locale": "ru",
+  "resolved_source": "legacy",
+  "html_lang": "lang=\"ru-RU\"",
+  "og_locale": "<meta property=\"og:locale\" content=\"ru_RU\" />",
+  "schema_in_language": "ru-RU",
+  "canonical": "<link rel=\"canonical\" href=\"https://fyzsxnb.com/volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay/\" />",
+  "hreflang": [],
+  "schema_json_ld": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://fyzsxnb.com/volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay/#webpage",
+        "url": "https://fyzsxnb.com/volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay/",
+        "name": "Post 510",
+        "inLanguage": "ru-RU"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://fyzsxnb.com/volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay/#article",
+        "headline": "Post 510",
+        "inLanguage": "ru-RU",
+        "mainEntityOfPage": "https://fyzsxnb.com/volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay/"
+      }
+    ]
+  }
+}

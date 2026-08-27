@@ -19,22 +19,65 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Plugin version constant.
  */
-define( 'FYZSXNB_P0_SEO_VERSION', '1.3.1' );
+define( 'FYZSXNB_P0_SEO_VERSION', '1.4.0' );
+
+/**
+ * Feature Flag: Language Contract V2 Resolver.
+ *
+ * Values:
+ *   false: Execute Legacy Resolver (100% current baseline).
+ *   true:  Execute Resolver V2 (en/ru/zh full support).
+ *
+ * Default: false (Guarantees zero-regression upon deployment).
+ */
+if ( ! defined( 'FYZ_USE_RESOLVER_V2' ) ) {
+	$env_flag = getenv( 'FYZ_USE_RESOLVER_V2' );
+	if ( false !== $env_flag ) {
+		define( 'FYZ_USE_RESOLVER_V2', in_array( strtolower( trim( (string) $env_flag ) ), array( '1', 'true', 'on', 'yes' ), true ) );
+	} else {
+		define( 'FYZ_USE_RESOLVER_V2', false );
+	}
+}
+
+/**
+ * Check if Resolver V2 should execute for the current request.
+ *
+ * Rules:
+ *   1. Global switch: If FYZ_USE_RESOLVER_V2 is true -> returns true.
+ *   2. Internal Canary gate: If request carries 'X-FYZ-Resolver-V2: 1' AND
+ *      current user has 'manage_options' capability -> returns true and sets DONOTCACHEPAGE.
+ *   3. Default (Public visitors, Googlebot, anonymous requests) -> returns false (100% Legacy path).
+ *
+ * @return bool True if Resolver V2 is active for this request.
+ */
+function fyzsxnb_is_resolver_v2_enabled() {
+	if ( defined( 'FYZ_USE_RESOLVER_V2' ) && FYZ_USE_RESOLVER_V2 ) {
+		return true;
+	}
+
+	// Internal Canary Gate: Authenticated admin + X-FYZ-Resolver-V2: 1 header
+	if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+		if ( isset( $_SERVER['HTTP_X_FYZ_RESOLVER_V2'] ) && '1' === (string) $_SERVER['HTTP_X_FYZ_RESOLVER_V2'] ) {
+			// Absolute cache safety: ensure internal canary output is never cached publicly
+			if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+				define( 'DONOTCACHEPAGE', true );
+			}
+			return true;
+		}
+	}
+
+	return false;
+}
 
 /* -------------------------------------------------------------------------
- * Shared helpers
+ * Shared helpers & Central Locale Resolver (0.4.1 Dual-Read Architecture)
  * ---------------------------------------------------------------------- */
 
 /**
- * Explicit Russian post ID set (PRIMARY detector).
+ * Explicit Russian post ID set (LEGACY detector fallback).
  *
- * This set is the authoritative list of Russian-language objects. It includes
- * page 400 (the /ru/ hub) and every Russian post, including post 350 which is
- * Russian but does NOT belong to category 54.
- *
- * NOTE: Category 56 is intentionally NOT used as a language detector because it
- * is a topic category, not a language category. Category 54 is used only as a
- * SECONDARY detector for posts that may be added later and assigned to it.
+ * Retained in 0.4.1 as the authoritative fallback set.
+ * Page 400 is the /ru/ hub. Posts 448..350 are legacy Russian articles.
  *
  * @return int[]
  */
@@ -43,40 +86,169 @@ function fyzsxnb_get_russian_post_ids() {
 }
 
 /**
+ * Resolve the content locale for a single post object.
+ *
+ * Decision flow:
+ *   1. Primary: Explicit publication metadata (_fyz_content_language).
+ *      - ru + Cat54 -> valid RU (source: meta)
+ *      - en + no Cat54 -> valid EN (source: meta)
+ *      - zh + no Cat54 -> valid ZH (source: meta)
+ *      - Structural conflict -> flagged invalid, safe legacy fallback applied.
+ *   2. Fallback: Legacy detector (fyzsxnb_get_russian_post_ids + Cat54).
+ *   3. Default: en (or unknown under V2).
+ *
+ * @param int $post_id Post ID.
+ * @return array Array with 'locale' ('ru'|'en'|'zh'|'unknown'), 'source' ('meta'|'legacy'|'default'), 'valid' (bool), 'conflict' (bool), 'fallback_locale' (string).
+ */
+function fyzsxnb_resolve_content_locale( $post_id ) {
+	$pid = (int) $post_id;
+	if ( $pid <= 0 ) {
+		return array(
+			'locale'          => 'en',
+			'source'          => 'default',
+			'valid'           => true,
+			'conflict'        => false,
+			'fallback_locale' => 'en-US',
+		);
+	}
+
+	$meta_lang = strtolower( trim( (string) get_post_meta( $pid, '_fyz_content_language', true ) ) );
+	$has_cat54 = has_category( 54, $pid );
+
+	// Normalize metadata locale
+	if ( in_array( $meta_lang, array( 'ru', 'ru-ru' ), true ) ) {
+		$norm_meta = 'ru';
+	} elseif ( in_array( $meta_lang, array( 'en', 'en-us', 'en-gb' ), true ) ) {
+		$norm_meta = 'en';
+	} elseif ( in_array( $meta_lang, array( 'zh', 'zh-cn', 'zh-hans', 'zh_cn', 'zh_hans' ), true ) ) {
+		$norm_meta = 'zh';
+	} else {
+		$norm_meta = '';
+	}
+
+	// 1. Explicit metadata check with structural validation
+	if ( 'ru' === $norm_meta ) {
+		if ( $has_cat54 ) {
+			return array(
+				'locale'          => 'ru',
+				'source'          => 'meta',
+				'valid'           => true,
+				'conflict'        => false,
+				'fallback_locale' => 'en-US',
+			);
+		} else {
+			// Structural conflict: RU metadata without Category 54
+			return array(
+				'locale'          => 'ru',
+				'source'          => 'meta',
+				'valid'           => false,
+				'conflict'        => true,
+				'fallback_locale' => 'en-US',
+				'reason'          => 'ru_meta_missing_cat54',
+			);
+		}
+	} elseif ( 'en' === $norm_meta ) {
+		if ( ! $has_cat54 ) {
+			return array(
+				'locale'          => 'en',
+				'source'          => 'meta',
+				'valid'           => true,
+				'conflict'        => false,
+				'fallback_locale' => 'en-US',
+			);
+		} else {
+			// Structural conflict: EN metadata with Category 54
+			return array(
+				'locale'          => 'en',
+				'source'          => 'meta',
+				'valid'           => false,
+				'conflict'        => true,
+				'fallback_locale' => 'en-US',
+				'reason'          => 'en_meta_has_cat54',
+			);
+		}
+	} elseif ( 'zh' === $norm_meta ) {
+		if ( ! $has_cat54 ) {
+			return array(
+				'locale'          => 'zh',
+				'source'          => 'meta',
+				'valid'           => true,
+				'conflict'        => false,
+				'fallback_locale' => 'en-US',
+			);
+		} else {
+			// Structural conflict: ZH metadata with Category 54
+			return array(
+				'locale'          => 'zh',
+				'source'          => 'meta',
+				'valid'           => false,
+				'conflict'        => true,
+				'fallback_locale' => 'en-US',
+				'reason'          => 'zh_meta_has_cat54',
+			);
+		}
+	}
+
+	// 2. Metadata missing / unknown -> legacy fallback
+	if ( in_array( $pid, fyzsxnb_get_russian_post_ids(), true ) || $has_cat54 ) {
+		return array(
+			'locale'          => 'ru',
+			'source'          => 'legacy',
+			'valid'           => true,
+			'conflict'        => false,
+			'fallback_locale' => 'en-US',
+		);
+	}
+
+	return array(
+		'locale'          => fyzsxnb_is_resolver_v2_enabled() ? 'unknown' : 'en',
+		'source'          => 'default',
+		'valid'           => true,
+		'conflict'        => false,
+		'fallback_locale' => 'en-US',
+	);
+}
+
+/**
  * Determine whether the currently-rendered object is a Russian target.
  *
- * Detection order:
- *   1. The current queried object ID is in the explicit Russian post ID set.
- *   2. The current queried object is a post that belongs to category 54
- *      (secondary detector).
+ * 0.4.1 Architecture:
+ *   - For single posts: delegates to central content locale resolver (metadata primary, legacy fallback).
+ *   - For non-post / pages (e.g. Page 400 RU home): evaluates explicit page IDs and category 54.
  *
- * Page 400 is covered by the explicit set. Category 56 is deliberately
- * excluded as a detector.
- *
- * @return bool True when the current object should be treated as Russian.
+ * @param int|null $target_id Optional target ID override.
+ * @return bool True when the target object should receive Russian SEO attributes.
  */
-function fyzsxnb_is_russian_target() {
+function fyzsxnb_is_russian_target( $target_id = null ) {
 	// Never act inside the admin context.
 	if ( is_admin() ) {
 		return false;
 	}
 
-	// Only singular requests have a meaningful "current object" to evaluate.
-	if ( ! is_singular() ) {
-		return false;
+	if ( null !== $target_id ) {
+		$current_id = (int) $target_id;
+	} elseif ( is_singular() ) {
+		$current_id = (int) get_queried_object_id();
+	} else {
+		$current_id = 0;
 	}
 
-	$current_id = (int) get_queried_object_id();
 	if ( $current_id <= 0 ) {
 		return false;
 	}
 
-	// 1) Primary detector: explicit Russian post ID set.
+	// Single Post context -> use central content locale resolver
+	$post_type = get_post_type( $current_id );
+	if ( 'post' === $post_type || empty( $post_type ) ) {
+		$resolved = fyzsxnb_resolve_content_locale( $current_id );
+		return ( 'ru' === $resolved['locale'] );
+	}
+
+	// Non-post / Page context (e.g. Page 400 /ru/ home) -> legacy request detector
 	if ( in_array( $current_id, fyzsxnb_get_russian_post_ids(), true ) ) {
 		return true;
 	}
 
-	// 2) Secondary detector: category 54 membership (posts only).
 	if ( has_category( 54, $current_id ) ) {
 		return true;
 	}
@@ -99,6 +271,29 @@ function fyzsxnb_is_russian_target() {
  * @return string Modified attribute string.
  */
 function fyzsxnb_filter_language_attributes( $output ) {
+	if ( is_admin() ) {
+		return $output;
+	}
+
+	if ( fyzsxnb_is_resolver_v2_enabled() ) {
+		$target_id = is_singular() ? (int) get_queried_object_id() : 0;
+		if ( $target_id > 0 ) {
+			$res = fyzsxnb_resolve_content_locale( $target_id );
+			if ( 'ru' === $res['locale'] ) {
+				if ( preg_match( '/\blang=(["\'])([^"\']*)\1/i', $output ) ) {
+					return preg_replace( '/\blang=(["\'])([^"\']*)\1/i', 'lang="ru-RU"', $output );
+				}
+				return rtrim( $output ) . ' lang="ru-RU"';
+			} elseif ( 'zh' === $res['locale'] ) {
+				if ( preg_match( '/\blang=(["\'])([^"\']*)\1/i', $output ) ) {
+					return preg_replace( '/\blang=(["\'])([^"\']*)\1/i', 'lang="zh-CN"', $output );
+				}
+				return rtrim( $output ) . ' lang="zh-CN"';
+			}
+			return $output;
+		}
+	}
+
 	if ( ! fyzsxnb_is_russian_target() ) {
 		return $output;
 	}
@@ -116,7 +311,7 @@ function fyzsxnb_filter_language_attributes( $output ) {
 add_filter( 'language_attributes', 'fyzsxnb_filter_language_attributes' );
 
 /**
- * FIX-SEO-001 (2/4) — Force the Open Graph locale to ru_RU for Russian targets.
+ * FIX-SEO-001 (2/4) — Force the Open Graph locale to ru_RU for Russian targets (or zh_CN under V2).
  *
  * Uses the documented `aioseo_facebook_tags` filter (per AIOSEO developer docs:
  * https://aioseo.com/docs/aioseo_facebook_tags/) to set or override the
@@ -127,6 +322,22 @@ add_filter( 'language_attributes', 'fyzsxnb_filter_language_attributes' );
  * @return array
  */
 function fyzsxnb_filter_facebook_tags( $facebook_tags ) {
+	if ( fyzsxnb_is_resolver_v2_enabled() ) {
+		$target_id = is_singular() ? (int) get_queried_object_id() : 0;
+		if ( $target_id > 0 ) {
+			$res = fyzsxnb_resolve_content_locale( $target_id );
+			if ( ! is_array( $facebook_tags ) ) {
+				$facebook_tags = array();
+			}
+			if ( 'ru' === $res['locale'] ) {
+				$facebook_tags['og:locale'] = 'ru_RU';
+			} elseif ( 'zh' === $res['locale'] ) {
+				$facebook_tags['og:locale'] = 'zh_CN';
+			}
+			return $facebook_tags;
+		}
+	}
+
 	if ( ! fyzsxnb_is_russian_target() ) {
 		return $facebook_tags;
 	}
@@ -183,11 +394,11 @@ function fyzsxnb_is_approved_graph_type( $node_type ) {
 }
 
 /**
- * FIX-SEO-001 (3/4) — Recursively set inLanguage to 'ru-RU' on approved
- * content-bearing graph nodes within AIOSEO schema output for Russian targets.
+ * FIX-SEO-001 (3/4) — Recursively set inLanguage to target locale on approved
+ * content-bearing graph nodes within AIOSEO schema output.
  *
  * Walks the schema structure (arrays and objects) and:
- *   - Sets or replaces `inLanguage` to 'ru-RU' ONLY on graph nodes whose
+ *   - Sets or replaces `inLanguage` to target locale ONLY on graph nodes whose
  *     `@type` is one of the approved content-bearing types (WebPage, Article,
  *     BlogPosting, NewsArticle, MedicalWebPage). Both scalar and array @type
  *     shapes are supported.
@@ -195,56 +406,63 @@ function fyzsxnb_is_approved_graph_type( $node_type ) {
  *     BreadcrumbList, Person, ImageObject, etc.). Their existing values are
  *     preserved unchanged.
  *
- * The walk is reference-based so the original schema array/object is mutated
- * in place. The function recurses into child nodes first, then evaluates the
- * current node's @type — this ensures the node-type context is always available
- * before any inLanguage decision is made.
- *
- * @param mixed $data Schema node (passed by reference).
+ * @param mixed  $data Schema node (passed by reference).
+ * @param string $target_locale Target inLanguage code (e.g. 'ru-RU' or 'zh-CN').
  */
-function fyzsxnb_set_inlanguage_recursive( &$data ) {
+function fyzsxnb_set_inlanguage_recursive( &$data, $target_locale = 'ru-RU' ) {
 	if ( is_array( $data ) ) {
 		// Recurse into child nodes first.
 		foreach ( $data as $key => &$value ) {
 			if ( is_array( $value ) || is_object( $value ) ) {
-				fyzsxnb_set_inlanguage_recursive( $value );
+				fyzsxnb_set_inlanguage_recursive( $value, $target_locale );
 			}
 		}
 		unset( $value );
 
 		// Only set or replace inLanguage on approved content-bearing @type nodes.
-		// Existing inLanguage on unrelated nodes (Organization, BreadcrumbList,
-		// Person, ImageObject, etc.) is preserved unchanged.
 		if ( isset( $data['@type'] ) && fyzsxnb_is_approved_graph_type( $data['@type'] ) ) {
-			$data['inLanguage'] = 'ru-RU';
+			$data['inLanguage'] = $target_locale;
 		}
 	} elseif ( is_object( $data ) ) {
 		// Recurse into child nodes first.
 		foreach ( $data as $key => $value ) {
 			if ( is_array( $value ) || is_object( $value ) ) {
-				fyzsxnb_set_inlanguage_recursive( $data->$key );
+				fyzsxnb_set_inlanguage_recursive( $data->$key, $target_locale );
 			}
 		}
 
 		// Only set or replace inLanguage on approved content-bearing @type nodes.
 		if ( isset( $data->{'@type'} ) && fyzsxnb_is_approved_graph_type( $data->{'@type'} ) ) {
-			$data->inLanguage = 'ru-RU';
+			$data->inLanguage = $target_locale;
 		}
 	}
 }
 
 /**
- * FIX-SEO-001 (3/4) — Filter the AIOSEO schema output for Russian targets.
+ * FIX-SEO-001 (3/4) — Filter the AIOSEO schema output for Russian / Chinese targets.
  *
  * @param mixed $schema The full schema graph output.
  * @return mixed
  */
 function fyzsxnb_filter_schema_output( $schema ) {
+	if ( fyzsxnb_is_resolver_v2_enabled() ) {
+		$target_id = is_singular() ? (int) get_queried_object_id() : 0;
+		if ( $target_id > 0 ) {
+			$res = fyzsxnb_resolve_content_locale( $target_id );
+			if ( 'ru' === $res['locale'] ) {
+				fyzsxnb_set_inlanguage_recursive( $schema, 'ru-RU' );
+			} elseif ( 'zh' === $res['locale'] ) {
+				fyzsxnb_set_inlanguage_recursive( $schema, 'zh-CN' );
+			}
+			return $schema;
+		}
+	}
+
 	if ( ! fyzsxnb_is_russian_target() ) {
 		return $schema;
 	}
 
-	fyzsxnb_set_inlanguage_recursive( $schema );
+	fyzsxnb_set_inlanguage_recursive( $schema, 'ru-RU' );
 
 	return $schema;
 }
@@ -655,3 +873,34 @@ function fyzsxnb_render_blog_h1_on_loop_start( $query ) {
 	fyzsxnb_maybe_render_blog_h1();
 }
 add_action( 'loop_start', 'fyzsxnb_render_blog_h1_on_loop_start' );
+
+/* -------------------------------------------------------------------------
+ * Diagnostic Trace Helper (Internal / Authenticated QA)
+ * ---------------------------------------------------------------------- */
+
+/**
+ * Return detailed diagnostic locale resolution facts for a given post.
+ *
+ * @param int $post_id Post ID.
+ * @return array
+ */
+function fyzsxnb_get_locale_trace( $post_id ) {
+	$pid       = (int) $post_id;
+	$meta_lang = get_post_meta( $pid, '_fyz_content_language', true );
+	$cats      = wp_get_post_categories( $pid );
+	$has_cat54 = in_array( 54, $cats, true );
+	$legacy_ru = in_array( $pid, fyzsxnb_get_russian_post_ids(), true );
+	$resolved  = fyzsxnb_resolve_content_locale( $pid );
+
+	return array(
+		'post_id'         => $pid,
+		'meta_language'   => $meta_lang ? $meta_lang : '',
+		'has_cat54'       => $has_cat54,
+		'in_legacy_array' => $legacy_ru,
+		'resolved_locale' => $resolved['locale'],
+		'resolver_source' => $resolved['source'],
+		'is_valid'        => $resolved['valid'],
+		'is_conflict'     => $resolved['conflict'],
+		'conflict_reason' => isset( $resolved['reason'] ) ? $resolved['reason'] : '',
+	);
+}

@@ -1,0 +1,31 @@
+{
+  "post_id": 504,
+  "slug": "byd-frigate-07-openpilot-dannye-dlya-adaptacii",
+  "mode": "Legacy",
+  "resolved_locale": "ru",
+  "resolved_source": "legacy",
+  "html_lang": "lang=\"ru-RU\"",
+  "og_locale": "<meta property=\"og:locale\" content=\"ru_RU\" />",
+  "schema_in_language": "ru-RU",
+  "canonical": "<link rel=\"canonical\" href=\"https://fyzsxnb.com/byd-frigate-07-openpilot-dannye-dlya-adaptacii/\" />",
+  "hreflang": [],
+  "schema_json_ld": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://fyzsxnb.com/byd-frigate-07-openpilot-dannye-dlya-adaptacii/#webpage",
+        "url": "https://fyzsxnb.com/byd-frigate-07-openpilot-dannye-dlya-adaptacii/",
+        "name": "Post 504",
+        "inLanguage": "ru-RU"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://fyzsxnb.com/byd-frigate-07-openpilot-dannye-dlya-adaptacii/#article",
+        "headline": "Post 504",
+        "inLanguage": "ru-RU",
+        "mainEntityOfPage": "https://fyzsxnb.com/byd-frigate-07-openpilot-dannye-dlya-adaptacii/"
+      }
+    ]
+  }
+}

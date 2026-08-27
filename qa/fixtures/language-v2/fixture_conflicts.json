@@ -1,0 +1,47 @@
+[
+  {
+    "post_id": 9031,
+    "slug": "mock-conflict-zh-with-cat54",
+    "title": "测试冲突A：中文文章被错误分配至Russian Library",
+    "content_language": "zh",
+    "content_kind": "guide",
+    "categories": [52, 54],
+    "expected_conflict": "zh_with_cat54"
+  },
+  {
+    "post_id": 9032,
+    "slug": "mock-conflict-ru-without-cat54",
+    "title": "Тест конфликта B: Статья RU без категории 54",
+    "content_language": "ru",
+    "content_kind": "signal",
+    "categories": [50],
+    "expected_conflict": "ru_without_cat54"
+  },
+  {
+    "post_id": 9033,
+    "slug": "mock-conflict-en-with-cat54",
+    "title": "Mock Conflict C: EN article incorrectly assigned category 54",
+    "content_language": "en",
+    "content_kind": "guide",
+    "categories": [50, 54],
+    "expected_conflict": "en_with_cat54"
+  },
+  {
+    "post_id": 9034,
+    "slug": "mock-missing-language-and-kind",
+    "title": "Mock Missing: No metadata set",
+    "content_language": "",
+    "content_kind": "",
+    "categories": [50],
+    "expected_conflict": "missing_meta"
+  },
+  {
+    "post_id": 9035,
+    "slug": "mock-legacy-fallback-cat54-only",
+    "title": "Mock Legacy: No language meta but has Category 54",
+    "content_language": "",
+    "content_kind": "signal",
+    "categories": [54],
+    "expected_conflict": "legacy_fallback"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "post_id": 500,
+  "slug": "openpilot-byd-2026-support-open-source",
+  "mode": "V2",
+  "resolved_locale": "ru",
+  "resolved_source": "meta",
+  "html_lang": "lang=\"ru-RU\"",
+  "og_locale": "<meta property=\"og:locale\" content=\"ru_RU\" />",
+  "schema_in_language": "ru-RU",
+  "canonical": "<link rel=\"canonical\" href=\"https://fyzsxnb.com/openpilot-byd-2026-support-open-source/\" />",
+  "hreflang": [],
+  "schema_json_ld": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://fyzsxnb.com/openpilot-byd-2026-support-open-source/#webpage",
+        "url": "https://fyzsxnb.com/openpilot-byd-2026-support-open-source/",
+        "name": "Post 500",
+        "inLanguage": "ru-RU"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://fyzsxnb.com/openpilot-byd-2026-support-open-source/#article",
+        "headline": "Post 500",
+        "inLanguage": "ru-RU",
+        "mainEntityOfPage": "https://fyzsxnb.com/openpilot-byd-2026-support-open-source/"
+      }
+    ]
+  }
+}

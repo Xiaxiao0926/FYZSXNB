@@ -1,0 +1,18 @@
+[
+  {
+    "post_id": 9011,
+    "slug": "mock-ru-signal-byd-blade-battery",
+    "title": "Разбор поставок батарей BYD Blade в РФ",
+    "content_language": "ru",
+    "content_kind": "signal",
+    "categories": [50, 54]
+  },
+  {
+    "post_id": 9012,
+    "slug": "mock-ru-guide-eaeu-medical-device-cert",
+    "title": "Полное руководство по сертификации медизделий в ЕАЭС",
+    "content_language": "ru",
+    "content_kind": "guide",
+    "categories": [52, 54]
+  }
+]

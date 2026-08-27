@@ -1,0 +1,18 @@
+[
+  {
+    "post_id": 9021,
+    "slug": "mock-zh-signal-shenzhen-customs-biomed",
+    "title": "深圳海关生物医药特殊物品通关实测信号",
+    "content_language": "zh",
+    "content_kind": "signal",
+    "categories": [52]
+  },
+  {
+    "post_id": 9022,
+    "slug": "mock-zh-guide-nmpa-udi-ivd-compliance",
+    "title": "国家药监局2027年二类医疗器械UDI全流程落地合规指南",
+    "content_language": "zh",
+    "content_kind": "guide",
+    "categories": [52]
+  }
+]

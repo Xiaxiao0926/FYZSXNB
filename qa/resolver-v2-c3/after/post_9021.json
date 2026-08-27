@@ -1,0 +1,31 @@
+{
+  "post_id": 9021,
+  "slug": "mock-zh-signal-biomed",
+  "mode": "V2",
+  "resolved_locale": "zh",
+  "resolved_source": "meta",
+  "html_lang": "lang=\"zh-CN\"",
+  "og_locale": "<meta property=\"og:locale\" content=\"zh_CN\" />",
+  "schema_in_language": "zh-CN",
+  "canonical": "<link rel=\"canonical\" href=\"https://fyzsxnb.com/mock-zh-signal-biomed/\" />",
+  "hreflang": [],
+  "schema_json_ld": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://fyzsxnb.com/mock-zh-signal-biomed/#webpage",
+        "url": "https://fyzsxnb.com/mock-zh-signal-biomed/",
+        "name": "Mock ZH Signal",
+        "inLanguage": "zh-CN"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://fyzsxnb.com/mock-zh-signal-biomed/#article",
+        "headline": "Mock ZH Signal",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": "https://fyzsxnb.com/mock-zh-signal-biomed/"
+      }
+    ]
+  }
+}

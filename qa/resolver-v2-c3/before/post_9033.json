@@ -1,0 +1,31 @@
+{
+  "post_id": 9033,
+  "slug": "mock-conflict-en-cat54",
+  "mode": "Legacy",
+  "resolved_locale": "ru",
+  "resolved_source": "legacy",
+  "html_lang": "lang=\"ru-RU\"",
+  "og_locale": "<meta property=\"og:locale\" content=\"ru_RU\" />",
+  "schema_in_language": "ru-RU",
+  "canonical": "<link rel=\"canonical\" href=\"https://fyzsxnb.com/mock-conflict-en-cat54/\" />",
+  "hreflang": [],
+  "schema_json_ld": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://fyzsxnb.com/mock-conflict-en-cat54/#webpage",
+        "url": "https://fyzsxnb.com/mock-conflict-en-cat54/",
+        "name": "Mock EN Cat54",
+        "inLanguage": "ru-RU"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://fyzsxnb.com/mock-conflict-en-cat54/#article",
+        "headline": "Mock EN Cat54",
+        "inLanguage": "ru-RU",
+        "mainEntityOfPage": "https://fyzsxnb.com/mock-conflict-en-cat54/"
+      }
+    ]
+  }
+}

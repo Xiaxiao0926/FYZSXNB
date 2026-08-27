@@ -1,0 +1,18 @@
+[
+  {
+    "post_id": 9001,
+    "slug": "mock-en-signal-ai-hardware",
+    "title": "Mock EN Signal: China AI Hardware supply chain update",
+    "content_language": "en",
+    "content_kind": "signal",
+    "categories": [50]
+  },
+  {
+    "post_id": 9002,
+    "slug": "mock-en-guide-robotics-sourcing",
+    "title": "Mock EN Guide: Complete sourcing framework for industrial robotics",
+    "content_language": "en",
+    "content_kind": "guide",
+    "categories": [50]
+  }
+]

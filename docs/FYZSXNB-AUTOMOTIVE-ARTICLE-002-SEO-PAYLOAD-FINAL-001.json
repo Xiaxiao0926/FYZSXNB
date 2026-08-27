@@ -1,0 +1,38 @@
+{
+  "title": "ADAS Calibration for Chinese Cars in Russia: The Aftermarket Gap Behind Camera, Radar and Windshield Repairs",
+  "description": "Why camera, radar and windshield repairs on Chinese cars in Russia are creating new ADAS calibration demands — and where aftermarket capability gaps may lie.",
+  "og_title": "ADAS Calibration for Chinese Cars in Russia | FYZSXNB",
+  "og_description": "Camera, radar and windshield repairs on Chinese cars in Russia are creating new ADAS calibration demands. Where capability gaps may lie.",
+  "og_type": "article",
+  "twitter_card": "summary_large_image",
+  "primary_keyword": "ADAS calibration Russia",
+  "secondary_keywords": [
+    "Chinese car windshield camera calibration",
+    "Chinese car radar calibration",
+    "Chinese vehicle diagnostics Russia"
+  ],
+  "content_language": "en",
+  "fyz_content_language": "en",
+  "fyz_content_kind": "guide",
+  "fyz_research_type": "automotive-phase2-industry-analysis",
+  "slug_plan": {
+    "proposed_slug": "chinese-cars-russia-adas-calibration",
+    "alternative_slug": "adas-calibration-chinese-cars-russia",
+    "note": "final slug collision check at publish against WP existing slugs"
+  },
+  "category_plan": {
+    "category_id": 56,
+    "category_slug": "ru-auto",
+    "category_name": "Автомобили и запчасти",
+    "note": "consistent with existing published EN automotive articles; taxonomy/lang separation debt tracked separately"
+  },
+  "featured_image_plan": {
+    "provider": "image-capable runtime (DEFERRED)",
+    "alt": "Technician in an independent Russian workshop performing ADAS calibration in front of a target frame on a generic Chinese SUV — illustrative image, not a real workshop event",
+    "caption": "Illustrative image, not a real workshop or vehicle event."
+  },
+  "veracity": {
+    "search_volume_claims": 0,
+    "note": "no invented search volume; keyword directions only"
+  }
+}

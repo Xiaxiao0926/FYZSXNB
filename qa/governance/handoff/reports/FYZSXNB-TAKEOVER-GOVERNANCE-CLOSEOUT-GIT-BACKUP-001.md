@@ -128,3 +128,16 @@ TAKEOVER_GOVERNANCE_CLOSED = YES（本地；远端备份待续）
 READY_FOR_AUTOMOTIVE_PHASE2 = YES（建议 remote backup 完成后启动）
 NEXT = FYZSXNB-AUTOMOTIVE-PHASE2-ARTICLE-002-RESEARCH-DRAFT-001（并按用户指示先完成远端同步）
 ```
+
+---
+
+## 13. REMOTE BACKUP COMPLETE（后续执行，2026-08-27）
+
+remote=origin(https://github.com/Xiaxiao0926/FYZSXNB)；已推并反向验证：
+- feat/fyzsxnb-cars-from-china-matrix = 9093280（local==remote）✅
+- dev/resolver-v2 = 87de9ee ✅ · dev/translation-pairs = 87ae7ca ✅
+- tags prod-baseline-20260826(a4c87bc) / takeover-governance-20260827(2baedec) ✅
+- origin/main 独立内容（WordPress XML 备份）保持原样，未覆盖、无 force push
+
+GOVERNANCE_CLOSEOUT_GATE = PASS
+RECOVERABLE_PROJECT_PROGRESS_REMOTE_BACKUP = COMPLETE

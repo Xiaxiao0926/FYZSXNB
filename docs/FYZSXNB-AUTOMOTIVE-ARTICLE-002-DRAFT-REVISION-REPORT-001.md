@@ -21,7 +21,7 @@
 | "缺铁缺手册" rhetoric | present | replaced: "Hardware availability alone does not solve the data, procedure and training problem." | PASS |
 | technical camera wording | "primary lane-keeping/AEB/TSR" | corrected: "a common input for lane-support and sign-recognition functions and, depending on system architecture, forward safety functions" | PASS |
 | VIN calibration wording | "OEM-defined parameters for that specific VIN" | corrected: "OEM-defined procedures and configuration data for the relevant model or vehicle configuration" | PASS |
-| Source count mismatch | Gate=21 / Draft=21 / Ledger=23 | resolved: **25 used + 2 supplemental (27 total)**, draft cites S1–S25 explicitly, supplemental S26/S27 not cited | PASS |
+| Source count mismatch | Gate=21 / Draft=21 / Ledger=23 | resolved: **28 used + 2 supplemental (30 total)**, draft cites S1–S28 explicitly, supplemental S29/S30 not cited | PASS |
 | Ledger limitation fields | absent | v2 adds What-it-proves / What-it-does-NOT-prove / Used-in-draft per row; service/vendor/community limitations written | PASS |
 | Visual Figure 2 | "gap" labels | "Potential Capability Constraints" + "not a quantified national gap assessment" | PASS |
 | Visual Figure 3 | "Solution Stack" | "Potential China–Russia Aftermarket Support Architecture" + directional caption | PASS |
@@ -44,10 +44,10 @@
 | C2 fleet exposure（降级） | §1 | S2 | ✓ |
 | C3 СТО struggle | §1/.4 | S3,S4,S5,S14 | ✓ |
 | C4A 266-ФЗ enacted | §4 legal box | S15,S16,S17,S19 | ✓ 新增 |
-| C4B implementation forming | §4 legal box | S16,S18,S19 | ✓ 新增 |
+| C4B implementation forming | §4 legal box | S16,S18,S19, **S26** | ✓ 新增（Rospotrebnadzor 8-26 草案） |
 | C4C not proof of per-VIN availability | §4 legal box | synthesis | ✓ |
 | C5 archetypal trigger principle | §2/§3 | S9-S12 | ✓ |
-| C6 model-level OE policies（BMW/MINI trade report） | §3/§4 | S13 | ✓ Tier3 标注 |
+| C6 model-level OE policies（BMW/MINI primary documents） | §3/§4 | **S27/S28**（Tier 1 primary OEM documents, mirrored）；S13 保留为 mirror entry | ✓ Tier1 标注 |
 | C7 systems discipline | §2 | S9,S10,S20-S25 | ✓ |
 | C8 equipment availability | §4 | S20-S25 | ✓ 比较级已删 |
 | C9 emerging service layer（directional） | §1/§4 | S6,S7,S8 | ✓ 覆盖率声明 |
@@ -71,8 +71,8 @@
 
 ## 文件清单（v1 全部保留，新增 v2 系列）
 
-1. `docs/FYZSXNB-AUTOMOTIVE-ARTICLE-002-ADAS-CALIBRATION-DRAFT-002.md`（~2,100 词正文 + 27 条来源）
-2. `docs/FYZSXNB-AUTOMOTIVE-ARTICLE-002-SOURCE-LEDGER-V2.md`（25 used + 2 supplemental；Tier 修正；limitation 字段）
+1. `docs/FYZSXNB-AUTOMOTIVE-ARTICLE-002-ADAS-CALIBRATION-DRAFT-002.md`（~2,100 词正文 + 28 used + 2 supplemental 来源）
+2. `docs/FYZSXNB-AUTOMOTIVE-ARTICLE-002-SOURCE-LEDGER-V2.md`（S1–S28 used + S29/S30 supplemental；Tier 修正；limitation 字段）
 3. `docs/FYZSXNB-AUTOMOTIVE-ARTICLE-002-CLAIM-LEDGER-V2.md`（C4A/B/C 新增；C2/C11/C13 修订）
 4. `docs/FYZSXNB-AUTOMOTIVE-ARTICLE-002-VISUAL-PLAN-V2.md`（Fig2/Fig3 措辞修订）
 5. `docs/FYZSXNB-AUTOMOTIVE-ARTICLE-002-SEO-DRAFT-V2.md`（description 降级）

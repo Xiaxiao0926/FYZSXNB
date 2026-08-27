@@ -35,7 +35,7 @@
 | S23 | Autel IA700 | 2 | C8 | Vendor capability | Same as S20 | Yes |
 | S24 | UDIAG ADAS-A | 2 | C8 | Vendor capability | Same as S20 | Yes |
 | S25 | TEXSA Group (RU distribution) | 3 | C8 | ADAS stands available via Russian distribution | Same as S20 | Yes |
-| S26 | Consultant.ru — Rospotrebnadzor draft rules (Aug 2026) | **1** (regulator draft, mirrored by legal-news service) | C4B | Draft implementing framework details: written requests (product/model, purpose), proposed 15-working-day delivery, RU translations for safety-relevant foreign-language sections; public discussion to 21 Sep 2026 | Draft rules are NOT final; no effective dates asserted | Yes |
+| S26 | Consultant.ru — Rospotrebnadzor draft rules (Aug 2026) | **1** (regulator draft; entry page links the original 7-page government draft) | C4B | Draft implementing framework details: written requests (product/model, purpose), proposed 15-working-day delivery, RU translations for safety-relevant foreign-language sections; public discussion to 21 Sep 2026 | Draft rules are NOT final; no effective dates asserted; regulation.gov.ru project direct URL not separately identified in this research | Yes |
 | S27 | BMW of North America — Technical Bulletin C-2-0626-5101 (16 Jul 2026) | **1** (primary OEM document, mirrored by third-party publisher) | C6 | Primary BMW document: calibration required after windshield replacement per BMW repair procedure | Not applicable to Chinese OEs; mirror hosting ≠ BMW official download page | Yes |
 | S28 | MINI USA — Technical Bulletin M-2-0726-M5104 (Jul 2026) | **1** (primary OEM document, mirrored by third-party publisher) | C6 | Primary MINI document: windshield replacement calibration requirement | Same as S27 | Yes |
 
@@ -43,8 +43,8 @@
 
 | ID | Source | Tier | Reason / limitation |
 |---|---|---|---|
-| S26 | Drive2 — Vologda calibration post | 4 | Community post; used only as discovery signal of regional offerings; not cited because standalone community evidence adds little beyond S6/S7 and risks anecdote status |
-| S27 | Deita — dealers not willing to repair Chinese cars | 3 | Duplicative of S4; kept as discovery reference only |
+| S29 | Drive2 — Vologda calibration post | 4 | Community post; used only as discovery signal of regional offerings; not cited because standalone community evidence adds little beyond S6/S7 and risks anecdote status |
+| S30 | Deita — dealers not willing to repair Chinese cars | 3 | Duplicative of S4; kept as discovery reference only |
 
 ## Research notes
 

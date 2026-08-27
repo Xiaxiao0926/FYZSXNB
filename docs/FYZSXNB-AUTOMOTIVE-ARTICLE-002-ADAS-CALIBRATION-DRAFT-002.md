@@ -16,7 +16,7 @@ In the independent repair market, this is creating a new kind of bottleneck. It 
 
 ## 1. Why this is now a Russian aftermarket question
 
-**The fleet changed.** Chinese brands reached roughly 6% of the Russian passenger-car parc by mid-2025 [1], and Chinese makes already lead corporate fleets among foreign brands [2]. Corporate vehicles are high-utilisation assets; their presence increases exposure to routine maintenance, repair and lifecycle service demand. (No claim is made here about windshield or collision rates for Chinese vehicles — that data is not part of this analysis.)
+**The fleet changed.** Chinese brands reached roughly 6% of the Russian passenger-car parc by mid-2025 [1], and Chinese makes already lead corporate fleets among foreign brands [2]. The growing presence of Chinese vehicles in corporate fleets expands their exposure to routine fleet maintenance and lifecycle-service workflows. (No claim is made here about windshield or collision rates for Chinese vehicles — that data is not part of this analysis.)
 
 **The repair flow changed.** Russian trade reporting describes independent stations struggling with Chinese models — diagnostics workflows that do not match Western habits, official dealers declining third-party-supported repairs, and a service system still catching up with the technology [3][4][5]. When a vehicle that is hard to diagnose gets repaired anyway, the question of whether its safety systems still function as designed becomes genuinely open.
 
@@ -153,7 +153,7 @@ No. It is an aftermarket gap analysis. Calibration execution requires the OEM pr
 
 ## Sources
 
-**Used in draft (17):**
+**Used in draft (28):**
 
 1. Autostat — Chinese brands ≈6% of Russian passenger-car parc (Sep 2025): https://www.autostat.ru/news/60807/
 2. Autostat — Chinese brands lead corporate fleets among foreign makes: https://www.autostat.ru/news/60037/
@@ -181,8 +181,8 @@ No. It is an aftermarket gap analysis. Calibration execution requires the OEM pr
 24. UDIAG — ADAS-A Calibration System: https://www.udiagtech.com/product/adas-a-calibration-system/
 25. TEXSA Group — TEXA/TOPDON ADAS stands in Russia: https://teksagroup.ru/adas/
 26. Consultant.ru — Rospotrebnadzor draft rules on manufacturer documentation transfers (Aug 2026): https://www.consultant.ru/legalnews/32403/
-27. BMW of North America — Technical Bulletin C-2-0626-5101 (16 Jul 2026), windshield replacement calibration requirement; primary document mirrored by third-party publisher: https://www.repairerdrivennews.com/2026/07/24/bmw-and-mini-require-oem-headlamp-windshield-replacements-for-proper-adas-function/
-28. MINI USA — Technical Bulletin M-2-0726-M5104 (Jul 2026), windshield replacement calibration requirement; primary document mirrored by third-party publisher: https://www.repairerdrivennews.com/2026/07/24/bmw-and-mini-require-oem-headlamp-windshield-replacements-for-proper-adas-function/
+27. BMW of North America — Technical Bulletin C-2-0626-5101 (16 Jul 2026): windshield replacement calibration requirement (primary OEM document; PDF mirrored by third-party publisher): https://www.repairerdrivennews.com/wp-content/uploads/2026/07/C-2-0626-5101_BMW-WINDSHIELD-REPLACEMENT-STANDARDS.pdf
+28. MINI USA — Technical Bulletin M-2-0726-M5104 (Jul 2026): windshield replacement calibration requirement (primary OEM document; PDF mirrored by third-party publisher): https://www.repairerdrivennews.com/wp-content/uploads/2026/07/M-2-0726-M5104_MINI_WINDSHIELD-REPLACEMENT-STANDARDS.pdf
 
 **Supplemental / discovery only (2, not cited in draft):**
 - Drive2 — regional ADAS camera calibration post (Vologda): https://www.drive2.ru/o/b/671681483999560690/

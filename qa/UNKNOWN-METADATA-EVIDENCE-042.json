@@ -1,0 +1,367 @@
+{
+  "479": {
+    "post_id": 479,
+    "slug": "nmpa-udi-2027-class2-devices-ivd-implementation-guide",
+    "title": "国家药监局第21号公告UDI实施解读：2027二类器械与一类IVD赋码、数据库上传及医保代码对接（已纳入医保代码数据库的产品适用）",
+    "categories": [
+      52
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "work/agent-handoff/results/FYZ-20260807-PUBLISH10-BIOMED-A-001/manual-biomed-udi-ivd-2027/nmpa-udi-2027-class2-devices-ivd-implementation-guide.seo.json",
+        "record": "Explicit field: \"language\": \"zh\""
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "work/agent-handoff/results/FYZ-20260807-PUBLISH10-BIOMED-A-001/manual-biomed-udi-ivd-2027/nmpa-udi-2027-class2-devices-ivd-implementation-guide.seo.json",
+        "record": "Explicit field: \"article_type\": \"biomed_regulatory_guide\""
+      }
+    ],
+    "language_level": "LEVEL A — AUTHORITATIVE (zh)",
+    "kind_level": "LEVEL A — AUTHORITATIVE (guide)",
+    "proposed_language": "zh",
+    "proposed_kind": "guide",
+    "write_eligible": false,
+    "notes": "Language is explicitly 'zh' (Chinese). Under current EN/RU publication schema, zh is not supported in _fyz_content_language. NO_WRITE."
+  },
+  "470": {
+    "post_id": 470,
+    "slug": "crp-saa-poct-antibiotic-stewardship-village-clinics",
+    "title": "村卫生室CRP与SAA联合POCT对抗生素处方率影响评估",
+    "categories": [
+      52
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "work/agent-handoff/results/FYZ-20260807-PUBLISH10-BIOMED-A-001/manual-biomed-crp-saa-poct-stewardship/crp-saa-poct-antibiotic-stewardship-village-clinics.seo.json",
+        "record": "Explicit field: \"language\": \"zh\""
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "work/agent-handoff/results/FYZ-20260807-PUBLISH10-BIOMED-A-001/manual-biomed-crp-saa-poct-stewardship/crp-saa-poct-antibiotic-stewardship-village-clinics.seo.json",
+        "record": "Explicit field: \"article_type\": \"biomed_clinical_evidence\""
+      }
+    ],
+    "language_level": "LEVEL A — AUTHORITATIVE (zh)",
+    "kind_level": "LEVEL A — AUTHORITATIVE (signal/evidence)",
+    "proposed_language": "zh",
+    "proposed_kind": "signal",
+    "write_eligible": false,
+    "notes": "Language is explicitly 'zh' (Chinese). Not en/ru -> NO_WRITE."
+  },
+  "444": {
+    "post_id": 444,
+    "slug": "russia-eaeu-ivd-registration-transition-2026-2028",
+    "title": "2026—2028年俄罗斯与EAEU医疗器械注册过渡期：中国IVD厂家路线图",
+    "categories": [
+      52
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "work/fyzsxnb-ui-v2/qa/UI2-0361-DEPLOYMENT-REPORT-20260820.md",
+        "record": "Section 4: '444 等为 俄罗斯主题但中文写作 的歧义文——是否 RU 需人工确认'"
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "work/fyzsxnb-ui-v2/qa/UI2-0361-DEPLOYMENT-REPORT-20260820.md",
+        "record": "No authoritative kind declaration in frozen manifests (roadmap/guide in title, but no explicit kind meta)"
+      }
+    ],
+    "language_level": "LEVEL C — CONFLICT (ZH content about RU topic, Cat52, lacks Cat54)",
+    "kind_level": "LEVEL D — NO EVIDENCE",
+    "proposed_language": "",
+    "proposed_kind": "",
+    "write_eligible": false,
+    "notes": "Ambiguous Russian topic written in Chinese. Lacks Cat 54. Requires human editorial review. NO_WRITE."
+  },
+  "435": {
+    "post_id": 435,
+    "slug": "gacc-order-281-special-goods-2026",
+    "title": "海关总署令281号详解：2026年特殊物品进出境合规自查清单",
+    "categories": [
+      52
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "work/agent-handoff/results/FYZ-20260731-CONTENT-CLUSTER-PATCH-001/post-435/patched-content.seo.json",
+        "record": "Explicit field: \"language\": \"zh\""
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "work/agent-handoff/results/FYZ-20260731-CONTENT-CLUSTER-PATCH-001/post-435/patched-content.seo.json",
+        "record": "No authoritative publishing kind (patched-content marked \"patch\")"
+      }
+    ],
+    "language_level": "LEVEL A — AUTHORITATIVE (zh)",
+    "kind_level": "LEVEL D — NO EVIDENCE",
+    "proposed_language": "zh",
+    "proposed_kind": "",
+    "write_eligible": false,
+    "notes": "Language is 'zh'. Kind lacks original publishing declaration. NO_WRITE."
+  },
+  "424": {
+    "post_id": 424,
+    "slug": "national-anti-fraud-center-ai-content-identification-guide",
+    "title": "国家反诈中心AI内容鉴定怎么用？结果能证明什么",
+    "categories": [
+      50
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "None in results/ (early tech post)",
+        "record": "Chinese language article in Category 50 (China Tech), published before contract"
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "None in results/",
+        "record": "No authoritative metadata record in task manifests"
+      }
+    ],
+    "language_level": "LEVEL B — STRONG BUT NOT AUTHORITATIVE (ZH text/title)",
+    "kind_level": "LEVEL D — NO EVIDENCE",
+    "proposed_language": "",
+    "proposed_kind": "",
+    "write_eligible": false,
+    "notes": "Pre-contract post. No authoritative publishing record. NO_WRITE."
+  },
+  "411": {
+    "post_id": 411,
+    "slug": "china-pharma-exports-2026-formulations-glp1-api",
+    "title": "2026 中国西药出口拆解：制剂增长、GLP-1 原料药与新兴市场机会",
+    "categories": [
+      52
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "work/agent-handoff/results/FYZ-20260731-CONTENT-CLUSTER-PATCH-001/post-411/patched-content.seo.json",
+        "record": "Explicit field: \"language\": \"zh\""
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "work/agent-handoff/results/FYZ-20260731-CONTENT-CLUSTER-PATCH-001/post-411/patched-content.seo.json",
+        "record": "No authoritative publishing kind"
+      }
+    ],
+    "language_level": "LEVEL A — AUTHORITATIVE (zh)",
+    "kind_level": "LEVEL D — NO EVIDENCE",
+    "proposed_language": "zh",
+    "proposed_kind": "",
+    "write_eligible": false,
+    "notes": "Language is 'zh'. Kind lacks original publishing declaration. NO_WRITE."
+  },
+  "394": {
+    "post_id": 394,
+    "slug": "plaud-baseband-engineer-ai-earbuds-signal-analysis",
+    "title": "PLAUD 招聘基带工程师意味着什么：AI 耳机还是独立联网录音设备？",
+    "categories": [
+      50,
+      55
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "None in task manifests",
+        "record": "Pre-contract China Tech article"
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "None in task manifests",
+        "record": "No authoritative kind record"
+      }
+    ],
+    "language_level": "LEVEL B — STRONG BUT NOT AUTHORITATIVE (ZH text/title)",
+    "kind_level": "LEVEL D — NO EVIDENCE",
+    "proposed_language": "",
+    "proposed_kind": "",
+    "write_eligible": false,
+    "notes": "Pre-contract post. NO_WRITE."
+  },
+  "388": {
+    "post_id": 388,
+    "slug": "shenzhen-biomed-special-items-import-export-process-2026",
+    "title": "深圳生物医药特殊物品进出口机制：哪些环节真的变快了？",
+    "categories": [
+      52
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "None in task manifests",
+        "record": "Pre-contract China Biomed article"
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "None in task manifests",
+        "record": "No authoritative kind record"
+      }
+    ],
+    "language_level": "LEVEL B — STRONG BUT NOT AUTHORITATIVE (ZH text/title)",
+    "kind_level": "LEVEL D — NO EVIDENCE",
+    "proposed_language": "",
+    "proposed_kind": "",
+    "write_eligible": false,
+    "notes": "Pre-contract post. NO_WRITE."
+  },
+  "358": {
+    "post_id": 358,
+    "slug": "waic-2026-agent-phone-robots-product-signal",
+    "title": "WAIC 2026 阶跃展台的信号：智能体手机、汽车与机器人，哪类先落地？",
+    "categories": [
+      50
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "None in task manifests",
+        "record": "Pre-contract China Tech article"
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "None in task manifests",
+        "record": "No authoritative kind record"
+      }
+    ],
+    "language_level": "LEVEL B — STRONG BUT NOT AUTHORITATIVE (ZH text/title)",
+    "kind_level": "LEVEL D — NO EVIDENCE",
+    "proposed_language": "",
+    "proposed_kind": "",
+    "write_eligible": false,
+    "notes": "Pre-contract post. NO_WRITE."
+  },
+  "355": {
+    "post_id": 355,
+    "slug": "xiaomi-mijia-water-flosser-pro-product-signal",
+    "title": "小米米家智能冲牙器 Pro 开售：349 元定价背后的产品信号与选购框架",
+    "categories": [
+      50
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "None in task manifests",
+        "record": "Pre-contract China Tech article"
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "None in task manifests",
+        "record": "No authoritative kind record"
+      }
+    ],
+    "language_level": "LEVEL B — STRONG BUT NOT AUTHORITATIVE (ZH text/title)",
+    "kind_level": "LEVEL D — NO EVIDENCE",
+    "proposed_language": "",
+    "proposed_kind": "",
+    "write_eligible": false,
+    "notes": "Pre-contract post. NO_WRITE."
+  },
+  "347": {
+    "post_id": 347,
+    "slug": "kimi-k3-zhihu-open-source-model",
+    "title": "Kimi K3 为什么刷屏：知乎争议、2.8 万亿参数与开源模型的新问题",
+    "categories": [
+      50
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "None in task manifests",
+        "record": "Pre-contract China Tech article"
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "None in task manifests",
+        "record": "No authoritative kind record"
+      }
+    ],
+    "language_level": "LEVEL B — STRONG BUT NOT AUTHORITATIVE (ZH text/title)",
+    "kind_level": "LEVEL D — NO EVIDENCE",
+    "proposed_language": "",
+    "proposed_kind": "",
+    "write_eligible": false,
+    "notes": "Pre-contract post. NO_WRITE."
+  },
+  "213": {
+    "post_id": 213,
+    "slug": "%e8%b7%a8%e5%a2%83%e7%94%b5%e5%95%86%e4%ba%9a%e9%a9%ac%e9%80%8a%e5%be%b7%e5%9b%bdschweberegale%ef%bc%88%e6%b5%ae%e5%8a%a8%e6%90%81%e6%9d%bf%ef%bc%89%e5%b8%82%e5%9c%ba%e7%a0%94%e7%a9%b6%e5%88%86",
+    "title": "跨境电商亚马逊德国Schweberegale（浮动搁板）市场研究分析报告-20251013",
+    "categories": [
+      33
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "Historic CJK seed database (2025)",
+        "record": "Early 2025 CJK market research report"
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "None",
+        "record": "Legacy archive"
+      }
+    ],
+    "language_level": "LEVEL D — NO EVIDENCE (Legacy 2025 archive)",
+    "kind_level": "LEVEL D — NO EVIDENCE",
+    "proposed_language": "",
+    "proposed_kind": "",
+    "write_eligible": false,
+    "notes": "Legacy 2025 archive. Lacks publication metadata contract. NO_WRITE."
+  },
+  "209": {
+    "post_id": 209,
+    "slug": "%e8%b7%a8%e5%a2%83%e7%94%b5%e5%95%86%e4%ba%9a%e9%a9%ac%e9%80%8a%e5%b9%b3%e5%8f%b0%e6%b3%95%e5%9b%bd%e9%a6%96%e9%a5%b0%e6%94%b6%e7%ba%b3%e5%b8%82%e5%9c%ba%e6%b7%b1%e5%ba%a6%e5%88%86%e6%9e%90%e6%8a%a5",
+    "title": "跨境电商亚马逊平台法国首饰收纳市场深度分析报告-2025年9月",
+    "categories": [
+      33
+    ],
+    "current_language": "",
+    "current_kind": "",
+    "language_evidence": [
+      {
+        "file": "Historic CJK seed database (2025)",
+        "record": "Early 2025 CJK market research report"
+      }
+    ],
+    "kind_evidence": [
+      {
+        "file": "None",
+        "record": "Legacy archive"
+      }
+    ],
+    "language_level": "LEVEL D — NO EVIDENCE (Legacy 2025 archive)",
+    "kind_level": "LEVEL D — NO EVIDENCE",
+    "proposed_language": "",
+    "proposed_kind": "",
+    "write_eligible": false,
+    "notes": "Legacy 2025 archive. Lacks publication metadata contract. NO_WRITE."
+  }
+}

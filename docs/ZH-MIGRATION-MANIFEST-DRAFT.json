@@ -1,0 +1,123 @@
+{
+  "version": "2.0.0-draft",
+  "generated_at": "2026-08-20T17:00:00+08:00",
+  "task_id": "FYZ-20260820-LANGUAGE-CONTRACT-V2-IMPLEMENT-044",
+  "total_zh_candidates": 10,
+  "summary": {
+    "READY": 2,
+    "NEEDS_KIND_CONFIRMATION": 2,
+    "MANUAL_REVIEW": 6
+  },
+  "articles": [
+    {
+      "post_id": 479,
+      "slug": "nmpa-udi-2027-class2-devices-ivd-implementation-guide",
+      "title": "国家药监局第21号公告UDI实施解读：2027二类器械与一类IVD赋码合规指南",
+      "categories": [52],
+      "proposed_language": "zh",
+      "proposed_kind": "guide",
+      "language_evidence": "work/agent-handoff/results/FYZ-20260807-PUBLISH10-BIOMED-A-001/manual-biomed-udi-ivd-2027/nmpa-udi-2027-class2-devices-ivd-implementation-guide.seo.json (Level A: language='zh')",
+      "kind_evidence": "Explicit article_type='biomed_regulatory_guide' in publishing SEO manifest (Level A: kind='guide')",
+      "migration_status": "READY"
+    },
+    {
+      "post_id": 470,
+      "slug": "crp-saa-poct-antibiotic-stewardship-village-clinics",
+      "title": "村卫生室CRP与SAA联合POCT对抗生素处方率影响评估",
+      "categories": [52],
+      "proposed_language": "zh",
+      "proposed_kind": "signal",
+      "language_evidence": "work/agent-handoff/results/FYZ-20260807-PUBLISH10-BIOMED-A-001/manual-biomed-crp-saa-poct-stewardship/crp-saa-poct-antibiotic-stewardship-village-clinics.seo.json (Level A: language='zh')",
+      "kind_evidence": "Explicit article_type='biomed_clinical_evidence' in publishing SEO manifest (Level A: kind='signal')",
+      "migration_status": "READY"
+    },
+    {
+      "post_id": 435,
+      "slug": "gacc-order-281-special-goods-2026",
+      "title": "海关总署令281号详解：2026年特殊物品进出境合规自查清单",
+      "categories": [52],
+      "proposed_language": "zh",
+      "proposed_kind": "guide",
+      "language_evidence": "results/FYZ-20260731-CONTENT-CLUSTER-PATCH-001/post-435/patched-content.seo.json (Level A: language='zh')",
+      "kind_evidence": "Title and structure represent regulatory explainer / guide (Needs confirmation)",
+      "migration_status": "NEEDS_KIND_CONFIRMATION"
+    },
+    {
+      "post_id": 411,
+      "slug": "china-pharma-exports-2026-formulations-glp1-api",
+      "title": "2026 中国西药出口拆解：制剂增长、GLP-1 原料药与新兴市场机会",
+      "categories": [52],
+      "proposed_language": "zh",
+      "proposed_kind": "guide",
+      "language_evidence": "results/FYZ-20260731-CONTENT-CLUSTER-PATCH-001/post-411/patched-content.seo.json (Level A: language='zh')",
+      "kind_evidence": "Market teardown / guide structure (Needs confirmation)",
+      "migration_status": "NEEDS_KIND_CONFIRMATION"
+    },
+    {
+      "post_id": 424,
+      "slug": "national-anti-fraud-center-ai-content-identification-guide",
+      "title": "国家反诈中心AI内容鉴定怎么用？结果能证明什么",
+      "categories": [50],
+      "proposed_language": "zh",
+      "proposed_kind": "guide",
+      "language_evidence": "Pre-contract China Tech article; full text Chinese (Level B)",
+      "kind_evidence": "How-to guide / user guide in title and body",
+      "migration_status": "MANUAL_REVIEW"
+    },
+    {
+      "post_id": 394,
+      "slug": "plaud-baseband-engineer-ai-earbuds-signal-analysis",
+      "title": "PLAUD 招聘基带工程师意味着什么：AI 耳机还是独立联网录音设备？",
+      "categories": [50, 55],
+      "proposed_language": "zh",
+      "proposed_kind": "signal",
+      "language_evidence": "Pre-contract China Tech article; full text Chinese (Level B)",
+      "kind_evidence": "Fast hiring / market signal teardown",
+      "migration_status": "MANUAL_REVIEW"
+    },
+    {
+      "post_id": 388,
+      "slug": "shenzhen-biomed-special-items-import-export-process-2026",
+      "title": "深圳生物医药特殊物品进出口机制：哪些环节真的变快了？",
+      "categories": [52],
+      "proposed_language": "zh",
+      "proposed_kind": "guide",
+      "language_evidence": "Pre-contract China Biomed article; full text Chinese (Level B)",
+      "kind_evidence": "Regulatory process explainer / guide",
+      "migration_status": "MANUAL_REVIEW"
+    },
+    {
+      "post_id": 358,
+      "slug": "waic-2026-agent-phone-robots-product-signal",
+      "title": "WAIC 2026 阶跃展台的信号：智能体手机、汽车与机器人，哪类先落地？",
+      "categories": [50],
+      "proposed_language": "zh",
+      "proposed_kind": "signal",
+      "language_evidence": "Pre-contract China Tech article; full text Chinese (Level B)",
+      "kind_evidence": "Exhibition / trend product signal",
+      "migration_status": "MANUAL_REVIEW"
+    },
+    {
+      "post_id": 355,
+      "slug": "xiaomi-mijia-water-flosser-pro-product-signal",
+      "title": "小米米家智能冲牙器 Pro 开售：349 元定价背后的产品信号与选购框架",
+      "categories": [50],
+      "proposed_language": "zh",
+      "proposed_kind": "signal",
+      "language_evidence": "Pre-contract China Tech article; full text Chinese (Level B)",
+      "kind_evidence": "Product launch / price signal",
+      "migration_status": "MANUAL_REVIEW"
+    },
+    {
+      "post_id": 347,
+      "slug": "kimi-k3-zhihu-open-source-model",
+      "title": "Kimi K3 为什么刷屏：知乎争议、2.8 万亿参数与开源模型的新问题",
+      "categories": [50],
+      "proposed_language": "zh",
+      "proposed_kind": "signal",
+      "language_evidence": "Pre-contract China Tech article; full text Chinese (Level B)",
+      "kind_evidence": "Tech community topic / model launch signal",
+      "migration_status": "MANUAL_REVIEW"
+    }
+  ]
+}

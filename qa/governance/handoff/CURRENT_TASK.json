@@ -1,7 +1,7 @@
 {
-  "status": "governance_complete_baseline_stable",
-  "task_id": "FYZSXNB-TAKEOVER-CURRENT-TASK-REWRITE-001",
-  "task_status": "handoff_state_reconciled_to_2026-08-26",
+  "status": "takeover_governance_complete",
+  "task_id": "FYZSXNB-TAKEOVER-GOVERNANCE-CLOSEOUT-GIT-BACKUP-001",
+  "task_status": "closeout_local_done_remote_pending",
   "executor": "DeepSeek",
   "baseline_date": "2026-08-26",
   "trusted_production_baseline": "PROD-BASELINE-20260826-R1",
@@ -107,10 +107,8 @@
     "ui_page_layer": "frozen"
   },
   "next_steps": [
-    "FYZSXNB-TAKEOVER-FEED-PARITY-BASELINE-REGEN-001",
-    "FYZSXNB-TAKEOVER-DEPLOYMENT-HARDENING-001",
-    "Resume Automotive Phase 2 content production",
-    "Resolver V2 NEW REAL DEPLOYMENT GATE"
+    "FYZSXNB-AUTOMOTIVE-PHASE2-ARTICLE-002-RESEARCH-DRAFT-001",
+    "configure git remote then push + verify (GOVERNANCE-CLOSEOUT continuation)"
   ],
   "backlog": [
     "Performance / Runtime governance (326KB Inter, LiteSpeed transient, cache variants)",
@@ -123,5 +121,13 @@
     "production_manifest": "work/deployments/FYZSXNB-PRODUCTION-BASELINE-20260826/manifest.json",
     "git_baseline_commit": "a4c87bc"
   },
-  "updated_at": "2026-08-26T00:00:00+08:00"
+  "updated_at": "2026-08-27T00:00:00+08:00",
+  "takeover_governance": "COMPLETE",
+  "trusted_governance_git": "2baedec",
+  "deployment_hardening": "FINAL_PASS",
+  "controlled_development": "ALLOWED",
+  "automotive_phase2": "RESUMED_DRAFT_ONLY",
+  "git_backup_policy": "ALL_RECOVERABLE_PROJECT_PROGRESS_MUST_BE_COMMITTED_AND_PUSHED_TO_REMOTE",
+  "git_backup_policy_note": "uncommitted_local_files_must_not_be_the_only_copy_of_recoverable_work",
+  "remote_backup_gate": "BLOCKED_PENDING_REMOTE_URL_no_git_remote_configured_locally"
 }

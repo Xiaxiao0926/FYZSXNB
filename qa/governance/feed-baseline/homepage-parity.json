@@ -1,0 +1,66 @@
+{
+ "en": {
+  "signals_expected": [
+   "chinese-ev-hybrid-maintenance-diagnostics-russia",
+   "chinese-cars-russia-aftermarket-infrastructure-lifecycle",
+   "chery-tiggo-8-pro-max-russia-aftermarket-ecosystem",
+   "geely-monjaro-russia-premium-suv-aftermarket-ecosystem"
+  ],
+  "signals_home": [
+   "chinese-ev-hybrid-maintenance-diagnostics-russia",
+   "chinese-cars-russia-aftermarket-infrastructure-lifecycle",
+   "chery-tiggo-8-pro-max-russia-aftermarket-ecosystem",
+   "geely-monjaro-russia-premium-suv-aftermarket-ecosystem"
+  ],
+  "signals_match": true,
+  "guides_expected": [
+   "volkswagen-tayron-dq381-dsg-mechatronics-russia-repair-diagnosis",
+   "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+   "fda-gudid-accessgudid-procurement-verification-guide",
+   "fda-establishment-registration-device-listing-verification",
+   "nmpa-udi-2027-class2-devices-ivd-implementation-guide",
+   "fda-foreign-drug-establishment-registration-guide"
+  ],
+  "guides_home": [
+   "volkswagen-tayron-dq381-dsg-mechatronics-russia-repair-diagnosis",
+   "go-raw-quest-pet-food-recall-thiamine-safety-guide",
+   "fda-gudid-accessgudid-procurement-verification-guide",
+   "fda-establishment-registration-device-listing-verification",
+   "nmpa-udi-2027-class2-devices-ivd-implementation-guide",
+   "fda-foreign-drug-establishment-registration-guide"
+  ],
+  "guides_match": true
+ },
+ "ru": {
+  "signals_expected": [
+   "volkswagen-tayron-from-china-overview",
+   "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+   "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+   "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay"
+  ],
+  "signals_home": [
+   "volkswagen-tayron-from-china-overview",
+   "volkswagen-tayron-kitay-dq381-avariynyy-rezhim-realnye-sluchai",
+   "volkswagen-tayron-330tsi-kitay-gpf-opyt-vladeltsev",
+   "volkswagen-tayron-330tsi-dkv-dpl-dth-zapchasti-kitay"
+  ],
+  "signals_match": true,
+  "guides_expected": [
+   "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+   "kak-podobrat-datchik-davleniya-4-20ma-dlya-chastotnika",
+   "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+   "proverka-epts-po-vin-pered-pokupkoj",
+   "bambu-lab-china-russia-pre-purchase-check",
+   "check-chinese-ivd-russia-registration-registry"
+  ],
+  "guides_home": [
+   "kak-proverit-byd-pered-ustanovkoy-openpilot-camera-can-ecu-fingerprint",
+   "kak-podobrat-datchik-davleniya-4-20ma-dlya-chastotnika",
+   "chery-android-auto-obnovlenie-tiggo-7-8-pro",
+   "proverka-epts-po-vin-pered-pokupkoj",
+   "bambu-lab-china-russia-pre-purchase-check",
+   "check-chinese-ivd-russia-registration-registry"
+  ],
+  "guides_match": true
+ }
+}

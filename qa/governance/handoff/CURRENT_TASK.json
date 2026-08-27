@@ -1,0 +1,127 @@
+{
+  "status": "governance_complete_baseline_stable",
+  "task_id": "FYZSXNB-TAKEOVER-CURRENT-TASK-REWRITE-001",
+  "task_status": "handoff_state_reconciled_to_2026-08-26",
+  "executor": "DeepSeek",
+  "baseline_date": "2026-08-26",
+  "trusted_production_baseline": "PROD-BASELINE-20260826-R1",
+  "trusted_git_baseline": "a4c87bc",
+  "production_manifest_path": "work/deployments/FYZSXNB-PRODUCTION-BASELINE-20260826/manifest.json",
+  "production_resolver": "LEGACY_v1.3.1",
+  "production_mu_plugin_version": "v1.3.1",
+  "production_mu_plugin_sha256": "8aa9aa8af1da6d84dc0362c8497e2804d66202fb0368702886b22c3bdb3ed54d",
+  "local_resolver_v2_version": "v1.4.0",
+  "local_resolver_v2_sha256": "7c042a4515441b7c99a9f1efd5d72b76682acedf0b1d7fef84d879d438a606de",
+  "resolver_v2_status": "LOCAL_UNDEPLOYED",
+  "resolver_v2_ever_confirmed_in_production": false,
+  "invalid_historical_evidence": [
+    "045F2",
+    "045G"
+  ],
+  "invalid_evidence_reason": "local simulation was incorrectly reported as production validation; their V2_ACTIVE claims are invalid as production deployment evidence. Resolver V2 was never confirmed deployed - there was no rollback.",
+  "feed_plugin_version": "1.2.5",
+  "feed_plugin_sha256": "4997b9697cf7c47abe75bc5fb192e528845acf9a5c4f79c71d13964c45bedb9b",
+  "feed_plugin_production_equals_head": true,
+  "feed_parity_baseline_status": "STALE_REGEN_REQUIRED",
+  "translation_pairs_version": "0.4.0",
+  "translation_pairs_local_status": "LOCAL_PASS_UNDEPLOYED",
+  "translation_pairs_production": "ABSENT",
+  "theme_production_snapshot": "27/27 production == worktree",
+  "deployed_theme_git_reconciliation": "complete, 8 previously-uncommitted deployed theme files now in HEAD a4c87bc",
+  "git_head": "a4c87bc",
+  "git_production_alignment": "verified",
+  "remaining_dirty_state": "known undeployed development (Resolver V2 v1.4.0 modified in worktree) + known documentation/artifacts (132 D1 untracked)",
+  "production_state": {
+    "published": 102,
+    "pending": 0
+  },
+  "automotive": {
+    "hub": {
+      "status": "FROZEN_APPROVED",
+      "routes": [
+        "/cars-from-china/",
+        "/ru/cars-from-china/"
+      ]
+    },
+    "case_001": {
+      "title": "Volkswagen Tayron DQ381",
+      "post_id": 1065,
+      "status": "PUBLISHED"
+    },
+    "case_002": {
+      "title": "Geely Monjaro",
+      "post_id": 1077,
+      "status": "PUBLISHED"
+    },
+    "case_003": {
+      "title": "Chery Tiggo 8 Pro Max",
+      "post_id": 1084,
+      "status": "PUBLISHED"
+    },
+    "article_004": {
+      "title": "Beyond Vehicle Sales: Building Aftermarket Infrastructure for Chinese Cars in Russia",
+      "post_id": 1093,
+      "status": "PUBLISHED"
+    },
+    "article_001": {
+      "title": "Maintaining Chinese EVs and Hybrids in Russia: Why New Diagnostic Capabilities Are Emerging",
+      "post_id": 1098,
+      "status": "PUBLISHED"
+    },
+    "tayron_overview_640": {
+      "title": "Volkswagen Tayron из Китая: обзор модели",
+      "post_id": 640,
+      "status": "PUBLISHED_LEGACY_EXISTING_CONTENT"
+    },
+    "phase2_status": "ACTIVE_BUT_PRODUCTION_PUBLISHING_TEMPORARILY_PAUSED_FOR_GOVERNANCE",
+    "content_route": "Article 004 done, Article 001 done, Article 002 NEXT, Article 006 afterward"
+  },
+  "governance_debt": {
+    "feed_parity_baseline": "STALE - regeneration is the next gate",
+    "deployment_scripts": "HIGH_RISK - ftp_p0_deployer.ps1 / run_ftp_deploy_secure.ps1 default RemotePath points to mu-plugin",
+    "line_ending": "UNRESOLVED - core.autocrlf=true; production CRLF gets normalized on git add so HEAD blobs can differ from production bytes; needs .gitattributes + policy",
+    "resolver_v2": "REQUIRES_NEW_REAL_PRODUCTION_DEPLOYMENT_GATE - cannot rely on old 045F2/045G PASS",
+    "ru_cars_hub_lang": "KNOWN_OUT_OF_SCOPE - lang=en-US on /ru/cars-from-china/ page"
+  },
+  "write_permissions": {
+    "production_write_allowed": false,
+    "resolver_v2_deploy_allowed": false,
+    "translation_pairs_deploy_allowed": false
+  },
+  "source_of_truth_policy": "Production state must be established from production snapshot/hash/live behavior. Historical markdown claims alone are not production evidence.",
+  "phase_status": {
+    "0.3.5_homepage_migration": "PASS",
+    "0.3.6_feed_hardening": "PASS",
+    "0.3.6.1_publication_metadata_contract": "PASS",
+    "0.4.0_translation_foundation": "LOCAL_PASS_UNDEPLOYED",
+    "0.4.1_locale_detector_migration": "PASS_local",
+    "0.4.2_unknown_metadata_resolution": "AUDIT_COMPLETE_13_isolated",
+    "0.4.3_language_contract_v2_design": "PASS_design_only",
+    "0.4.4_language_contract_v2_implementation": "PASS_design_only",
+    "0.4.5_A_data_layer": "PASS_local_patch_v1.2.5",
+    "0.4.5_B_integration_qa": "PASS_local",
+    "0.4.5_C_shadow_canary": "PASS_local",
+    "0.4.5_E2_production_canary": "INVALID_AS_PRODUCTION_EVIDENCE",
+    "0.4.5_F2_full_switch": "INVALID_AS_PRODUCTION_EVIDENCE",
+    "0.4.5_G_stability_observation": "INVALID_AS_PRODUCTION_EVIDENCE",
+    "ui_page_layer": "frozen"
+  },
+  "next_steps": [
+    "FYZSXNB-TAKEOVER-FEED-PARITY-BASELINE-REGEN-001",
+    "FYZSXNB-TAKEOVER-DEPLOYMENT-HARDENING-001",
+    "Resume Automotive Phase 2 content production",
+    "Resolver V2 NEW REAL DEPLOYMENT GATE"
+  ],
+  "backlog": [
+    "Performance / Runtime governance (326KB Inter, LiteSpeed transient, cache variants)",
+    "frontend V3 planning"
+  ],
+  "authoritative_sources": {
+    "resolver_forensics": "work/agent-handoff/FYZSXNB-TAKEOVER-RESOLVER-FORENSICS-001.md",
+    "production_baseline_report": "work/agent-handoff/FYZSXNB-TAKEOVER-PRODUCTION-BASELINE-RECONCILIATION-001.md",
+    "git_baseline_report": "work/agent-handoff/FYZSXNB-TAKEOVER-GIT-BASELINE-CLEANUP-001.md",
+    "production_manifest": "work/deployments/FYZSXNB-PRODUCTION-BASELINE-20260826/manifest.json",
+    "git_baseline_commit": "a4c87bc"
+  },
+  "updated_at": "2026-08-26T00:00:00+08:00"
+}

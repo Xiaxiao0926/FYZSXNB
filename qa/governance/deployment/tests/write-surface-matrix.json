@@ -1,0 +1,38 @@
+[
+  {
+    "entrypoint": "ftp_p0_deployer.ps1",
+    "direct_write": "YES",
+    "hardened_contract": "YES",
+    "status": "APPROVED"
+  },
+  {
+    "entrypoint": "run_ftp_deploy_secure.ps1",
+    "direct_write": "wrapper",
+    "hardened_contract": "YES",
+    "status": "APPROVED"
+  },
+  {
+    "entrypoint": "deploy_frontend_patch.py",
+    "direct_write": "NO",
+    "hardened_contract": "deprecated tombstone",
+    "status": "CLOSED"
+  },
+  {
+    "entrypoint": "deploy_home_inc.py",
+    "direct_write": "NO",
+    "hardened_contract": "deprecated tombstone",
+    "status": "CLOSED"
+  },
+  {
+    "entrypoint": "deploy_kuajing_plugin.py",
+    "direct_write": "NO",
+    "hardened_contract": "deprecated tombstone",
+    "status": "CLOSED"
+  },
+  {
+    "entrypoint": "add_ftp_retry.py",
+    "direct_write": "NO",
+    "hardened_contract": "deprecated tombstone (anti-rebuild)",
+    "status": "CLOSED"
+  }
+]

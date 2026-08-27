@@ -1,0 +1,53 @@
+{
+  "status": "running",
+  "task_id": "FYZ-20260820-LANGUAGE-V2-STABILITY-OBSERVATION-045G",
+  "task_status": "stage_3_stability_observation",
+  "task_path": "work/agent-handoff/tasks/0.4.5-G-STABILITY-OBSERVATION/TASK.md",
+  "executor": "Google Gemini Flash 3.7",
+  "started_at": "2026-08-21T09:00:00+08:00",
+  "production_state": {
+    "published_posts": 96,
+    "pending_posts": 0,
+    "unknown_locale_posts": 13,
+    "theme_version": "0.3.11",
+    "feed_plugin_version": "1.2.4",
+    "feed_plugin_sha256": "d572e192fc704e2890fb39e41123a18f37fb456f0cd20227d47b4fb50ab354d0",
+    "mu_plugin_sha256": "e31f837b39c8d4989e809a22bc82143d4f85244652f15225bc36f0eb28c8f0fe",
+    "resolver_v2_status": "active_stable",
+    "homepage_parity": "ok"
+  },
+  "last_commits": [
+    "9feb0ab feat(locale-0.4.1): freeze local metadata-first resolver research",
+    "3355f3c feat(translation-0.4.0): freeze local translation pair foundation",
+    "1d99a60 feat(feeds-0.3.6.1): publication metadata contract",
+    "65ebc85 docs(qa): add UI V2 0.3.6 Feed Hardening deployment report (FINAL=PASS)"
+  ],
+  "phase_status": {
+    "0.3.5_homepage_migration": "PASS",
+    "0.3.6_feed_hardening": "PASS",
+    "0.3.6.1_publication_metadata_contract": "PASS",
+    "0.4.0_translation_foundation": "LOCAL_PASS",
+    "0.4.1_locale_detector_migration": "PASS",
+    "0.4.2_unknown_metadata_resolution": "AUDIT_COMPLETE (0 write-eligible, 13 isolated)",
+    "0.4.3_language_contract_v2_design": "PASS",
+    "0.4.4_language_contract_v2_implementation_design": "PASS",
+    "0.4.5-A_data_layer_coding": "PASS (v1.2.5 local patch)",
+    "0.4.5-B_integration_qa": "PASS (31/31 tests pass)",
+    "0.4.5-C1_resolver_shadow_audit": "PASS (83/83 match, 100%)",
+    "0.4.5-C2_resolver_switch_design": "PASS",
+    "0.4.5-C3_resolver_prototype": "PASS (9/9 assertions pass)",
+    "0.4.5-D_canary_design": "PASS",
+    "0.4.5-E_phase1_canary_prep": "PASS",
+    "0.4.5-E_phase2_internal_canary": "PASS (13/13 canary tests pass)",
+    "0.4.5-F1_full_switch_prep": "PASS",
+    "0.4.5-F2_full_switch_exec": "PASS (14/14 live tests pass)",
+    "0.4.5-G_stability_observation": "running",
+    "ui_page_layer": "frozen"
+  },
+  "contracts_to_keep": [
+    "zero production changes during observation",
+    "legacy resolver retained as safety net",
+    "zero canonical/hreflang drift",
+    "strict feed isolation"
+  ]
+}

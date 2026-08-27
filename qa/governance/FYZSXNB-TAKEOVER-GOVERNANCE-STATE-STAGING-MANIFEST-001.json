@@ -1,0 +1,287 @@
+{
+  "git_head": "a4c87bc",
+  "excluded": "RESOLVER_V2 mu-plugin worktree, translation-pairs, feed raw/, tmp backups, prod snapshot raw",
+  "files": [
+    {
+      "path": "qa/governance/TAKEOVER-GOVERNANCE-STATE-20260827.md",
+      "category": "G4_GOVERNANCE_EVIDENCE",
+      "sha256": "14FD876B5B494E95F9CF7831E93EEFBD26C1D3BC2C9E47A7854947F21998891F",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G4_GOVERNANCE_EVIDENCE"
+    },
+    {
+      "path": "qa/governance/deployment/DEPLOYMENT-CONTRACT.md",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "D62E87311D859619542435BEF819BCA12A760E9F91C6A5CA6A885D6E820D10C9",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/ftp_p0_deployer.ps1",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "0FE9A95FA1C8D664F566B2F881C9C9A8FD98738B25EDE11B348D8A57F92A234A",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/run_deploy_home.ps1",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "BE01D74CB4DC9692B96E00ABCBAB26CE16381CFE60BAB3E0B12D5E25FB4D46AB",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/run_deploy_kuajing.ps1",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "DF7E762957CBCDD6717FDCB073455833EE608F91CEE24969DBE76F90F3806407",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/run_ftp_deploy_secure.ps1",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "B25B3B4B06E241A8423324BE82B7A2B21080C3F85E1CB92DA4460E0993BE248B",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/tests/python-test-results.json",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "21FED4C9592579FE6B38FE721F4E4C94233975467D4180BD80F8B0DE4B5E20D7",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/tests/python-test-results.md",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "8B28E83552C6B52F7E351A160B2C45A03EFA471A4C256F512D3DF85241159799",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/tests/run_deployment_hardening_tests.ps1",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "65940CAF795454E3732AC17D197517BB1F53AE13DD59489CF1BF33D07A4B6FC5",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/tests/run_python_entrypoint_tests.ps1",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "22CFF8B6D18794A8E23DD7BA9BA328AE780A7CEFAA0C9A0B202D98B08A48C28D",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/tests/test-results.json",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "9D67F96E682265861EF446F5EED6CF7681ADB7916757C221D222744F8EC4491C",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/tests/test-results.md",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "5AC5383DD97302264A850F134BFDA4BD81D0BAFC26A6EC4B85AF5B3555C7F42C",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/tests/write-surface-matrix.json",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "33288DA0E634574E5F712667B145B59B85BD734F695EF7B0597852803875A3AD",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/tests/write-surface-matrix.md",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "EFC3EC43E4788377BCA943B16F705D63DFEAF3ED18E9FEE29F4927A08DAC56CD",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/tombstones/add_ftp_retry.py",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "5650063862EAA2792A1E7C21A327C0AE0BFDD329232FB6A3B050AFEAF65E1B09",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/tombstones/deploy_frontend_patch.py",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "AF9A28BF2A40ED9C50CA747A88EF6E320AB62689F3AC5361136637DFF03B9BF3",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/tombstones/deploy_home_inc.py",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "F30518A142A2175A3015BD7AEB25AA578821AB11C69040E07136032CF9B7770B",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/deployment/tombstones/deploy_kuajing_plugin.py",
+      "category": "G3_DEPLOYMENT_HARDENING",
+      "sha256": "332332689D2BEABEFF2B7C14A94D99D2FCC567FF511F226A3BD57DCEDAB3F77B",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G3_DEPLOYMENT_HARDENING"
+    },
+    {
+      "path": "qa/governance/feed-baseline/baseline.json",
+      "category": "G2_BASELINE",
+      "sha256": "BB82A60E0C8D1E16A048570720D12B26BE93DA299D8DA087CA08241A888E0CEA",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G2_BASELINE"
+    },
+    {
+      "path": "qa/governance/feed-baseline/baseline.md",
+      "category": "G2_BASELINE",
+      "sha256": "EC017D8EA5A1799B795535C9AAA4ED0983C2D5EACBC4589B1F59315453BEB513",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G2_BASELINE"
+    },
+    {
+      "path": "qa/governance/feed-baseline/homepage-parity.json",
+      "category": "G2_BASELINE",
+      "sha256": "5922E2C3E39F879CF7F7854791825BC3AE651A695E17E7A40A9522B83062E973",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G2_BASELINE"
+    },
+    {
+      "path": "qa/governance/feed-baseline/locale-parity.json",
+      "category": "G2_BASELINE",
+      "sha256": "97B708D4D8F965EDB5DFE497FE710B6AAE88C7108D80BE9C5EF011ECBD010A78",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G2_BASELINE"
+    },
+    {
+      "path": "qa/governance/feed-baseline/metadata-contract.json",
+      "category": "G2_BASELINE",
+      "sha256": "F3D2EC1EC7007D3C940431E9EC53B89D8D6AB52D8C3D8B5D47D83690B90B8D8D",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G2_BASELINE"
+    },
+    {
+      "path": "qa/governance/feed-baseline/production-content-index.json",
+      "category": "G2_BASELINE",
+      "sha256": "5BB0B94E2F808C8AFC3E40A280D93E0F515F0FFAC86F8444E4A1CFA822A0F6CB",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G2_BASELINE"
+    },
+    {
+      "path": "qa/governance/feed-baseline/ua-cache-parity.json",
+      "category": "G2_BASELINE",
+      "sha256": "76401B3793FC2DA2848DFDB40CD99B98ED991E415ED6D1C40134BD7EA83E3D73",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G2_BASELINE"
+    },
+    {
+      "path": "qa/governance/handoff/CURRENT_TASK.json",
+      "category": "G1_HANDOFF",
+      "sha256": "3F410D4845E66E5EFF7D7DDBD5E67216F4F966049CB8A25CC645F3C7C2E93B2E",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G1_HANDOFF"
+    },
+    {
+      "path": "qa/governance/handoff/CURRENT_TASK.pre-20260826-rewrite.json",
+      "category": "G1_HANDOFF",
+      "sha256": "8C51926FA22A5F39F370E2AB3546B5A2F3509785058B74C6F9F07931B11BD331",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G1_HANDOFF"
+    },
+    {
+      "path": "qa/governance/handoff/reports/FYZSXNB-TAKEOVER-CURRENT-TASK-REWRITE-001.md",
+      "category": "G1_HANDOFF",
+      "sha256": "DC9AD7EF18CFACBB104B88414EE5069A6B1561199BA8EA3C6E7D46D1818E8BDA",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G1_HANDOFF"
+    },
+    {
+      "path": "qa/governance/handoff/reports/FYZSXNB-TAKEOVER-DEPLOYMENT-HARDENING-001.md",
+      "category": "G1_HANDOFF",
+      "sha256": "0DAE554DBEE36CDAA711647BA8058E095A920304DD634D5B3B82C5633D63AAF3",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G1_HANDOFF"
+    },
+    {
+      "path": "qa/governance/handoff/reports/FYZSXNB-TAKEOVER-DEPLOYMENT-HARDENING-PYTHON-ENTRYPOINTS-001.md",
+      "category": "G1_HANDOFF",
+      "sha256": "F78978560DD5DBAC98DC75A7EDD278F3896595DB56D9C5E48336CC22104FA9D2",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G1_HANDOFF"
+    },
+    {
+      "path": "qa/governance/handoff/reports/FYZSXNB-TAKEOVER-FEED-PARITY-BASELINE-REGEN-001.md",
+      "category": "G1_HANDOFF",
+      "sha256": "C36187E0B3C57AFE2BC315C41A8EF91BEE1E09C377B81BD4C919ECF0D407EEB2",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G1_HANDOFF"
+    },
+    {
+      "path": "qa/governance/handoff/reports/FYZSXNB-TAKEOVER-GIT-BASELINE-CLEANUP-001.md",
+      "category": "G1_HANDOFF",
+      "sha256": "4CAB3C0AE0E2BFE9AAABCDDB82540794ACAE0C823973264ABD96EC3493C749C1",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G1_HANDOFF"
+    },
+    {
+      "path": "qa/governance/handoff/reports/FYZSXNB-TAKEOVER-GIT-BASELINE-STAGING-PLAN-001.md",
+      "category": "G1_HANDOFF",
+      "sha256": "16F72754257429C7AFC5A7F5B9C4B1EF3A18E5ECC6C173390589B0B777A888F8",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G1_HANDOFF"
+    },
+    {
+      "path": "qa/governance/handoff/reports/FYZSXNB-TAKEOVER-PRODUCTION-BASELINE-RECONCILIATION-001.md",
+      "category": "G1_HANDOFF",
+      "sha256": "F1600D411FC11CCA57851273BEC931E91E29E29C772CC996474821306A1A0C73",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G1_HANDOFF"
+    },
+    {
+      "path": "qa/governance/handoff/reports/FYZSXNB-TAKEOVER-RESOLVER-FORENSICS-001.md",
+      "category": "G1_HANDOFF",
+      "sha256": "A0721A943565C7B05662B5D22B9E710FCF031FF08C33B449DCEFF60DBDD11816",
+      "git_status": "UNTRACKED",
+      "stage": "STAGE",
+      "reason": "G1_HANDOFF"
+    }
+  ],
+  "generated_at": "2026-08-27T01:40:45.6134652Z"
+}

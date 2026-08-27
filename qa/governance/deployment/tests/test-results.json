@@ -1,0 +1,195 @@
+{
+  "generated_at": "2026-08-27T01:30:55.5756951Z",
+  "all_tests_pass": true,
+  "tests": [
+    {
+      "test": "T01",
+      "expected": "1 (FAIL)",
+      "exit": 1,
+      "pass": true,
+      "output_head": "run_ftp_deploy_secure.ps1: Cannot process command because of one or more missing mandatory parameters: Action RemotePath."
+    },
+    {
+      "test": "T02",
+      "expected": "1 (FAIL)",
+      "exit": 1,
+      "pass": true,
+      "output_head": "Exception: C:\\Users\\Administrator\\Documents\\Codex\\2026-07-10\\w\\work\\site-ops\\run_ftp_deploy_secure.ps1:32 | Line |"
+    },
+    {
+      "test": "T03",
+      "expected": "1 (FAIL)",
+      "exit": 1,
+      "pass": true,
+      "output_head": "FYZSXNB DEPLOY FAIL (1): SourcePath is required for this action."
+    },
+    {
+      "test": "T04",
+      "expected": "1 (FAIL)",
+      "exit": 1,
+      "pass": true,
+      "output_head": "FYZSXNB DEPLOY FAIL (1): Source file not found: C:\\nope\\missing.php"
+    },
+    {
+      "test": "T05",
+      "expected": "1 (FAIL)",
+      "exit": 1,
+      "pass": true,
+      "output_head": "Exception: C:\\Users\\Administrator\\Documents\\Codex\\2026-07-10\\w\\work\\site-ops\\run_ftp_deploy_secure.ps1:32 | Line |"
+    },
+    {
+      "test": "T06",
+      "expected": "1 (FAIL)",
+      "exit": 1,
+      "pass": true,
+      "output_head": "FYZSXNB DEPLOY FAIL (1): Unsafe RemotePath pattern: wp-content/../wp-config.php"
+    },
+    {
+      "test": "T07",
+      "expected": "1 (FAIL)",
+      "exit": 1,
+      "pass": true,
+      "output_head": "FYZSXNB DEPLOY FAIL (1): Unsafe RemotePath pattern: wp-content/*/x.php"
+    },
+    {
+      "test": "T08",
+      "expected": "0 (PREVIEW)",
+      "exit": 0,
+      "pass": true,
+      "output_head": "DRY RUN / PREVIEW ONLY | NO PRODUCTION WRITE OCCURRED"
+    },
+    {
+      "test": "T08nw",
+      "expected": "true",
+      "exit": 0,
+      "pass": true,
+      "output_head": "mock remote unchanged"
+    },
+    {
+      "test": "T09",
+      "expected": "2 (BLOCK)",
+      "exit": 2,
+      "pass": true,
+      "output_head": "{ |   \"confirmation_received\": false,"
+    },
+    {
+      "test": "T09nw",
+      "expected": "true",
+      "exit": 0,
+      "pass": true,
+      "output_head": "mock remote unchanged"
+    },
+    {
+      "test": "T10",
+      "expected": "0 (PREVIEW)",
+      "exit": 0,
+      "pass": true,
+      "output_head": "DRY RUN / PREVIEW ONLY | NO PRODUCTION WRITE OCCURRED"
+    },
+    {
+      "test": "T10nw",
+      "expected": "true",
+      "exit": 0,
+      "pass": true,
+      "output_head": "mock remote unchanged"
+    },
+    {
+      "test": "T11",
+      "expected": "3 (BLOCK)",
+      "exit": 3,
+      "pass": true,
+      "output_head": "{ |   \"local_path\": \"C:\\\\Users\\\\Administrator\\\\Documents\\\\Codex\\\\2026-07-10\\\\w\\\\work\\\\qa\\\\FYZSXNB-DEPLOYMENT-HARDENING-001\\\\fixtures\\\\new-style.css\","
+    },
+    {
+      "test": "T12",
+      "expected": "0 (NO_CHANGE)",
+      "exit": 0,
+      "pass": true,
+      "output_head": "{ |   \"confirmation_received\": false,"
+    },
+    {
+      "test": "T12nw",
+      "expected": "true",
+      "exit": 0,
+      "pass": true,
+      "output_head": "mock remote unchanged"
+    },
+    {
+      "test": "T13",
+      "expected": "3 (BLOCK)",
+      "exit": 3,
+      "pass": true,
+      "output_head": "{ |   \"timestamp\": \"2026-08-27T01:30:53.4107660Z\","
+    },
+    {
+      "test": "T14",
+      "expected": "0 (PREVIEW)",
+      "exit": 0,
+      "pass": true,
+      "output_head": "DRY RUN / PREVIEW ONLY | NO PRODUCTION WRITE OCCURRED"
+    },
+    {
+      "test": "T14nw",
+      "expected": "true",
+      "exit": 0,
+      "pass": true,
+      "output_head": "file not created during preview"
+    },
+    {
+      "test": "T15",
+      "expected": "4 (BACKUP_FAIL)",
+      "exit": 4,
+      "pass": true,
+      "output_head": "YOU ARE ABOUT TO WRITE PRODUCTION | Local: C:\\Users\\Administrator\\Documents\\Codex\\2026-07-10\\w\\work\\qa\\FYZSXNB-DEPLOYMENT-HARDENING-001\\fixtures\\new-style.css"
+    },
+    {
+      "test": "T15nw",
+      "expected": "true",
+      "exit": 0,
+      "pass": true,
+      "output_head": "mock remote unchanged after backup failure"
+    },
+    {
+      "test": "T16",
+      "expected": "6 (VERIFY_FAIL)",
+      "exit": 6,
+      "pass": true,
+      "output_head": "YOU ARE ABOUT TO WRITE PRODUCTION | Local: C:\\Users\\Administrator\\Documents\\Codex\\2026-07-10\\w\\work\\qa\\FYZSXNB-DEPLOYMENT-HARDENING-001\\fixtures\\new-style.css"
+    },
+    {
+      "test": "T17",
+      "expected": "0 (DEPLOYED)",
+      "exit": 0,
+      "pass": true,
+      "output_head": "YOU ARE ABOUT TO WRITE PRODUCTION | Local: C:\\Users\\Administrator\\Documents\\Codex\\2026-07-10\\w\\work\\qa\\FYZSXNB-DEPLOYMENT-HARDENING-001\\fixtures\\new-style.css"
+    },
+    {
+      "test": "T17v",
+      "expected": "true",
+      "exit": 0,
+      "pass": true,
+      "output_head": "mock remote == local after deploy"
+    },
+    {
+      "test": "T17b",
+      "expected": "0 (DEPLOYED)",
+      "exit": 0,
+      "pass": true,
+      "output_head": "YOU ARE ABOUT TO WRITE PRODUCTION | Local: C:\\Users\\Administrator\\Documents\\Codex\\2026-07-10\\w\\work\\qa\\FYZSXNB-DEPLOYMENT-HARDENING-001\\fixtures\\new-style.css"
+    },
+    {
+      "test": "T17bv",
+      "expected": "true",
+      "exit": 0,
+      "pass": true,
+      "output_head": "created mock remote == local"
+    },
+    {
+      "test": "T18",
+      "expected": "0 secrets",
+      "exit": 0,
+      "pass": true,
+      "output_head": "secret scan leaks="
+    }
+  ]
+}

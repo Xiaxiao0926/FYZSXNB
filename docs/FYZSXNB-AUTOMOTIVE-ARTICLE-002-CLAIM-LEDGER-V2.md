@@ -1,0 +1,28 @@
+# FYZSXNB Automotive Article 002 — Claim Ledger v2
+
+| # | Claim | Source(s) | Type | What it proves | What it does NOT prove | Confidence | Article use |
+|---|---|---|---|---|---|---|---|
+| C1 | Chinese brands account for roughly 6% of the Russian passenger-car parc | S1 | Tier 3 market data | Current parc share ~6% | No windshield/collision/ADAS volume claims | High | §1 intro |
+| C2 | Chinese brands have substantial exposure in Russian corporate fleets | S2 | Tier 3 market data | Corporate-fleet leadership among foreign makes | Has NO proof of higher mileage, repair frequency, ADAS failure rate, or calibration volume (downgraded from v1) | High (exposure) / N/A (inference) | §1 fleet |
+| C3 | Independent СТО are publicly described as struggling with Chinese vehicles | S3, S4, S5, S14 | Tier 3 trade/market | Market-level capability-gap narrative documented | Not per-workshop or per-model guarantee; not failure statistics | Medium-High | §1/.4 diagnostics |
+| C4A | Federal legislation has been adopted requiring manufacturer repair/maintenance information access under defined conditions | S15, S16, S17, S19 | Tier 1 law + Tier 2 analysis | 266-FZ enacted 26.07.2026, published 03.08.2026; obligations on manufacturers for repair/maintenance documentation | Not proof of immediate availability of VIN/model-specific ADAS procedures | High (enactment) | §4 OEM data |
+| C4B | Implementation rules/operational mechanics remain under development | S16, S18, S19 | Tier 1/2/3 | Publication + media/law-firm framing confirm operational detail still forming | Not an assertion of specific rule texts or dates (not yet verified) | Medium | §4 legal box |
+| C4C | The law does not by itself prove ADAS procedure availability for every Chinese VIN | Research synthesis | — | Boundary framing | — | High (framing) | §4 legal box |
+| C5 | Windscreen replacement is an archetypal camera recalibration trigger per industry reference material | S9, S10, S11, S12 | Tier 2 industry references | Standard principle-level practice | Does NOT prove every model/windshield requires calibration; flagged "depends on OEM procedure" | High (principle) | §2, §3 |
+| C6 | Some manufacturers impose model-level OE glass/headlamp policies for ADAS (BMW/MINI, per trade reporting) | S13 | Tier 3 trade report | OEM-specific policies exist in the market (as reported) | NOT applicable to Chinese OEs; original bulletin not public | Medium (as example) | §3, §5, §4 parts |
+| C7 | Calibration is a systems discipline (camera/radar/geometry/data/software/target) ≠ clearing DTC | S9, S10, S20-S25 | Tier 2 | Architecture framing is standard | Not a repair tutorial; no parameters | High | §2 |
+| C8 | Multi-brand ADAS platforms/target systems are visibly available (incl. Russia) | S20-S25 | Tier 2 vendor capability + Tier 3 distribution | Hardware/frames/software supply exists | Equipment availability ≠ verified procedure coverage for each Chinese VIN | High | §4 equipment |
+| C9 | Calibration service layer in Russia is emerging (glass providers + specialist services) | S6, S7, S8 | Tier 3 service/trade | Directional signal: services appearing | NO official national coverage statistics; not a coverage measurement (downgraded from v1 "patchy/capitals") | Medium (directional) | §1, §4 |
+| C10 | Chinese-model-specific calibration service exists in Russia (Zeekr radar, Moscow) | S7 | Tier 3 service listing | At least one concrete Chinese-model offering | Single listing; not a statement about all Chinese brands | Medium | §5 |
+| C11 | One Russian trade source identifies training, utilisation and payback as adoption considerations for workshops | S8 | Tier 3 trade | Directional statement attributable to one source | Not a national industry fact (downgraded from v1) | Medium / directional | §4 technician |
+| C12 | Model-dependence is the correct framing for calibration requirements | S9, S11, S13 (as principle) | Tier 2/3 | Principles + example support model-dependence framing | No universal Chinese-windscreen rule — article explicitly avoids one | High (framing) | §3, §5 |
+| C13 | No official national ADAS-calibration coverage statistic was identified in this research | Research result | — | Statement about the research finding (not proof of nonexistence) | Does not assert statistics do not exist anywhere | Medium | §1, FAQ, revision report |
+| C14 | Potential China–Russia capability stack (equipment+docs+training+parts+local workshops) is a directional architecture | S3, S4, S15-S25 synthesis | Synthesis | Directional commercial framing | Not a supplier endorsement; not a deployment plan | Medium (directional) | §6 |
+
+## Comparative/absolute-word audit (v2)
+
+- "roughly 6%" — supported by S1 ✓
+- "lead corporate fleets among foreign brands" — supported by S2 ✓ ("lead" = Autostat wording)
+- "most visibly" (§4 diagnostics) — qualified by "trade reporting ... describes"; kept as reporting framing, no quantitative comparison
+- All comparative terms in §4/§6 removed or downgraded per §9-§17 revision items; audit result: PASS
+- Absolute words used only in safety-boundary statements ("Every calibration requirement is model- and OEM-specific", "never assume it is not required" in FAQ) — allowed technical-safety context

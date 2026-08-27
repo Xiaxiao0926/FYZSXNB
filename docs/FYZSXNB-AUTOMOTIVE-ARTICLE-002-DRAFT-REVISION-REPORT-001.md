@@ -80,9 +80,22 @@
 
 ## 关键研究结论
 
-- `RUSSIA_266FZ_STATUS_VERIFIED = YES`（enacted 26.07.2026 / gazette 03.08.2026）
-- `IMPLEMENTATION_RULE_STATUS_VERIFIED = YES`（操作细节仍在形成，正文按此表述）
-- `TRUE_TIER1_OEM_SOURCE_ADDED = YES`（266-ФЗ 官方文本 + 官方公报）
+- `RUSSIA_266FZ_STATUS_VERIFIED = YES`（enacted 26.07.2026 / gazette 03.08.2026 / **effective 01.03.2027**）
+- `IMPLEMENTATION_RULE_STATUS_VERIFIED = YES`（2026-08-26 Rospotrebnadzor 草案已纳入 S26：书面请求、15 工作日、俄译条款、讨论至 09-21；草案未最终化）
+- `TRUE_TIER1_PRIMARY_LEGAL_SOURCE_ADDED = YES`（266-ФЗ 官方文本 + 官方公报 + Rospotrebnadzor 草案）
+- `TRUE_TIER1_OEM_DOCUMENT_ADDED = YES`（BMW NA C-2-0626-5101 + MINI M-2-0726-M5104，Tier 1 primary OEM documents，第三方镜像托管）
 - `CHINESE_OEM_PRIMARY_SOURCE_FOUND = NO`（公开渠道无中国 OEM 原始服务程序文档；第三方/社区页不构成 OEM 源）→ 明确 `NOT IDENTIFIED`，不阻塞，文章保持市场/系统分析定位
 
-**STOP** — 交 GPT-5.6 第二轮终审（factual/source/overclaim/Russian-market/visual/metadata）。发布权限仍归 GPT-5.6。Git backup 见下方 commit/push 记录。
+## Final Factual Patch 001（2026-08-27，经 GPT 终审后执行）
+
+| Item | Fix |
+|---|---|
+| 266-ФЗ 生效日期 | 正文 §4 明确 "enacted 26.07.2026 … will enter into force on 1 March 2027" + "not yet in force" |
+| 2026-08-26 实施细则草案 | 正文加一句（书面请求/15 工作日/俄译/讨论至 09-21，规则未最终化）+ S26 入 ledger + C4B 更新 |
+| BMW/MINI primary bulletins | 上升为 Tier 1（primary OEM documents，第三方镜像托管）S27/S28 + C6 更新；正文 §3 引用 [27][28] |
+| Source 计数 | Ledger 标题 "Used in Draft (17)" → "(28)"（S1–S28；S26/S27/S28 新增；S26/S27/S28 不含 S13 的 Tier 3 报道） |
+| Tier 术语 | `TRUE_TIER1_OEM_SOURCE_ADDED` 拆分为 legal（YES）与 OEM document（YES，bulletin 镜像） |
+| 3 句措辞 | "The demand side exists." → "Chinese-model-specific service offerings already exist."；"genuinely scarce" → "appears to be one of the important constraint layers identified in this research"；Chinese-source 句 → "China is a plausible source of equipment, parts and, where access rights permit, model-specific documentation and training support." |
+| 终态 | DRAFT_V2_CORE_CONTENT = PASS（终审）；详见下节终值 |
+
+**STOP** — 交 GPT-5.6 终签。发布权限仍归 GPT-5.6。Git backup：commit + push + remote verify（见下节）。

@@ -6,7 +6,7 @@
 - **Tier 3** = Russian market reporting / workshop-service evidence / trade media
 - **Tier 4** = community / forum / problem-discovery source
 
-## Used in Draft (17)
+## Used in Draft (28)
 
 | ID | Source | Tier | Claims | What it proves | What it does NOT prove | Used in draft |
 |---|---|---|---|---|---|---|
@@ -22,7 +22,7 @@
 | S10 | I-CAR NZ tech report | 2 | C5 | Calibration/scanning as collision-repair workflow discipline | Not a specific-OEM or Chinese-OEM procedure | Yes |
 | S11 | Pilkington Opti-Aim FAQ | 2 | C5 | Windshield replacement as archetypal camera recalibration trigger | Not universal model rule | Yes |
 | S12 | ADAS Project guide | 2 | C5 | Calibration trigger scenarios (principle-level) | Not a procedure authority | Yes |
-| S13 | Repairer Driven News — BMW/MINI policy | 3 | C12 | **Trade reporting** of OEM-level OE glass/headlamp policy (BMW/MINI) | Trade report of policy; original BMW bulletin not public; does NOT apply to Chinese OEs | Yes (framing example only) |
+| S13 | Repairer Driven News — BMW/MINI policy (mirror entry) | 3 | C6/C12 | **Trade reporting** of OEM-level OE glass/headlamp policy; also hosts mirrored primary bulletins (S27/S28) | Trade report alone is not the primary document; does NOT apply to Chinese OEs | Yes (framing example; bulletins cited as S27/S28) |
 | S14 | i-tc.ru — СТО refusal coverage | 3 | C3 | Market signal: СТО reluctance to Chinese-vehicle repairs | Not a statistic | Yes |
 | S15 | Federal Law No. 266-FZ (official text) — kremlin.ru | **1** | C4A | Law enacted 26.07.2026; manufacturer repair-doc obligations established | Not proof of immediate procedure availability; implementation detail not asserted | Yes |
 | S16 | Rossiyskaya Gazeta — 266-FZ publication (03.08.2026) | **1** | C4A/C4B | Official publication date confirmed | Same as S15 | Yes |
@@ -35,6 +35,9 @@
 | S23 | Autel IA700 | 2 | C8 | Vendor capability | Same as S20 | Yes |
 | S24 | UDIAG ADAS-A | 2 | C8 | Vendor capability | Same as S20 | Yes |
 | S25 | TEXSA Group (RU distribution) | 3 | C8 | ADAS stands available via Russian distribution | Same as S20 | Yes |
+| S26 | Consultant.ru — Rospotrebnadzor draft rules (Aug 2026) | **1** (regulator draft, mirrored by legal-news service) | C4B | Draft implementing framework details: written requests (product/model, purpose), proposed 15-working-day delivery, RU translations for safety-relevant foreign-language sections; public discussion to 21 Sep 2026 | Draft rules are NOT final; no effective dates asserted | Yes |
+| S27 | BMW of North America — Technical Bulletin C-2-0626-5101 (16 Jul 2026) | **1** (primary OEM document, mirrored by third-party publisher) | C6 | Primary BMW document: calibration required after windshield replacement per BMW repair procedure | Not applicable to Chinese OEs; mirror hosting ≠ BMW official download page | Yes |
+| S28 | MINI USA — Technical Bulletin M-2-0726-M5104 (Jul 2026) | **1** (primary OEM document, mirrored by third-party publisher) | C6 | Primary MINI document: windshield replacement calibration requirement | Same as S27 | Yes |
 
 ## Supplemental / discovery only (2 — NOT cited in draft)
 
@@ -45,6 +48,6 @@
 
 ## Research notes
 
-- **BMW/MINI original bulletin:** NOT IDENTIFIED in public sources during this revision; only trade reporting (S13) located. Article uses it strictly as a model-level policy example, clearly labelled as non-Chinese.
+- **BMW/MINI primary bulletins:** IDENTIFIED in mirrored form — BMW NA bulletin C-2-0626-5101 (16 Jul 2026) and MINI USA bulletin M-2-0726-M5104; both are primary OEM documents **hosted/mirrored by a third-party publisher** (not BMW/MINI official download pages) → classified Tier 1 Primary OEM Document (mirrored), cited via the mirror entry (S27/S28).
 - **Chinese OEM primary procedure evidence:** `CHINESE_OEM_PRIMARY_PROCEDURE_EVIDENCE = NOT IDENTIFIED` (third-party/community composite pages exist but are not OEM originals; not usable as Tier 1). Article accordingly stays a market/systems analysis.
-- **True Tier-1 OEM source added:** 266-FZ official text (S15) and official gazette publication (S16) — official law/regulator primary documents.
+- **True Tier-1 primary sources added:** 266-FZ official text (S15) + official gazette publication (S16) + Rospotrebnadzor draft rules (S26, regulator draft) + BMW/MINI primary bulletins mirrored (S27/S28).

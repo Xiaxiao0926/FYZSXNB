@@ -58,7 +58,7 @@ Every item below is a *candidate* trigger — the actual requirement depends on 
 | Wheel alignment | Reference angles used by sensors | Depending on procedure |
 | Suspension work / ride-height change | Height references shift | Depending on procedure |
 
-The pattern is one principle: **if the repair changed the relationship between a sensor and the vehicle geometry it measures, the system needs verification** [9][12]. Whether that verification is a static calibration, a dynamic procedure, or a factory-style check is the OEM's call — never the shop's convenience. Some manufacturers impose model-level parts policies around cameras and glass, which is exactly the kind of rule that cannot be generalised across brands [13].
+The pattern is one principle: **if the repair changed the relationship between a sensor and the vehicle geometry it measures, the system needs verification** [9][12]. Whether that verification is a static calibration, a dynamic procedure, or a factory-style check is the OEM's call — never the shop's convenience. Some manufacturers impose model-level parts policies around cameras and glass: BMW of North America's bulletin C-2-0626-5101 (July 2026) and MINI's bulletin M-2-0726-M5104 require calibration following windshield replacement per their repair procedures [13][27][28] — a model-level example that cannot be generalised across brands, and one no Chinese OEM policy is asserted against here.
 
 Calibration parameters cannot be safely generalised across models, hardware variants, software revisions and OEM procedures.
 
@@ -84,12 +84,12 @@ Parts / glass / sensor supply
 
 **Diagnostics.** This is the layer where Russian trade reporting frequently describes strain: СТО struggling with Chinese protocols, and dealers declining Chinese-vehicle work, pushing volume toward independents [3][4][5][14]. These are documented market signals, not failure rates.
 
-**OEM procedure / data.** Russia has moved beyond debate on repair-data access. On 26 July 2026, **Federal Law No. 266-FZ** amended Article 6 of the Law on Protection of Consumer Rights, obliging manufacturers to provide the technical documentation needed to repair and maintain goods — published in the official gazette on 3 August 2026 [15][16][17]. Media coverage specifically links the law to the automotive service market and carmaker data-sharing obligations [18][19].
+**OEM procedure / data.** Federal Law No. 266-FZ was enacted on 26 July 2026 and will enter into force on 1 March 2027. It establishes a future obligation for manufacturers to provide eligible trade, repair and maintenance organizations and individual entrepreneurs with technical documentation needed for servicing and repair, under procedures, timelines and content requirements to be established by the Russian Government [15][16][17][19]. Russia has therefore moved beyond legislative debate, but the new access regime is **not yet in force**.
 
 **Russia's repair-data environment is changing — what this does and does not mean:**
-- The law is enacted; it establishes manufacturer obligations to provide repair-and-maintenance documentation.
-- Implementation mechanics — how requests are made, what documentation formats apply, enforcement practice — are still taking shape, and effective operational detail remains to be tracked.
-- **The law does not by itself prove** that verified, VIN- or model-specific ADAS calibration procedures for every Chinese vehicle become immediately available. Legislation creates an obligation framework; it is not the same as a complete, searchable procedure library.
+- The law is enacted; manufacturer obligations to provide repair-and-maintenance documentation begin on 1 March 2027.
+- Government rulemaking is in progress: a draft implementing framework published for public discussion in August 2026 outlines request procedures (written requests specifying product/model, information needed and repair purpose), a proposed 15-working-day delivery period, and Russian translations for safety-relevant sections of foreign-language documentation; the public discussion at the time of writing is scheduled through 21 September 2026 [26]. These rules **are not yet final**.
+- **The forthcoming regime does not by itself prove** that verified, VIN- or model-specific ADAS calibration procedures for every Chinese vehicle become immediately available after it enters force. An obligation framework is not the same as a complete, searchable procedure library.
 
 **ADAS calibration equipment.** Frames, target sets and software are visibly available in the Russian market: Bosch's calibration solution line [20], HELLA Gutmann camera/radar calibration [21], LAUNCH X-431 ADAS sets [22], Autel IA700 [23], UDIAG ADAS-A [24], and Russian distribution of TEXA/TOPDON ADAS stands [25]. Trade analyses of the СТО business case treat calibration as a payable new line [8]. Hardware availability alone does not solve the data, procedure and training problem.
 
@@ -103,7 +103,7 @@ Parts / glass / sensor supply
 
 Two things can be said with documented support, and one thing must be refused.
 
-**Supported — the service evidence.** Chinese-model calibration services already exist in Russia: a Moscow provider lists Zeekr radar calibration [7], and Russian trade reporting describes Chinese-vehicle diagnostics complexity as a market fact [3][14]. The demand side exists.
+**Supported — the service evidence.** Chinese-model-specific service offerings already exist in Russia: a Moscow provider lists Zeekr radar calibration [7], and Russian trade reporting describes Chinese-vehicle diagnostics complexity as a market fact [3][14].
 
 **Supported — the data-access picture.** Independent access to Chinese-brand technical data is documented as a market-level constraint, and the new federal repair-data law now frames manufacturer obligations going forward [15][16][18]. Limited or fragmented access to verified model-specific information can complicate independent ADAS service for Chinese vehicles.
 
@@ -113,11 +113,11 @@ Two things can be said with documented support, and one thing must be refused.
 
 ## 6. Potential China–Russia capability stack
 
-The gap structure points at a potential supplier configuration: the Chinese side already has vehicles, equipment makers, documentation (in Chinese), and parts channels. What Russia's independent market may need are *interface layers*:
+The gap structure points at a potential supplier configuration: China is a plausible source of equipment, parts and, where access rights permit, model-specific documentation and training support. What Russia's independent market may need are *interface layers*:
 
 - **Multi-brand diagnostic platforms** with Chinese-vehicle coverage (device-level, vendor-provided) [20][21][22][23].
 - **ADAS target systems** usable with those platforms [22][24][25].
-- **Model-specific calibration data access** — procedures, versions, model-level configuration notes. This is the genuinely scarce layer.
+- **Model-specific calibration data access** — procedures, versions, model-level configuration notes. This appears to be one of the important constraint layers identified in this research.
 - **Documentation in usable form** — translations, diagrams, workflow briefs.
 - **Training** — procedure literacy for СТО technicians.
 - **Parts linkage** — cameras, radar units, windshield-camera brackets alongside glass supply.
@@ -180,6 +180,9 @@ No. It is an aftermarket gap analysis. Calibration execution requires the OEM pr
 23. Autel — IA700 ADAS All-Systems Calibration: https://aesolutions.us/products/autel-ia700-adas-all-systems-calibration-system
 24. UDIAG — ADAS-A Calibration System: https://www.udiagtech.com/product/adas-a-calibration-system/
 25. TEXSA Group — TEXA/TOPDON ADAS stands in Russia: https://teksagroup.ru/adas/
+26. Consultant.ru — Rospotrebnadzor draft rules on manufacturer documentation transfers (Aug 2026): https://www.consultant.ru/legalnews/32403/
+27. BMW of North America — Technical Bulletin C-2-0626-5101 (16 Jul 2026), windshield replacement calibration requirement; primary document mirrored by third-party publisher: https://www.repairerdrivennews.com/2026/07/24/bmw-and-mini-require-oem-headlamp-windshield-replacements-for-proper-adas-function/
+28. MINI USA — Technical Bulletin M-2-0726-M5104 (Jul 2026), windshield replacement calibration requirement; primary document mirrored by third-party publisher: https://www.repairerdrivennews.com/2026/07/24/bmw-and-mini-require-oem-headlamp-windshield-replacements-for-proper-adas-function/
 
 **Supplemental / discovery only (2, not cited in draft):**
 - Drive2 — regional ADAS camera calibration post (Vologda): https://www.drive2.ru/o/b/671681483999560690/
